@@ -1,0 +1,124 @@
+import React, { useState } from 'react';
+import { Calendar as CalendarIcon, Clock, MapPin, Search, Filter } from 'lucide-react';
+import { MOCK_EVENTS } from '../constants';
+
+const Events: React.FC = () => {
+  const [filter, setFilter] = useState('all');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredEvents = MOCK_EVENTS.filter(event => {
+    const matchesFilter = filter === 'all' || event.type === filter;
+    const matchesSearch = event.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                         event.description.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesFilter && matchesSearch;
+  });
+
+  // Common fallback for when direct URLs (like Google Photos shares) don't resolve as raw images
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    const target = e.target as HTMLImageElement;
+    target.src = 'https://images.unsplash.com/photo-1533230393619-3fdd70288891?q=80&w=800&auto=format&fit=crop';
+  };
+
+  return (
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="mb-12">
+        <div className="inline-block bg-emerald-50 px-4 py-2 rounded-full text-emerald-800 text-sm font-bold uppercase tracking-wider mb-4">
+          2026 Calendar
+        </div>
+        <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6">Upcoming Park Events</h1>
+        <p className="text-xl text-stone-600 max-w-3xl leading-relaxed">
+          Our community event programme for 2026. From the Children's Gala to the Lantern Parade, join us in celebrating the social and cultural heritage of Parkinson's Park.
+        </p>
+      </div>
+
+      <div className="flex flex-col lg:flex-row gap-8 mb-12">
+        <div className="flex-1 relative">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 w-5 h-5" />
+          <input 
+            type="text" 
+            placeholder="Search events..." 
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-12 pr-4 py-3 rounded-2xl border border-stone-200 focus:ring-2 focus:ring-emerald-600 outline-none transition-all shadow-sm"
+          />
+        </div>
+        <div className="flex space-x-2 overflow-x-auto pb-2 scrollbar-hide">
+          {['all', 'family', 'walk', 'workshop', 'volunteer'].map(cat => (
+            <button
+              key={cat}
+              onClick={() => setFilter(cat)}
+              className={`px-5 py-3 rounded-full font-semibold whitespace-nowrap transition-all ${
+                filter === cat 
+                  ? 'bg-emerald-700 text-white shadow-lg' 
+                  : 'bg-white text-stone-600 border border-stone-200 hover:border-emerald-600'
+              }`}
+            >
+              {cat.charAt(0).toUpperCase() + cat.slice(1)}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        {filteredEvents.map(event => (
+          <div key={event.id} className="bg-white rounded-[2.5rem] border border-stone-100 shadow-sm overflow-hidden flex flex-col hover:shadow-2xl transition-all group animate-in fade-in slide-in-from-bottom-4 duration-500">
+            <div className="relative h-64 overflow-hidden">
+              <img 
+                src={event.imageUrl} 
+                alt={event.title} 
+                onError={handleImageError}
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" 
+              />
+              <div className="absolute top-6 right-6 bg-white/95 backdrop-blur px-5 py-3 rounded-[1.5rem] shadow-xl text-center border border-white/50">
+                <div className="text-xs font-black text-emerald-800 uppercase tracking-tighter leading-none mb-1">
+                  {new Date(event.date).toLocaleDateString('en-GB', { month: 'short' })}
+                </div>
+                <div className="text-2xl font-black text-stone-900 leading-none">
+                  {event.date.split('-')[2]}
+                </div>
+              </div>
+              <div className="absolute bottom-6 left-6">
+                <span className="bg-emerald-700/90 backdrop-blur-md text-white text-[10px] font-black tracking-widest uppercase px-3 py-1.5 rounded-full border border-emerald-500/30 shadow-lg">
+                  {event.type}
+                </span>
+              </div>
+            </div>
+            <div className="p-10 flex-1 flex flex-col">
+              <h3 className="text-2xl font-bold text-stone-900 mb-4 group-hover:text-emerald-700 transition-colors leading-tight">{event.title}</h3>
+              <p className="text-stone-600 text-sm leading-relaxed mb-8 flex-1">
+                {event.description}
+              </p>
+              <div className="space-y-4 mb-8 pt-6 border-t border-stone-50">
+                <div className="flex items-center space-x-3 text-sm text-stone-500">
+                  <div className="p-2 bg-stone-50 rounded-lg">
+                    <Clock className="w-4 h-4 text-emerald-600" />
+                  </div>
+                  <span className="font-medium">{event.time}</span>
+                </div>
+                <div className="flex items-center space-x-3 text-sm text-stone-500">
+                  <div className="p-2 bg-stone-50 rounded-lg">
+                    <MapPin className="w-4 h-4 text-emerald-600" />
+                  </div>
+                  <span className="font-medium">Parkinson's Park, Guiseley</span>
+                </div>
+              </div>
+              <button className="w-full bg-stone-900 text-white py-4 rounded-2xl font-bold hover:bg-emerald-700 transition-all shadow-md active:scale-95">
+                Register Interest
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      {filteredEvents.length === 0 && (
+        <div className="text-center py-24 bg-stone-100 rounded-[3rem] border-2 border-dashed border-stone-200">
+          <CalendarIcon className="w-12 h-12 text-stone-300 mx-auto mb-4" />
+          <h3 className="text-xl font-bold text-stone-400">No events found</h3>
+          <p className="text-stone-400 mt-2">Adjust your search or filter to find upcoming park activities.</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Events;
