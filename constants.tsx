@@ -2,6 +2,7 @@ import React from 'react';
 import { Leaf, Calendar, Users, MapPin, Heart, Mountain, BookOpen } from 'lucide-react';
 import { ParkEvent, VolunteerRole, Feature } from './types';
 import heritageOpenDaysImage from './src/assets/images/heritage-open-days.jpg';
+import remembranceImage from './src/assets/images/remembrance.jpg';
 
 export const MOCK_EVENTS: ParkEvent[] = [
   {
@@ -29,7 +30,7 @@ export const MOCK_EVENTS: ParkEvent[] = [
     time: 'Dawn to Dusk',
     description: "A week of reflection (4th-12th Nov) featuring a decorative display at the farm gate..",
     type: 'family',
-    imageUrl: 'https://images.unsplash.com/photo-1464618663641-bbdd760ae84a?q=80&w=1200&auto=format&fit=crop'
+    imageUrl: remembranceImage
   },
   {
     id: '5',
