@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, TreePine, Map, Heart } from 'lucide-react';
 import { FEATURES, MOCK_EVENTS } from '../constants';
+import heroImage from '../src/assets/images/hero-image.jpg';
 
 const Home: React.FC = () => {
   return (
@@ -10,7 +11,7 @@ const Home: React.FC = () => {
       <section className="relative h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/images/hero-image.jpg"
+            src={heroImage}
             alt="Parkinson's Park Landscape"
             className="w-full h-full object-cover brightness-50"
           />
