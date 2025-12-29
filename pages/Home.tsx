@@ -9,9 +9,9 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <section className="relative h-[85vh] flex items-center overflow-hidden">
         <div className="absolute inset-0">
-          <img 
-            src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?q=80&w=2070&auto=format&fit=crop" 
-            alt="Parkinson's Park Landscape" 
+          <img
+            src="/images/hero-image.jpg"
+            alt="Parkinson's Park Landscape"
             className="w-full h-full object-cover brightness-50"
           />
         </div>
