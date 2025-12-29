@@ -78,9 +78,8 @@ export const FEATURES: Feature[] = [
   },
   {
     icon: <Users className="w-6 h-6 text-emerald-600" />,
-    title: "Community Interest Company",
-    description: "Established in 2016 and governed by five directors, FOPP ensures transparent stewardship of the park's heritage. Learn about our mission, governance, and the people dedicated to preserving this community treasure.",
-    link: "/about"
+    title: "Community Managed",
+    description: "Operated as a CIC, ensuring all efforts are reinvested back into the landscape for the public good."
   },
   {
     icon: <Calendar className="w-6 h-6 text-emerald-600" />,
