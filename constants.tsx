@@ -1,6 +1,7 @@
 import React from 'react';
 import { Leaf, Calendar, Users, MapPin, Heart } from 'lucide-react';
 import { ParkEvent, VolunteerRole } from './types';
+import heritageOpenDaysImage from './src/assets/images/heritage-open-days.jpg';
 
 export const MOCK_EVENTS: ParkEvent[] = [
   {
@@ -19,7 +20,7 @@ export const MOCK_EVENTS: ParkEvent[] = [
     time: 'Various Times',
     description: "Running from Fri 11th Sep to Sun 20th Sep 2026. The Park will feature events aimed at reflecting on the Park's history and our shared heritage.",
     type: 'walk',
-    imageUrl: 'https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?q=80&w=800&auto=format&fit=crop'
+    imageUrl: heritageOpenDaysImage
   },
   {
     id: '4',
