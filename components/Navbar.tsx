@@ -1,7 +1,8 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, Leaf } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+import logo from '../src/assets/images/logo.png';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +12,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <Link to="/" className="flex items-center space-x-2">
-            <Leaf className="w-8 h-8 text-emerald-700" />
+            <img src={logo} alt="Parkinson's Park Logo" className="w-8 h-8" />
             <span className="text-xl font-bold text-stone-800 tracking-tight">Parkinson's Park <span className="text-emerald-700 font-normal italic">Guiseley</span></span>
           </Link>
           
