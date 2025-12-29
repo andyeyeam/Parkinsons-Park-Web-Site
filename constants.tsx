@@ -84,7 +84,7 @@ export const FEATURES: Feature[] = [
   },
   {
     icon: <BookOpen className="w-6 h-6 text-emerald-600" />,
-    title: "Rich History",
+    title: "Deep History",
     description: "1,000 years from Viking settlements to Victorian philanthropists. Discover Frank and Albert Parkinson's legacy, community decline, and FOPP's remarkable restoration journey.",
     link: "/history"
   }
