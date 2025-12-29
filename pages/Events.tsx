@@ -1,10 +1,38 @@
-import React, { useState } from 'react';
-import { Calendar as CalendarIcon, Clock, MapPin, Search, Filter } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Calendar as CalendarIcon, Clock, MapPin, Search, Filter, X } from 'lucide-react';
 import { MOCK_EVENTS } from '../constants';
 
 const Events: React.FC = () => {
   const [filter, setFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [clickCounts, setClickCounts] = useState<Record<string, number>>({});
+  const [showPopup, setShowPopup] = useState(false);
+  const [popupData, setPopupData] = useState<{ eventTitle: string; count: number } | null>(null);
+
+  // Load click counts from localStorage on mount
+  useEffect(() => {
+    const savedCounts = localStorage.getItem('eventClickCounts');
+    if (savedCounts) {
+      setClickCounts(JSON.parse(savedCounts));
+    }
+  }, []);
+
+  // Handle Register Interest button click
+  const handleRegisterClick = (eventId: string, eventTitle: string) => {
+    const newCount = (clickCounts[eventId] || 0) + 1;
+    const updatedCounts = { ...clickCounts, [eventId]: newCount };
+
+    setClickCounts(updatedCounts);
+    localStorage.setItem('eventClickCounts', JSON.stringify(updatedCounts));
+
+    setPopupData({ eventTitle, count: newCount });
+    setShowPopup(true);
+  };
+
+  const closePopup = () => {
+    setShowPopup(false);
+    setTimeout(() => setPopupData(null), 300);
+  };
 
   const filteredEvents = MOCK_EVENTS.filter(event => {
     const matchesFilter = filter === 'all' || event.type === filter;
@@ -106,7 +134,10 @@ const Events: React.FC = () => {
                   <span className="font-medium">Parkinson's Park, Guiseley</span>
                 </div>
               </div>
-              <button className="w-full bg-stone-900 text-white py-4 rounded-2xl font-bold hover:bg-emerald-700 transition-all shadow-md active:scale-95">
+              <button
+                onClick={() => handleRegisterClick(event.id, event.title)}
+                className="w-full bg-stone-900 text-white py-4 rounded-2xl font-bold hover:bg-emerald-700 transition-all shadow-md active:scale-95"
+              >
                 Register Interest
               </button>
             </div>
@@ -119,6 +150,58 @@ const Events: React.FC = () => {
           <CalendarIcon className="w-12 h-12 text-stone-300 mx-auto mb-4" />
           <h3 className="text-xl font-bold text-stone-400">No events found</h3>
           <p className="text-stone-400 mt-2">Adjust your search or filter to find upcoming park activities.</p>
+        </div>
+      )}
+
+      {/* Interest Count Popup */}
+      {showPopup && popupData && (
+        <div
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 animate-in fade-in duration-200"
+          onClick={closePopup}
+        >
+          <div
+            className="bg-white rounded-[2.5rem] p-10 max-w-md mx-4 shadow-2xl border border-stone-100 animate-in zoom-in-95 duration-300"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="flex justify-between items-start mb-6">
+              <div className="flex-1">
+                <div className="inline-block bg-emerald-50 px-4 py-2 rounded-full text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3">
+                  Interest Registered
+                </div>
+                <h3 className="text-2xl font-bold text-stone-900 leading-tight">
+                  {popupData.eventTitle}
+                </h3>
+              </div>
+              <button
+                onClick={closePopup}
+                className="p-2 hover:bg-stone-100 rounded-full transition-colors"
+              >
+                <X className="w-5 h-5 text-stone-400" />
+              </button>
+            </div>
+
+            <div className="bg-gradient-to-br from-emerald-50 to-emerald-100 rounded-2xl p-8 text-center mb-6 border border-emerald-200">
+              <div className="text-5xl font-black text-emerald-700 mb-2">
+                {popupData.count}
+              </div>
+              <div className="text-sm font-bold text-emerald-800 uppercase tracking-wider">
+                {popupData.count === 1 ? 'Registration' : 'Registrations'}
+              </div>
+            </div>
+
+            <p className="text-stone-600 text-sm text-center mb-6">
+              Thank you for your interest! This event has received{' '}
+              <span className="font-bold text-emerald-700">{popupData.count}</span>{' '}
+              {popupData.count === 1 ? 'registration' : 'registrations'}.
+            </p>
+
+            <button
+              onClick={closePopup}
+              className="w-full bg-emerald-700 text-white py-4 rounded-2xl font-bold hover:bg-emerald-800 transition-all shadow-md active:scale-95"
+            >
+              Close
+            </button>
+          </div>
         </div>
       )}
     </div>
