@@ -118,10 +118,14 @@ const Home: React.FC = () => {
           {MOCK_EVENTS.slice(0, 3).map(event => (
             <div key={event.id} className="group cursor-pointer">
               <div className="relative h-64 overflow-hidden rounded-2xl mb-4">
-                <img 
-                  src={event.imageUrl} 
-                  alt={event.title} 
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                <img
+                  src={event.imageUrl}
+                  alt={event.title}
+                  className={`w-full h-full transition-transform duration-500 ${
+                    event.id === '2'
+                      ? 'object-contain scale-90 group-hover:scale-100'
+                      : 'object-cover group-hover:scale-105'
+                  }`}
                 />
                 <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-800">
                   {event.type}

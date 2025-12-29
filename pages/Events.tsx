@@ -63,11 +63,15 @@ const Events: React.FC = () => {
         {filteredEvents.map(event => (
           <div key={event.id} className="bg-white rounded-[2.5rem] border border-stone-100 shadow-sm overflow-hidden flex flex-col hover:shadow-2xl transition-all group animate-in fade-in slide-in-from-bottom-4 duration-500">
             <div className="relative h-64 overflow-hidden">
-              <img 
-                src={event.imageUrl} 
-                alt={event.title} 
+              <img
+                src={event.imageUrl}
+                alt={event.title}
                 onError={handleImageError}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" 
+                className={`w-full h-full transition-transform duration-1000 ${
+                  event.id === '2'
+                    ? 'object-contain scale-90 group-hover:scale-100'
+                    : 'object-cover group-hover:scale-110'
+                }`}
               />
               <div className="absolute top-6 right-6 bg-white/95 backdrop-blur px-5 py-3 rounded-[1.5rem] shadow-xl text-center border border-white/50">
                 <div className="text-xs font-black text-emerald-800 uppercase tracking-tighter leading-none mb-1">
