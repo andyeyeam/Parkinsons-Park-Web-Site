@@ -54,18 +54,18 @@ export const MOCK_EVENTS: ParkEvent[] = [
 
 export const VOLUNTEER_ROLES: VolunteerRole[] = [
   {
-    title: 'Conservation Assistant',
-    description: 'Helping with habitat management, hedging, and invasive species control.',
-    commitment: 'Weekly, Wednesdays'
+    title: 'Bog Garden',
+    description: 'Located near Netherfield entrance, this wetland area requires periodic upkeep and maintenance work to support pond-dwelling wildlife.',
+    commitment: 'Flexible'
   },
   {
-    title: 'Park Ranger Support',
-    description: 'Assisting visitors, checking trails, and monitoring wildlife sightings.',
-    commitment: 'Fortnightly, Weekends'
+    title: 'Top Copse',
+    description: 'This secluded woodland section houses the park\'s bug hotel and needs occasional tidying alongside maintenance to preserve the structure.',
+    commitment: 'Flexible'
   },
   {
-    title: 'Community Garden Lead',
-    description: 'Maintaining our productive vegetable garden and composting schemes.',
+    title: 'Community Orchard',
+    description: 'A specialized position for those with soft fruit tree knowledge, involving pruning expertise. Full training is provided for interested candidates.',
     commitment: 'Flexible'
   }
 ];
