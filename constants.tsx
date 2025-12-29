@@ -1,6 +1,6 @@
 import React from 'react';
 import { Leaf, Calendar, Users, MapPin, Heart } from 'lucide-react';
-import { ParkEvent, VolunteerRole } from './types';
+import { ParkEvent, VolunteerRole, Feature } from './types';
 import heritageOpenDaysImage from './src/assets/images/heritage-open-days.jpg';
 
 export const MOCK_EVENTS: ParkEvent[] = [
@@ -69,11 +69,12 @@ export const VOLUNTEER_ROLES: VolunteerRole[] = [
   }
 ];
 
-export const FEATURES = [
+export const FEATURES: Feature[] = [
   {
     icon: <Leaf className="w-6 h-6 text-emerald-600" />,
-    title: "Biodiversity focus",
-    description: "Protecting local species and restoring natural habitats within our community-led landscape."
+    title: "Rich Ecology",
+    description: "Eight distinct habitat zones from ancient woodland to wetland bog gardens, supporting diverse Yorkshire wildlife including rare red-list bird species.",
+    link: "/ecology"
   },
   {
     icon: <Users className="w-6 h-6 text-emerald-600" />,

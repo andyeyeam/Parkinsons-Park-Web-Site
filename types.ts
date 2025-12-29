@@ -19,3 +19,10 @@ export interface VolunteerRole {
   description: string;
   commitment: string;
 }
+
+export interface Feature {
+  icon: React.ReactElement;
+  title: string;
+  description: string;
+  link?: string;
+}

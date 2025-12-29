@@ -44,15 +44,30 @@ const Home: React.FC = () => {
           <p className="text-stone-600 max-w-2xl mx-auto">Gifted by the Parkinson family, this park is a vital green lung for Guiseley, maintained by the community for the community.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {FEATURES.map((feature, i) => (
-            <div key={i} className="bg-white p-8 rounded-3xl border border-stone-100 shadow-sm hover:shadow-md transition-shadow">
-              <div className="bg-emerald-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
-                {feature.icon}
+          {FEATURES.map((feature, i) => {
+            const FeatureCard = (
+              <div className={`bg-white p-8 rounded-3xl border border-stone-100 shadow-sm hover:shadow-md transition-all ${feature.link ? 'cursor-pointer hover:border-emerald-600' : ''}`}>
+                <div className="bg-emerald-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
+                  {feature.icon}
+                </div>
+                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                <p className="text-stone-600 leading-relaxed">{feature.description}</p>
+                {feature.link && (
+                  <div className="mt-4 text-emerald-700 font-semibold text-sm flex items-center gap-2">
+                    Learn more <ArrowRight className="w-4 h-4" />
+                  </div>
+                )}
               </div>
-              <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-              <p className="text-stone-600 leading-relaxed">{feature.description}</p>
-            </div>
-          ))}
+            );
+
+            return feature.link ? (
+              <Link key={i} to={feature.link} className="block">
+                {FeatureCard}
+              </Link>
+            ) : (
+              <div key={i}>{FeatureCard}</div>
+            );
+          })}
         </div>
       </section>
 
