@@ -1,5 +1,5 @@
 import React from 'react';
-import { Leaf, Calendar, Users, MapPin, Heart } from 'lucide-react';
+import { Leaf, Calendar, Users, MapPin, Heart, Mountain } from 'lucide-react';
 import { ParkEvent, VolunteerRole, Feature } from './types';
 import heritageOpenDaysImage from './src/assets/images/heritage-open-days.jpg';
 
@@ -77,9 +77,10 @@ export const FEATURES: Feature[] = [
     link: "/ecology"
   },
   {
-    icon: <Users className="w-6 h-6 text-emerald-600" />,
-    title: "Community Managed",
-    description: "Operated as a CIC, ensuring all efforts are reinvested back into the landscape for the public good."
+    icon: <Mountain className="w-6 h-6 text-emerald-600" />,
+    title: "Ancient Geology",
+    description: "Discover 300 million years of geological history from tropical Pangaea to ice age glaciers. Explore the Pennine Millstone Grit, fossilized marine life, and the forces that carved the Guiseley Gap.",
+    link: "/geology"
   },
   {
     icon: <Calendar className="w-6 h-6 text-emerald-600" />,

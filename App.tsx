@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Events from './pages/Events';
 import Volunteer from './pages/Volunteer';
 import Ecology from './pages/Ecology';
+import Geology from './pages/Geology';
 import ChatWidget from './components/ChatWidget';
 import { 
   MapPin, Mail, Phone, Facebook, Instagram, Twitter, 
@@ -333,6 +334,7 @@ const App: React.FC = () => {
             <Route path="/events" element={<Events />} />
             <Route path="/volunteer" element={<Volunteer />} />
             <Route path="/ecology" element={<Ecology />} />
+            <Route path="/geology" element={<Geology />} />
             <Route path="/about" element={<AboutPage />} />
           </Routes>
         </main>
