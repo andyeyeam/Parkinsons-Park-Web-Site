@@ -21,3 +21,15 @@ export interface Feature {
   description: string;
   link?: string;
 }
+
+export interface VolunteerFormData {
+  fullName: string;
+  email: string;
+  role: string;
+  message: string;
+}
+
+export interface FormStatus {
+  type: 'idle' | 'loading' | 'success' | 'error';
+  message?: string;
+}
