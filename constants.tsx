@@ -1,5 +1,5 @@
 import React from 'react';
-import { Leaf, Calendar, Users, MapPin, Heart, Mountain } from 'lucide-react';
+import { Leaf, Calendar, Users, MapPin, Heart, Mountain, BookOpen } from 'lucide-react';
 import { ParkEvent, VolunteerRole, Feature } from './types';
 import heritageOpenDaysImage from './src/assets/images/heritage-open-days.jpg';
 
@@ -83,8 +83,9 @@ export const FEATURES: Feature[] = [
     link: "/geology"
   },
   {
-    icon: <Calendar className="w-6 h-6 text-emerald-600" />,
-    title: "Seasonal Events",
-    description: "From our annual Gala to winter Lantern Parades, we host activities for the whole community."
+    icon: <BookOpen className="w-6 h-6 text-emerald-600" />,
+    title: "Rich History",
+    description: "1,000 years from Viking settlements to Victorian philanthropists. Discover Frank and Albert Parkinson's legacy, community decline, and FOPP's remarkable restoration journey.",
+    link: "/history"
   }
 ];
