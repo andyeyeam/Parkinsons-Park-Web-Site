@@ -9,11 +9,6 @@ export interface ParkEvent {
   imageUrl: string;
 }
 
-export interface ChatMessage {
-  role: 'user' | 'model';
-  parts: { text: string }[];
-}
-
 export interface VolunteerRole {
   title: string;
   description: string;

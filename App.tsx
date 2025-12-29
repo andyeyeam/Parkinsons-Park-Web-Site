@@ -8,11 +8,10 @@ import Volunteer from './pages/Volunteer';
 import Ecology from './pages/Ecology';
 import Geology from './pages/Geology';
 import HistoryPage from './pages/History';
-import ChatWidget from './components/ChatWidget';
-import { 
-  MapPin, Mail, Phone, Facebook, Instagram, Twitter, 
-  History, Shield, Users, TreePine, FileText, Gavel, 
-  Search, Heart, ExternalLink 
+import {
+  MapPin, Mail, Phone, Facebook, Instagram, Twitter,
+  History, Shield, Users, TreePine, FileText, Gavel,
+  Search, Heart, ExternalLink
 } from 'lucide-react';
 
 const Footer: React.FC = () => (
@@ -341,7 +340,6 @@ const App: React.FC = () => {
           </Routes>
         </main>
         <Footer />
-        <ChatWidget />
       </div>
     </Router>
   );

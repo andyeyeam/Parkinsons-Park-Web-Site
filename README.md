@@ -4,14 +4,14 @@
 
 # Parkinson's Park Website
 
-A community website for Parkinson's Park in Guiseley, West Yorkshire, featuring an AI-powered nature guide chatbot named Willow.
+A community website for Parkinson's Park in Guiseley, West Yorkshire.
 
 ## Features
 
 - Interactive park information and history
-- AI chatbot (Willow) powered by Google Gemini
 - Ecology, geology, and history pages
 - Events calendar and volunteer opportunities
+- Community information and governance
 
 ## Run Locally
 
@@ -22,15 +22,7 @@ A community website for Parkinson's Park in Guiseley, West Yorkshire, featuring 
    npm install
    ```
 
-2. Set up environment variables:
-   - Copy `.env.example` to `.env`
-   - Add your Gemini API key to `.env`:
-     ```
-     API_KEY=your_gemini_api_key_here
-     ```
-   - Get your API key from: https://aistudio.google.com/app/apikey
-
-3. Run the development server:
+2. Run the development server:
    ```bash
    npm run dev
    ```
