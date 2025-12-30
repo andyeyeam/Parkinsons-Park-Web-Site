@@ -287,9 +287,17 @@ const AboutPage = () => (
             CICs are required to complete an annual return to Companies House detailing how the purpose has been achieved.
           </p>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-            {["2016/17", "2017/18", "2018/19", "2019/20", "2020/21", "2021/22", "2022/23"].map((year) => (
-              <a key={year} href="#" className="p-3 bg-white border border-stone-200 rounded-xl text-xs font-bold text-stone-700 hover:border-emerald-600 hover:text-emerald-700 transition-all text-center">
-                Report {year}
+            {[
+              { year: "2016/17", file: "CIC34-2016-17.pdf" },
+              { year: "2017/18", file: "CIC34-2017-18.pdf" },
+              { year: "2018/19", file: "CIC34-2018-19.pdf" },
+              { year: "2019/20", file: "CIC34-2019-20.pdf" },
+              { year: "2020/21", file: "CIC34-2020-21.pdf" },
+              { year: "2021/22", file: "CIC34-2022-23.pdf" },
+              { year: "2022/23", file: "CIC34-2022-23.pdf" }
+            ].map((report) => (
+              <a key={report.year} href={`/Parkinsons-Park-Web-Site/documents/${report.file}`} target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-stone-200 rounded-xl text-xs font-bold text-stone-700 hover:border-emerald-600 hover:text-emerald-700 transition-all text-center">
+                Report {report.year}
               </a>
             ))}
           </div>
