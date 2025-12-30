@@ -43,7 +43,7 @@ const Footer: React.FC = () => (
         <div>
           <h4 className="text-white font-bold mb-6">Get Involved</h4>
           <ul className="space-y-4 text-sm">
-            <li><a href="#" className="hover:text-white">Volunteer</a></li>
+            <li><a href="#/volunteer" className="hover:text-white">Volunteer</a></li>
             <li><a href="#" className="hover:text-white">Community Action</a></li>
             <li><a href="#" className="hover:text-white">Join the Friends</a></li>
             <li><a href="#" className="hover:text-white">Donate</a></li>

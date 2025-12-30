@@ -134,12 +134,6 @@ const Events: React.FC = () => {
                   <span className="font-medium">Parkinson's Park, Guiseley</span>
                 </div>
               </div>
-              <button
-                onClick={() => handleRegisterClick(event.id, event.title)}
-                className="w-full bg-stone-900 text-white py-4 rounded-2xl font-bold hover:bg-emerald-700 transition-all shadow-md active:scale-95"
-              >
-                Register Interest
-              </button>
             </div>
           </div>
         ))}
