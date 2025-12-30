@@ -54,18 +54,18 @@ export const MOCK_EVENTS: ParkEvent[] = [
 
 export const VOLUNTEER_ROLES: VolunteerRole[] = [
   {
-    title: 'Bog Garden',
-    description: 'Located near Netherfield entrance, this wetland area requires periodic upkeep and maintenance work to support pond-dwelling wildlife.',
+    title: 'Bog Garden Lead',
+    description: 'Take responsibility for the upkeep and improvement of this wetland area near Netherfield entrance. Lead maintenance efforts to support pond-dwelling wildlife and ensure the area remains a thriving habitat.',
     commitment: 'Flexible'
   },
   {
-    title: 'Top Copse',
-    description: 'This secluded woodland section houses the park\'s bug hotel and needs occasional tidying alongside maintenance to preserve the structure.',
+    title: 'Top Copse Lead',
+    description: 'Lead the upkeep and improvement of this secluded woodland section. Take responsibility for maintaining the bug hotel structure and coordinating regular tidying to preserve this important wildlife habitat.',
     commitment: 'Flexible'
   },
   {
-    title: 'Community Orchard',
-    description: 'A specialized position for those with soft fruit tree knowledge, involving pruning expertise. Full training is provided for interested candidates.',
+    title: 'Community Orchard Lead',
+    description: 'Take responsibility for the upkeep and improvement of the community orchard. Lead pruning and maintenance efforts for soft fruit trees. Knowledge of fruit tree care is beneficial, with full training provided.',
     commitment: 'Flexible'
   }
 ];

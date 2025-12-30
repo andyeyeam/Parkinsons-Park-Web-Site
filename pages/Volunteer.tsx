@@ -239,9 +239,9 @@ const Volunteer: React.FC = () => {
                 } focus:ring-2 outline-none`}
                 disabled={status.type === 'loading'}
               >
-                <option value="Bog Garden">Bog Garden</option>
-                <option value="Top Copse">Top Copse</option>
-                <option value="Community Orchard">Community Orchard</option>
+                <option value="Bog Garden Lead">Bog Garden Lead</option>
+                <option value="Top Copse Lead">Top Copse Lead</option>
+                <option value="Community Orchard Lead">Community Orchard Lead</option>
                 <option value="General Interest">General Interest</option>
               </select>
               {errors.role && (
