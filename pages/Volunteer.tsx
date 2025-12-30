@@ -109,11 +109,17 @@ const Volunteer: React.FC = () => {
         message: ''
       });
 
-    } catch (error) {
+    } catch (error: any) {
       console.error('EmailJS Error:', error);
+      console.error('Error details:', {
+        message: error?.text || error?.message,
+        serviceId: import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        templateId: import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY ? 'Set' : 'Missing'
+      });
       setStatus({
         type: 'error',
-        message: 'Failed to send message. Please try again or contact us directly at parkinsonspark@gmail.com.'
+        message: `Failed to send message: ${error?.text || error?.message || 'Unknown error'}. Please try again or contact us directly at parkinsonspark@gmail.com.`
       });
     }
   };
