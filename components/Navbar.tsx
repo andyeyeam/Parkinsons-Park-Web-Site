@@ -18,9 +18,9 @@ const Navbar: React.FC = () => {
           
           <div className="hidden md:flex space-x-8 items-center">
             <Link to="/" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">Home</Link>
-            <Link to="/location" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">Location</Link>
             <Link to="/events" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">Events</Link>
             <Link to="/volunteer" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">Get Involved</Link>
+            <Link to="/location" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">Find Us</Link>
             <Link to="/about" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">About Us</Link>
             <button className="bg-emerald-700 text-white px-5 py-2 rounded-full font-semibold hover:bg-emerald-800 transition-all shadow-sm">
               Donate
@@ -39,9 +39,9 @@ const Navbar: React.FC = () => {
       {isOpen && (
         <div className="md:hidden bg-white border-b border-stone-200 py-4 px-4 space-y-4 shadow-lg">
           <Link to="/" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Home</Link>
-          <Link to="/location" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Location</Link>
           <Link to="/events" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Events</Link>
           <Link to="/volunteer" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Get Involved</Link>
+          <Link to="/location" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Find Us</Link>
           <Link to="/about" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>About Us</Link>
           <button className="w-full bg-emerald-700 text-white px-5 py-3 rounded-xl font-semibold">Donate</button>
         </div>
