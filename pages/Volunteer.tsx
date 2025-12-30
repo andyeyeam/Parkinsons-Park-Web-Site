@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser';
 import { VOLUNTEER_ROLES } from '../constants';
 import { CheckCircle2, Heart, Users, MapPin, X, AlertCircle } from 'lucide-react';
 import { VolunteerFormData, FormStatus } from '../types';
-import volunteersImage from '../src/assets/images/PPVolunteers.jpg';
+import volunteersImage from '../src/assets/images/PPVolunteerV2.jpg';
 
 const Volunteer: React.FC = () => {
   const [formData, setFormData] = useState<VolunteerFormData>({
