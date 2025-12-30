@@ -37,7 +37,6 @@ const Footer: React.FC = () => (
             <li><a href="#/history" className="hover:text-white">Our History</a></li>
             <li><a href="#" className="hover:text-white">Management Plan</a></li>
             <li><a href="#" className="hover:text-white">Park Map</a></li>
-            <li><a href="#" className="hover:text-white">Privacy Policy</a></li>
           </ul>
         </div>
         <div>
@@ -170,11 +169,8 @@ const AboutPage = () => (
                 Funding for basic maintenance comes out of an annual charge made by Meadfleet to the residents of Edison Fields; other money for Park improvements and events is raised by FOPP.
               </p>
               <div className="flex flex-wrap gap-3 mt-6">
-                <a href="#" className="flex items-center gap-2 text-emerald-700 font-bold hover:underline">
+                <a href="/Parkinsons-Park-Web-Site/documents/FOPP-CIC-Constitution.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-emerald-700 font-bold hover:underline">
                   <FileText className="w-4 h-4" /> CIC Constitution
-                </a>
-                <a href="#" className="flex items-center gap-2 text-emerald-700 font-bold hover:underline">
-                  <FileText className="w-4 h-4" /> Privacy Policy
                 </a>
               </div>
             </div>
