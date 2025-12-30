@@ -8,6 +8,7 @@ import Volunteer from './pages/Volunteer';
 import Ecology from './pages/Ecology';
 import Geology from './pages/Geology';
 import HistoryPage from './pages/History';
+import Location from './pages/Location';
 import {
   MapPin, Mail, Phone, Facebook, Instagram, Twitter,
   History, Shield, Users, TreePine, FileText, Gavel,
@@ -340,6 +341,7 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/events" element={<Events />} />
             <Route path="/volunteer" element={<Volunteer />} />
+            <Route path="/location" element={<Location />} />
             <Route path="/ecology" element={<Ecology />} />
             <Route path="/geology" element={<Geology />} />
             <Route path="/history" element={<HistoryPage />} />
