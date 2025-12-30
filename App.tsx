@@ -313,12 +313,12 @@ const AboutPage = () => (
           </h3>
           <div className="space-y-3">
             {[
-              { date: "May 2012", type: "AGM" },
-              { date: "April 2013", type: "AGM" },
-              { date: "April 2014", type: "AGM" },
-              { date: "November 2015", type: "EGM" }
+              { date: "May 2012", type: "AGM", file: "AGM-Minutes-May-2012.pdf" },
+              { date: "April 2013", type: "AGM", file: "AGM-Minutes-April-2013.pdf" },
+              { date: "April 2014", type: "AGM", file: "AGM-Minutes-April-2014.docx" },
+              { date: "November 2015", type: "EGM", file: "EGM-Minutes-November-2015.pdf" }
             ].map((min, i) => (
-              <a key={i} href="#" className="flex items-center justify-between p-4 bg-white border border-stone-200 rounded-2xl hover:bg-stone-50 transition-all group">
+              <a key={i} href={`/Parkinsons-Park-Web-Site/documents/${min.file}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-4 bg-white border border-stone-200 rounded-2xl hover:bg-stone-50 transition-all group">
                 <span className="font-bold text-stone-800">{min.type} Minutes - {min.date}</span>
                 <ExternalLink className="w-4 h-4 text-stone-300 group-hover:text-emerald-600" />
               </a>
