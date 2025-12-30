@@ -24,7 +24,9 @@ const Footer: React.FC = () => (
             A community space managed by the Friends of Parkinson's Park. Preserving Guiseley's heritage for all.
           </p>
           <div className="flex space-x-4">
-            <Facebook className="w-5 h-5 hover:text-white cursor-pointer" />
+            <a href="https://www.facebook.com/groups/parkinsonspark/" target="_blank" rel="noopener noreferrer">
+              <Facebook className="w-5 h-5 hover:text-white cursor-pointer" />
+            </a>
             <Instagram className="w-5 h-5 hover:text-white cursor-pointer" />
             <Twitter className="w-5 h-5 hover:text-white cursor-pointer" />
           </div>
@@ -32,7 +34,7 @@ const Footer: React.FC = () => (
         <div>
           <h4 className="text-white font-bold mb-6">Quick Links</h4>
           <ul className="space-y-4 text-sm">
-            <li><a href="#" className="hover:text-white">Our History</a></li>
+            <li><a href="#/history" className="hover:text-white">Our History</a></li>
             <li><a href="#" className="hover:text-white">Management Plan</a></li>
             <li><a href="#" className="hover:text-white">Park Map</a></li>
             <li><a href="#" className="hover:text-white">Privacy Policy</a></li>

@@ -141,7 +141,7 @@ const Volunteer: React.FC = () => {
             We're also seeking volunteers to help marshal and drum at the Lantern Parade, and assist with setup, teardown, and staffing at the Children's Gala. These opportunities are especially beneficial for students studying nature and ecology.
           </p>
           <div className="space-y-4">
-            {['No prior expertise necessary', 'Supervision provided', 'Connect with like-minded individuals', 'Flexible commitment'].map((item, i) => (
+            {['No prior expertise necessary', 'Supervision provided', 'Work in a team', 'Flexible commitment'].map((item, i) => (
               <div key={i} className="flex items-center space-x-3">
                 <CheckCircle2 className="w-5 h-5 text-emerald-600" />
                 <span className="text-stone-700 font-medium">{item}</span>
