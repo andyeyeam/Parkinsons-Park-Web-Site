@@ -262,7 +262,7 @@ const AboutPage = () => (
                 <p className="font-bold text-stone-900">Mr Ryan Sample</p>
               </div>
               <div>
-                <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest">Officers</span>
+                <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest">Operations</span>
                 <p className="font-bold text-stone-900">Mrs Susan Wright</p>
               </div>
             </div>
