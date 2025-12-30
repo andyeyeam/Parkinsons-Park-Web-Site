@@ -293,7 +293,7 @@ const AboutPage = () => (
               { year: "2018/19", file: "CIC34-2018-19.pdf" },
               { year: "2019/20", file: "CIC34-2019-20.pdf" },
               { year: "2020/21", file: "CIC34-2020-21.pdf" },
-              { year: "2021/22", file: "CIC34-2022-23.pdf" },
+              { year: "2021/22", file: "CIC34-2021-22.pdf" },
               { year: "2022/23", file: "CIC34-2022-23.pdf" },
               { year: "2024/25", file: "CIC34-2024-25.pdf" }
             ].map((report) => (
