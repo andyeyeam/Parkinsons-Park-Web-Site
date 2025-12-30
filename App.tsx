@@ -94,7 +94,7 @@ const AboutPage = () => (
           <div className="hidden sm:block">|</div>
           <div className="flex items-center gap-2">
             <Users className="w-5 h-5" />
-            <span>Run by a board of five registered Directors</span>
+            <span>Run by a board of six registered Directors</span>
           </div>
         </div>
       </div>
