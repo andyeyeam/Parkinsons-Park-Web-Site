@@ -294,7 +294,8 @@ const AboutPage = () => (
               { year: "2019/20", file: "CIC34-2019-20.pdf" },
               { year: "2020/21", file: "CIC34-2020-21.pdf" },
               { year: "2021/22", file: "CIC34-2022-23.pdf" },
-              { year: "2022/23", file: "CIC34-2022-23.pdf" }
+              { year: "2022/23", file: "CIC34-2022-23.pdf" },
+              { year: "2024/25", file: "CIC34-2024-25.pdf" }
             ].map((report) => (
               <a key={report.year} href={`/Parkinsons-Park-Web-Site/documents/${report.file}`} target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-stone-200 rounded-xl text-xs font-bold text-stone-700 hover:border-emerald-600 hover:text-emerald-700 transition-all text-center">
                 Report {report.year}
