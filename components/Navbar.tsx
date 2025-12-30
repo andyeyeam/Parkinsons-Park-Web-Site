@@ -22,9 +22,14 @@ const Navbar: React.FC = () => {
             <Link to="/volunteer" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">Get Involved</Link>
             <Link to="/location" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">Find Us</Link>
             <Link to="/about" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">About Us</Link>
-            <button className="bg-emerald-700 text-white px-5 py-2 rounded-full font-semibold hover:bg-emerald-800 transition-all shadow-sm">
+            <a
+              href="https://paypal.me/parkinsonspark"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-emerald-700 text-white px-5 py-2 rounded-full font-semibold hover:bg-emerald-800 transition-all shadow-sm"
+            >
               Donate
-            </button>
+            </a>
           </div>
 
           <div className="md:hidden">
@@ -43,7 +48,14 @@ const Navbar: React.FC = () => {
           <Link to="/volunteer" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Get Involved</Link>
           <Link to="/location" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Find Us</Link>
           <Link to="/about" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>About Us</Link>
-          <button className="w-full bg-emerald-700 text-white px-5 py-3 rounded-xl font-semibold">Donate</button>
+          <a
+            href="https://paypal.me/parkinsonspark"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block text-center w-full bg-emerald-700 text-white px-5 py-3 rounded-xl font-semibold hover:bg-emerald-800 transition-all"
+          >
+            Donate
+          </a>
         </div>
       )}
     </nav>

@@ -162,10 +162,15 @@ const Home: React.FC = () => {
               Every penny helps us maintain the benches, keep the paths clear, and run our community events in the park.
             </p>
             <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <button className="bg-white text-stone-900 px-10 py-4 rounded-full font-bold text-lg hover:bg-stone-100 transition-all flex items-center justify-center space-x-2">
+              <a
+                href="https://paypal.me/parkinsonspark"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-white text-stone-900 px-10 py-4 rounded-full font-bold text-lg hover:bg-stone-100 transition-all flex items-center justify-center space-x-2"
+              >
                 <Heart className="w-5 h-5 text-rose-500" />
                 <span>Make a Donation</span>
-              </button>
+              </a>
               <button className="bg-stone-800 text-white border border-stone-700 px-10 py-4 rounded-full font-bold text-lg hover:bg-stone-700 transition-all">
                 Join the Friends
               </button>

@@ -46,7 +46,7 @@ const Footer: React.FC = () => (
             <li><a href="#/volunteer" className="hover:text-white">Volunteer</a></li>
             <li><a href="#" className="hover:text-white">Community Action</a></li>
             <li><a href="#" className="hover:text-white">Join the Friends</a></li>
-            <li><a href="#" className="hover:text-white">Donate</a></li>
+            <li><a href="https://paypal.me/parkinsonspark" target="_blank" rel="noopener noreferrer" className="hover:text-white">Donate</a></li>
           </ul>
         </div>
         <div>
