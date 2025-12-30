@@ -132,12 +132,19 @@ const Location: React.FC = () => {
           Walking Connections
         </h2>
         <div className="bg-white p-10 rounded-[3rem] border border-stone-200 shadow-sm">
+          <h3 className="text-2xl font-bold text-stone-900 mb-4">Guiseley Gap Circular</h3>
           <p className="text-lg text-stone-600 leading-relaxed mb-6">
-            A walking path connects Parkinson's Park to the Chevin through Bracken End Farm and Fairy Dell, marked on Ordnance Survey maps.
+            Experience the stunning views on this countryside walk with hilly terrain. The trail will take you through Wills Gill, Chevin Forest Park, Moor Top Quarry, High Royds Woods, and Parkinson Park before returning to the starting point. The route crosses the Guiseley Gap, a unique geological feature of a glacial U-shaped valley connecting Wharfedale and Airedale.
           </p>
-          <p className="text-stone-500 text-sm">
-            This route provides a beautiful connection to the wider Yorkshire countryside and offers extended walking opportunities for those wishing to explore the area.
-          </p>
+          <a
+            href="https://www.alltrails.com/en-gb/trail/england/west-yorkshire/guiseley-gap-circular"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-emerald-700 text-white px-6 py-3 rounded-xl font-bold hover:bg-emerald-800 transition-all shadow-md"
+          >
+            <Compass className="w-5 h-5" />
+            View Route on AllTrails
+          </a>
         </div>
       </section>
 
