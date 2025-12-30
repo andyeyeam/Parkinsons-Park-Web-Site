@@ -12,7 +12,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           <Link to="/" className="flex items-center space-x-3">
-            <img src={logo} alt="Parkinson's Park Logo" className="h-14 w-auto" />
+            <img src={logo} alt="Parkinson's Park Logo" className="h-16 w-auto p-2 bg-white rounded-xl border-2 border-emerald-600 shadow-md hover:shadow-lg transition-shadow" />
             <span className="text-xl font-bold text-stone-800 tracking-tight">Parkinson's Park <span className="text-emerald-700 font-normal italic">Guiseley</span></span>
           </Link>
           
