@@ -1,5 +1,11 @@
 import React from 'react';
-import { MapPin, Compass, Car, Trees, Info } from 'lucide-react';
+import { MapPin, Compass, Car, Trees, Info, Download, History } from 'lucide-react';
+import accessMap from '../src/assets/images/access-map.png';
+import parkFeaturesMap from '../src/assets/images/park-features-map.jpg';
+import historical1980s from '../src/assets/images/historical-1980s.jpg';
+import historical1950s from '../src/assets/images/historical-1950s.jpg';
+import historical1938 from '../src/assets/images/historical-1938.jpg';
+import titheMap1838 from '../src/assets/images/tithe-map-1838.jpg';
 
 const Location: React.FC = () => {
   return (
@@ -13,6 +19,24 @@ const Location: React.FC = () => {
         <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
           Parkinson's Park is situated between Netherfield Road and Kelcliffe Lane, positioned behind the former Crompton Parkinsons site, now Edison Fields.
         </p>
+      </section>
+
+      {/* Access Map Section */}
+      <section>
+        <h2 className="text-3xl font-bold text-stone-900 mb-8 flex items-center gap-3">
+          <MapPin className="w-8 h-8 text-emerald-600" />
+          Parking & Access Map
+        </h2>
+        <div className="bg-white p-8 rounded-3xl border border-stone-200 shadow-lg">
+          <img
+            src={accessMap}
+            alt="Parking and access map showing routes to Parkinson's Park"
+            className="w-full rounded-2xl"
+          />
+          <p className="text-sm text-stone-500 mt-4 text-center">
+            Map showing parking locations and access routes to Parkinson's Park
+          </p>
+        </div>
       </section>
 
       {/* Access Routes Section */}
@@ -72,10 +96,39 @@ const Location: React.FC = () => {
         </div>
       </section>
 
-      {/* Additional Information */}
+      {/* Park Features Map Section */}
       <section>
         <h2 className="text-3xl font-bold text-stone-900 mb-8 flex items-center gap-3">
           <Trees className="w-8 h-8 text-emerald-600" />
+          Park Features Map
+        </h2>
+        <div className="bg-white p-8 rounded-3xl border border-stone-200 shadow-lg">
+          <img
+            src={parkFeaturesMap}
+            alt="Detailed park map highlighting features and facilities"
+            className="w-full rounded-2xl"
+          />
+          <div className="flex justify-between items-center mt-6">
+            <p className="text-sm text-stone-500">
+              Detailed map showing park features, trails, and facilities
+            </p>
+            <a
+              href="/Parkinsons-Park-Web-Site/documents/park-features-map-2021.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 bg-emerald-700 text-white px-6 py-3 rounded-xl font-bold hover:bg-emerald-800 transition-all shadow-md"
+            >
+              <Download className="w-5 h-5" />
+              Download PDF
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Walking Connections */}
+      <section>
+        <h2 className="text-3xl font-bold text-stone-900 mb-8 flex items-center gap-3">
+          <Compass className="w-8 h-8 text-emerald-600" />
           Walking Connections
         </h2>
         <div className="bg-white p-10 rounded-[3rem] border border-stone-200 shadow-sm">
@@ -88,20 +141,39 @@ const Location: React.FC = () => {
         </div>
       </section>
 
-      {/* Map Section Placeholder */}
-      <section className="bg-stone-50 rounded-[3rem] p-12">
-        <div className="text-center">
-          <h2 className="text-3xl font-bold text-stone-900 mb-6">Find Parkinson's Park</h2>
-          <div className="bg-stone-200 h-96 rounded-3xl flex items-center justify-center border border-stone-300">
-            <div className="text-center">
-              <MapPin className="w-16 h-16 text-stone-400 mx-auto mb-4" />
-              <p className="text-stone-600 font-semibold">Map Coming Soon</p>
-              <p className="text-stone-500 text-sm mt-2">Interactive park map will be available here</p>
+      {/* Historical Photographs Section */}
+      <section>
+        <h2 className="text-3xl font-bold text-stone-900 mb-8 flex items-center gap-3">
+          <History className="w-8 h-8 text-emerald-600" />
+          Historical Journey
+        </h2>
+        <p className="text-stone-600 mb-8 text-lg">
+          Explore the transformation of Parkinson's Park through the decades, from historical maps to modern development.
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {[
+            { year: "1838", title: "Tithe Map", image: titheMap1838, description: "Historic tithe map showing the original landscape" },
+            { year: "1938", title: "Early Park Years", image: historical1938, description: "The park in its formative years" },
+            { year: "1950s", title: "Mid-Century View", image: historical1950s, description: "The park during the 1950s era" },
+            { year: "1980s", title: "Modern Development", image: historical1980s, description: "View of the site during the 1980s" }
+          ].map((photo, i) => (
+            <div key={i} className="bg-white rounded-3xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-lg transition-all group">
+              <div className="relative h-80 overflow-hidden">
+                <img
+                  src={photo.image}
+                  alt={`${photo.title} - ${photo.year}`}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur px-4 py-2 rounded-full">
+                  <span className="font-bold text-emerald-800">{photo.year}</span>
+                </div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-stone-900 mb-2">{photo.title}</h3>
+                <p className="text-stone-600 text-sm">{photo.description}</p>
+              </div>
             </div>
-          </div>
-          <p className="text-stone-600 mt-8">
-            <strong>Address:</strong> Between Netherfield Road and Kelcliffe Lane, Guiseley, West Yorkshire
-          </p>
+          ))}
         </div>
       </section>
     </div>
