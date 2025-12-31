@@ -41,7 +41,7 @@ const Home: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">A Community Legacy</h2>
-          <p className="text-stone-600 max-w-2xl mx-auto">Frank and Albert Parkinson (F & A Parkinson Ltd ) brought this piece of historic landscape in 1936-37 and established a Park both for the employees of Crompton Parkinson and the people of Guiseley.  They saw themselves as "trustees' of their possessions",  and determined to use them for the public good. This is the inheritence the <Link to="/about" className="text-emerald-700 font-semibold hover:underline">Friends of Parkinson's Park</Link> will continue. More on the History of the Park and the Parkinsons is <Link to="/history" className="text-emerald-700 font-semibold hover:underline">here</Link>.</p>
+          <p className="text-stone-600 max-w-2xl mx-auto">Parkinson's Park is a landscape park managed and maintained by a 'Friends' group who operate as a Community Interest Company (CIC). It is rich in historical, ecological and geological interest, all of which you can read about by scrolling down. Visit the 'Get Involved' page if you would like help us keep the Park alive and well.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {FEATURES.map((feature, i) => {
