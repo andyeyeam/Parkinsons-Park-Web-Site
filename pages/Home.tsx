@@ -8,7 +8,7 @@ const Home: React.FC = () => {
   return (
     <div className="space-y-24 pb-24">
       {/* Hero Section */}
-      <section className="relative h-[570px] md:h-[660px] flex items-center overflow-hidden">
+      <section className="relative h-[456px] md:h-[528px] flex items-center overflow-hidden">
         <div className="absolute inset-0">
           <img
             src={heroImage}
