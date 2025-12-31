@@ -13,7 +13,7 @@ const Home: React.FC = () => {
           <img
             src={heroImage}
             alt="Parkinson's Park Landscape"
-            className="w-full h-full object-cover brightness-75 saturate-125 contrast-105"
+            className="w-full h-full object-cover object-[center_40%] brightness-75 saturate-125 contrast-105"
           />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white z-10">
