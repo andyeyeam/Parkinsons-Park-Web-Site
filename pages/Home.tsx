@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, TreePine, Map, Heart } from 'lucide-react';
 import { FEATURES, MOCK_EVENTS } from '../constants';
-import heroImage from '../src/assets/images/hero-image.jpg';
+import heroImage from '../src/assets/images/PPHeroV3.jpg';
 
 const Home: React.FC = () => {
   return (
