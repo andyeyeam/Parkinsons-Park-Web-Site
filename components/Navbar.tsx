@@ -1,15 +1,19 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X as CloseIcon } from 'lucide-react';
+import { Menu, X as CloseIcon, Search } from 'lucide-react';
 import logo from '../src/assets/images/logo.jpg';
+import SearchModal from './SearchModal';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showDonateDialog, setShowDonateDialog] = useState(false);
+  const [showSearchModal, setShowSearchModal] = useState(false);
 
   return (
     <nav className="bg-white/90 backdrop-blur-md border-b border-stone-200 sticky top-0 z-50">
+      {/* Search Modal */}
+      <SearchModal isOpen={showSearchModal} onClose={() => setShowSearchModal(false)} />
       {/* Donate Coming Soon Dialog */}
       {showDonateDialog && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowDonateDialog(false)}>
@@ -47,6 +51,13 @@ const Navbar: React.FC = () => {
             <Link to="/your-stories" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">Your Stories</Link>
             <Link to="/about" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">About Us</Link>
             <button
+              onClick={() => setShowSearchModal(true)}
+              className="text-stone-600 hover:text-emerald-700 transition-colors p-2"
+              aria-label="Search site"
+            >
+              <Search className="w-5 h-5" />
+            </button>
+            <button
               onClick={() => setShowDonateDialog(true)}
               className="bg-emerald-700 text-white px-5 py-2 rounded-full font-semibold hover:bg-emerald-800 transition-all shadow-sm"
             >
@@ -71,6 +82,13 @@ const Navbar: React.FC = () => {
           <Link to="/location" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Find Us</Link>
           <Link to="/your-stories" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Your Stories</Link>
           <Link to="/about" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>About Us</Link>
+          <button
+            onClick={() => { setShowSearchModal(true); setIsOpen(false); }}
+            className="flex items-center gap-2 text-stone-600 font-medium"
+          >
+            <Search className="w-5 h-5" />
+            <span>Search Site</span>
+          </button>
           <button
             onClick={() => { setShowDonateDialog(true); setIsOpen(false); }}
             className="block text-center w-full bg-emerald-700 text-white px-5 py-3 rounded-xl font-semibold hover:bg-emerald-800 transition-all"
