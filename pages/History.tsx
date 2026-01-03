@@ -1165,36 +1165,6 @@ const History: React.FC = () => {
         </div>
       </section>
 
-      {/* Field Names Section - NEW */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="text-center mb-16">
-          <div className="inline-block bg-emerald-50 px-4 py-2 rounded-full text-emerald-800 text-sm font-bold uppercase tracking-wider mb-4">
-            Windows Into The Past
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Field Names Tell Stories</h2>
-          <p className="text-stone-600 max-w-2xl mx-auto">
-            The 1838 Tithe Map recorded field names that became gateways to understanding 1,000+ years of history,
-            from Viking settlements to Victorian industry.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {fieldNames.map((field, i) => (
-            <div key={i} className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-all">
-              <div className="mb-4">
-                <h3 className="text-xl font-bold text-stone-900 mb-1">{field.name}</h3>
-                <div className="text-xs font-bold text-emerald-700 uppercase tracking-wider">{field.origin}</div>
-              </div>
-              <div className="mb-3">
-                <div className="text-sm font-semibold text-stone-700 mb-1">Meaning:</div>
-                <div className="text-sm text-stone-600 italic">{field.meaning}</div>
-              </div>
-              <p className="text-sm text-stone-600 leading-relaxed">{field.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Interactive Timeline Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-white rounded-[3rem]">
         <div className="text-center mb-16">
@@ -1345,6 +1315,36 @@ const History: React.FC = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Field Names Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="text-center mb-16">
+          <div className="inline-block bg-emerald-50 px-4 py-2 rounded-full text-emerald-800 text-sm font-bold uppercase tracking-wider mb-4">
+            Windows Into The Past
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Field Names Tell Stories</h2>
+          <p className="text-stone-600 max-w-2xl mx-auto">
+            The 1838 Tithe Map recorded field names that became gateways to understanding 1,000+ years of history,
+            from Viking settlements to Victorian industry.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {fieldNames.map((field, i) => (
+            <div key={i} className="bg-white p-6 rounded-2xl border border-stone-200 shadow-sm hover:shadow-md transition-all">
+              <div className="mb-4">
+                <h3 className="text-xl font-bold text-stone-900 mb-1">{field.name}</h3>
+                <div className="text-xs font-bold text-emerald-700 uppercase tracking-wider">{field.origin}</div>
+              </div>
+              <div className="mb-3">
+                <div className="text-sm font-semibold text-stone-700 mb-1">Meaning:</div>
+                <div className="text-sm text-stone-600 italic">{field.meaning}</div>
+              </div>
+              <p className="text-sm text-stone-600 leading-relaxed">{field.description}</p>
+            </div>
+          ))}
         </div>
       </section>
 
