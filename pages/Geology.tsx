@@ -2,6 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Mountain, Globe, Snowflake, Layers, ArrowLeft, Clock } from 'lucide-react';
 
+// Import geology images
+import geologicalSection from '../src/assets/images/geological-section.jpg';
+import goniatiteLiving from '../src/assets/images/goniatite-living.jpg';
+import geologyMap from '../src/assets/images/geology-map.jpg';
+import guiseleyGapFormation from '../src/assets/images/guiseley-gap-formation.jpg';
+
 const Geology: React.FC = () => {
   const rockFormations = [
     {
@@ -141,9 +147,17 @@ const Geology: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Pennine Millstone Grit</h2>
-          <p className="text-lg text-stone-600 max-w-3xl">
+          <p className="text-lg text-stone-600 max-w-3xl mb-8">
             The park sits on distinctive bands of Pennine Millstone Grit, comprising sandstone, mudstone shale, and coal deposits. Each layer tells a story of ancient environments.
           </p>
+          <div className="mb-12">
+            <img src={geologicalSection} alt="Geological cross-section of the Guiseley Gap" className="w-full rounded-2xl shadow-lg border border-stone-300" />
+            <p className="text-sm text-stone-500 mt-3 italic text-center">Fig 1 – Section across the Guiseley Gap showing some of the bands of the Pennine Millstone Grit</p>
+          </div>
+          <div className="max-w-4xl mx-auto mb-12">
+            <img src={geologyMap} alt="Geology map of Parkinson's Park" className="w-full rounded-2xl shadow-lg border border-stone-300" />
+            <p className="text-sm text-stone-500 mt-3 italic text-center">Fig 3 – Geology of Parkinson's Park showing rock formations and bands</p>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -180,9 +194,15 @@ const Geology: React.FC = () => {
               <p className="text-emerald-100 text-lg leading-relaxed mb-6">
                 As Pangaea broke apart, the ancient delta rocks were elevated and tilted, forming the Pennine Hills and The Chevin escarpment. Different rock types eroded at varying rates, creating the distinctive stepped hillside terrain.
               </p>
-              <p className="text-emerald-100 text-lg leading-relaxed">
+              <p className="text-emerald-100 text-lg leading-relaxed mb-6">
                 During the last ice age, massive glaciers 250 meters thick flowed down Wharfedale and Airedale. These ice rivers carved the hanging valley known as the Guiseley Gap, where Parkinson's Park now sits. The glaciers deposited thick layers of clay and rock debris (glacial till), which is why the park experiences such muddy conditions today.
               </p>
+              <div className="rounded-2xl overflow-hidden border-4 border-emerald-700">
+                <img src={guiseleyGapFormation} alt="Formation of the Guiseley Gap by glaciers" className="w-full" />
+                <div className="bg-emerald-800 p-3">
+                  <p className="text-sm text-emerald-200 italic">Fig 4 – Glacial formation of the Guiseley Gap during the ice age</p>
+                </div>
+              </div>
             </div>
             <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 border border-white/20">
               <h3 className="text-2xl font-bold mb-6">Geological Features Today</h3>
@@ -221,6 +241,10 @@ const Geology: React.FC = () => {
           <p className="text-xl text-stone-600 mb-8 max-w-2xl mx-auto leading-relaxed">
             The mudstone shale beneath Great Brow contains fossilized <strong>Goniatites</strong> — ancient squid-like creatures with beautifully coiled shells that lived in the warm tropical seas 300 million years ago.
           </p>
+          <div className="max-w-md mx-auto mb-8">
+            <img src={goniatiteLiving} alt="Living goniatite - ancient squid-like creature" className="w-full rounded-2xl shadow-xl border border-stone-300" />
+            <p className="text-sm text-stone-500 mt-3 italic">Fig 2 – Living goniatite, showing what these ancient creatures looked like 300 million years ago</p>
+          </div>
           <div className="inline-block bg-emerald-50 px-8 py-4 rounded-2xl">
             <div className="text-sm font-bold text-emerald-800 uppercase tracking-wider mb-2">Evidence of Ancient Seas</div>
             <div className="text-2xl font-bold text-stone-900">Fossilized Marine Life</div>
