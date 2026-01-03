@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Users, Factory, Heart, Sparkles, ArrowLeft, Award, ChevronDown, X, MapPin, Trees, Calendar } from 'lucide-react';
+import { BookOpen, Users, Factory, Heart, Sparkles, ArrowLeft, Award, ChevronDown, X, MapPin, Trees, Calendar, Camera } from 'lucide-react';
 
 // Import historical images
 import lynchetCrookedLands from '../src/assets/images/lynchet-crooked-lands.jpg';
@@ -13,6 +13,10 @@ import parkinsonBuilding from '../src/assets/images/parkinson-building-leeds.jpg
 import snowSledging from '../src/assets/images/snow-sledging.gif';
 import wakefieldResearchers from '../src/assets/images/wakefield-deeds-researchers.jpg';
 import geophysicsTeam from '../src/assets/images/geophysics-team-2013.jpg';
+import driverGravestone from '../src/assets/images/driver-gravestone.jpg';
+import haymaking from '../src/assets/images/haymaking-eragny.jpg';
+import newDykesGate from '../src/assets/images/new-dykes-gate.jpg';
+import oldMansCorner from '../src/assets/images/old-mans-corner.jpg';
 
 // Timeline Event Interface
 interface TimelineImage {
@@ -182,6 +186,13 @@ const History: React.FC = () => {
           'The tanning industry required clean water from springs - explaining the location',
           'Tanhouse Brow field name commemorates this industrial heritage',
           'Tanning was a vital industry providing leather for local communities'
+        ],
+        images: [
+          {
+            src: driverGravestone,
+            alt: 'Driver family gravestone in Guiseley Churchyard',
+            caption: 'Richard Driver\'s gravestone at Guiseley Churchyard - the Driver family was involved with the historic tannery at Kelcliffe House'
+          }
         ]
       }
     },
@@ -227,6 +238,18 @@ const History: React.FC = () => {
           'The Overends were among the first to cultivate potatoes commercially in the area',
           'Widow Susannah Walker successfully managed farmland, unusual for women at the time',
           'James Leadbetter (Churchwarden) occupied Little Kelcliffe meadow for haymaking'
+        ],
+        images: [
+          {
+            src: haymaking,
+            alt: 'Haymaking at Éragny painting',
+            caption: 'Haymaking scene illustrating agricultural practices in Little Kelcliffe field during the 18th century'
+          },
+          {
+            src: newDykesGate,
+            alt: 'New Dykes Gate',
+            caption: 'New Dykes gate marking the extension of cultivated farmland onto common land'
+          }
         ],
         relatedPeople: ['John Blessard', 'Stephen & Martha Overend', 'Susannah Walker', 'James Leadbetter']
       }
@@ -580,6 +603,11 @@ const History: React.FC = () => {
             src: snowSledging,
             alt: 'Children sledging in snow',
             caption: 'Winter sledging on the famous "Snowdrop" and "Bluebell Run" slopes'
+          },
+          {
+            src: oldMansCorner,
+            alt: 'Residents at old man\'s corner',
+            caption: 'The beloved "old man\'s corner" near Kelcliffe Lane where elderly residents gathered to watch sunsets and share country knowledge'
           }
         ]
       }
@@ -1233,8 +1261,16 @@ const History: React.FC = () => {
                 >
                   <div className="flex justify-between items-start">
                     <div className="flex-1">
-                      <div className="text-xs font-bold text-emerald-700 uppercase tracking-wider mb-1">
-                        {event.era}
+                      <div className="flex items-center gap-2 mb-1">
+                        <div className="text-xs font-bold text-emerald-700 uppercase tracking-wider">
+                          {event.era}
+                        </div>
+                        {event.details?.images && event.details.images.length > 0 && (
+                          <div className="flex items-center gap-1 text-xs text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+                            <Camera className="w-3 h-3" />
+                            <span>{event.details.images.length}</span>
+                          </div>
+                        )}
                       </div>
                       <h3 className="text-lg font-bold text-stone-900 mb-2">{event.title}</h3>
                       <p className="text-stone-600 text-sm leading-relaxed">{event.description}</p>
