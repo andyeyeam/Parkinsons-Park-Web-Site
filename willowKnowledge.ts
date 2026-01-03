@@ -52,6 +52,18 @@ The park was gifted to the people of Guiseley in 1936 by F & A Parkinson Ltd and
 - **2013**: Geophysical surveys reveal ancient field systems
 - **2016**: FOPP registered as a Community Interest Company (CIC)
 - **Present**: Active restoration and community engagement ongoing
+ 
+ **Modern History (The Restoration Years)**:
+ - **2011**: Friends of Parkinson's Park (FOPP) formed (Sept). First website blog launched. Ecological audit conducted. Phase 1 regeneration began with Bellway Homes (Nov).
+ - **2012**: First open meeting (Feb). Jubilee Walk planted. Children's Gala relaunched with Jubilee Picnic. "All Our Stories" HLF grant awarded.
+ - **2013**: First Lantern Parade held (replacing autumn bonfire). Geophysical survey undertaken.
+ - **2015**: Community Orchard planted with LCC grant. Bellway left site.
+ - **2016**: FOPP registered as Community Interest Company (CIC). First "Tales Told" Lantern Parade. Bog Garden installed. First Apple Day.
+ - **2017**: Park Watch launched to combat vandalism. "Little Friends" forest school group started.
+ - **2018**: Information boards installed. WWI "Home for Heroes" exhibition held.
+ - **2019**: "Dinosaurs" theme for Children's Gala. Wildflower meadow enhanced.
+ - **2020**: Park featured on ITV Calendar's "Park Life". Vital community resource during Covid lockdown.
+ - **2022**: Platinum Jubilee Picnic and Jubilee Tree dedication (part of Queen's Green Canopy). Voted "Local Favourite" in Fields in Trust awards. Commemorative booklet published for Queen Elizabeth II.
 
 **Frank and Albert Parkinson**:
 Frank and Albert Parkinson were visionary philanthropists who believed in using their wealth for public good.
@@ -75,7 +87,10 @@ for their employees and the local community. Their legacy includes:
 2. **Wildflower Meadows**: Seasonal blooms, pollinator-friendly plants
 3. **Hedgerows**: Historic boundaries, wildlife corridors, berry-producing shrubs
 4. **Bog Garden**: Wetland area near Netherfield entrance, pond-dwelling wildlife
-5. **Community Orchard**: Soft fruit trees, apple varieties
+5. **Community Orchard**: Soft fruit trees and heritage varieties.
+   - *Apples*: Cider Lady's Finger (Old variety, early Oct), Golden Delicious (Late harvest), various seedlings.
+   - *Plums*: Jubilee (Hardy, mid-Aug), Laxton's Cropper (Blue-black, Sept).
+   - *Pears*: Invincible (Double flowering, stores well).
 6. **Top Copse**: Secluded woodland with bug hotel
 7. **Grassland**: Open areas for recreation and biodiversity
 8. **Field Margins**: Transition zones supporting diverse species
