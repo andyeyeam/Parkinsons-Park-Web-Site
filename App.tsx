@@ -18,6 +18,7 @@ import {
 
 const Footer: React.FC = () => {
   const [showManagementPlanDialog, setShowManagementPlanDialog] = useState(false);
+  const [showDonateDialog, setShowDonateDialog] = useState(false);
 
   return (
     <footer className="bg-stone-900 text-stone-400 py-16">
@@ -36,6 +37,29 @@ const Footer: React.FC = () => {
             </p>
             <button
               onClick={() => setShowManagementPlanDialog(false)}
+              className="w-full bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-3 rounded-full font-bold transition-all"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Donate Coming Soon Dialog */}
+      {showDonateDialog && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowDonateDialog(false)}>
+          <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <div className="flex justify-between items-start mb-6">
+              <h3 className="text-2xl font-bold text-stone-900">Donate</h3>
+              <button onClick={() => setShowDonateDialog(false)} className="text-stone-400 hover:text-stone-600 transition-colors">
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+            <p className="text-stone-600 mb-8 leading-relaxed">
+              Our donation system will be available soon. Check back later to support the park.
+            </p>
+            <button
+              onClick={() => setShowDonateDialog(false)}
               className="w-full bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-3 rounded-full font-bold transition-all"
             >
               Close
@@ -72,7 +96,7 @@ const Footer: React.FC = () => {
             <li><a href="#/volunteer" className="hover:text-white">Volunteer</a></li>
             <li><a href="#" className="hover:text-white">Community Action</a></li>
             <li><a href="#" className="hover:text-white">Join the Friends</a></li>
-            <li><a href="https://paypal.me/parkinsonspark" target="_blank" rel="noopener noreferrer" className="hover:text-white">Donate</a></li>
+            <li><button onClick={() => setShowDonateDialog(true)} className="hover:text-white text-left">Donate</button></li>
           </ul>
         </div>
         <div>

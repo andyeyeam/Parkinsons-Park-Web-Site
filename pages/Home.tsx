@@ -6,6 +6,7 @@ import heroImage from '../src/assets/images/PPHeroV3.jpg';
 
 const Home: React.FC = () => {
   const [showManagementPlanDialog, setShowManagementPlanDialog] = useState(false);
+  const [showDonateDialog, setShowDonateDialog] = useState(false);
 
   return (
     <div className="space-y-24 pb-24">
@@ -24,6 +25,29 @@ const Home: React.FC = () => {
             </p>
             <button
               onClick={() => setShowManagementPlanDialog(false)}
+              className="w-full bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-3 rounded-full font-bold transition-all"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Donate Coming Soon Dialog */}
+      {showDonateDialog && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowDonateDialog(false)}>
+          <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <div className="flex justify-between items-start mb-6">
+              <h3 className="text-2xl font-bold text-stone-900">Donate</h3>
+              <button onClick={() => setShowDonateDialog(false)} className="text-stone-400 hover:text-stone-600 transition-colors">
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+            <p className="text-stone-600 mb-8 leading-relaxed">
+              Our donation system will be available soon. Check back later to support the park.
+            </p>
+            <button
+              onClick={() => setShowDonateDialog(false)}
               className="w-full bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-3 rounded-full font-bold transition-all"
             >
               Close
@@ -186,15 +210,13 @@ const Home: React.FC = () => {
               Every penny helps us maintain the benches, keep the paths clear, and run our community events in the park.
             </p>
             <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <a
-                href="https://paypal.me/parkinsonspark"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => setShowDonateDialog(true)}
                 className="bg-white text-stone-900 px-10 py-4 rounded-full font-bold text-lg hover:bg-stone-100 transition-all flex items-center justify-center space-x-2"
               >
                 <Heart className="w-5 h-5 text-rose-500" />
                 <span>Make a Donation</span>
-              </a>
+              </button>
               <button className="bg-stone-800 text-white border border-stone-700 px-10 py-4 rounded-full font-bold text-lg hover:bg-stone-700 transition-all">
                 Join the Friends
               </button>

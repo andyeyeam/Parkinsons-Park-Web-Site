@@ -1,14 +1,37 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Menu, X as CloseIcon } from 'lucide-react';
 import logo from '../src/assets/images/logo.jpg';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [showDonateDialog, setShowDonateDialog] = useState(false);
 
   return (
     <nav className="bg-white/90 backdrop-blur-md border-b border-stone-200 sticky top-0 z-50">
+      {/* Donate Coming Soon Dialog */}
+      {showDonateDialog && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowDonateDialog(false)}>
+          <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <div className="flex justify-between items-start mb-6">
+              <h3 className="text-2xl font-bold text-stone-900">Donate</h3>
+              <button onClick={() => setShowDonateDialog(false)} className="text-stone-400 hover:text-stone-600 transition-colors">
+                <CloseIcon className="w-6 h-6" />
+              </button>
+            </div>
+            <p className="text-stone-600 mb-8 leading-relaxed">
+              Our donation system will be available soon. Check back later to support the park.
+            </p>
+            <button
+              onClick={() => setShowDonateDialog(false)}
+              className="w-full bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-3 rounded-full font-bold transition-all"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20 items-center">
           <Link to="/" className="flex items-center space-x-3">
@@ -23,19 +46,17 @@ const Navbar: React.FC = () => {
             <Link to="/location" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">Find Us</Link>
             <Link to="/your-stories" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">Your Stories</Link>
             <Link to="/about" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">About Us</Link>
-            <a
-              href="https://paypal.me/parkinsonspark"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setShowDonateDialog(true)}
               className="bg-emerald-700 text-white px-5 py-2 rounded-full font-semibold hover:bg-emerald-800 transition-all shadow-sm"
             >
               Donate
-            </a>
+            </button>
           </div>
 
           <div className="md:hidden">
             <button onClick={() => setIsOpen(!isOpen)} className="text-stone-600">
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? <CloseIcon className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
@@ -50,14 +71,12 @@ const Navbar: React.FC = () => {
           <Link to="/location" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Find Us</Link>
           <Link to="/your-stories" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Your Stories</Link>
           <Link to="/about" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>About Us</Link>
-          <a
-            href="https://paypal.me/parkinsonspark"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => { setShowDonateDialog(true); setIsOpen(false); }}
             className="block text-center w-full bg-emerald-700 text-white px-5 py-3 rounded-xl font-semibold hover:bg-emerald-800 transition-all"
           >
             Donate
-          </a>
+          </button>
         </div>
       )}
     </nav>
