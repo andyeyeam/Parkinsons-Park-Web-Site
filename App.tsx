@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import WillowChat from './components/WillowChat';
 import Home from './pages/Home';
 import Events from './pages/Events';
 import Volunteer from './pages/Volunteer';
@@ -425,6 +426,7 @@ const App: React.FC = () => {
           </Routes>
         </main>
         <Footer />
+        <WillowChat />
       </div>
     </Router>
   );
