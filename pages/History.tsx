@@ -57,6 +57,13 @@ const History: React.FC = () => {
 
   const isExpanded = (id: string) => expandedItems.has(id);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const getCategoryColor = (category: string): string => {
     const colors = {
       ancient: 'bg-amber-600',
@@ -1171,19 +1178,19 @@ const History: React.FC = () => {
           {/* Subtle Navigation Index */}
           <nav className="mb-8">
             <div className="flex flex-wrap items-center justify-center gap-2 text-sm">
-              <a href="#timeline" className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1">Timeline</a>
+              <button onClick={() => scrollToSection('timeline')} className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1 cursor-pointer">Timeline</button>
               <span className="text-stone-300">•</span>
-              <a href="#field-names" className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1">Field Names</a>
+              <button onClick={() => scrollToSection('field-names')} className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1 cursor-pointer">Field Names</button>
               <span className="text-stone-300">•</span>
-              <a href="#visionaries" className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1">Visionaries</a>
+              <button onClick={() => scrollToSection('visionaries')} className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1 cursor-pointer">Visionaries</button>
               <span className="text-stone-300">•</span>
-              <a href="#parkinson-era" className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1">Parkinson Era</a>
+              <button onClick={() => scrollToSection('parkinson-era')} className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1 cursor-pointer">Parkinson Era</button>
               <span className="text-stone-300">•</span>
-              <a href="#decline" className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1">Recent Times</a>
+              <button onClick={() => scrollToSection('decline')} className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1 cursor-pointer">Recent Times</button>
               <span className="text-stone-300">•</span>
-              <a href="#renaissance" className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1">Renaissance</a>
+              <button onClick={() => scrollToSection('renaissance')} className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1 cursor-pointer">Renaissance</button>
               <span className="text-stone-300">•</span>
-              <a href="#programs" className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1">Programs</a>
+              <button onClick={() => scrollToSection('programs')} className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1 cursor-pointer">Programs</button>
             </div>
           </nav>
 
