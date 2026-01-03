@@ -2,6 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Leaf, Trees, Flower2, Bird, Bug, Mountain, ArrowLeft } from 'lucide-react';
 
+// Import ecology images
+import bluebells from '../src/assets/images/ecology-bluebells.jpg';
+import ecologyBoard from '../src/assets/images/ecology-board.png';
+import bogGardenPanel from '../src/assets/images/bog-garden-panel.png';
+import ispyTrail from '../src/assets/images/ispy-trail-leaflet.jpg';
+
 const Ecology: React.FC = () => {
   const habitats = [
     {
@@ -101,6 +107,12 @@ const Ecology: React.FC = () => {
             <p className="text-lg text-stone-600 leading-relaxed">
               The park features slowly permeable, seasonally wet, acid loam and clay soil, creating diverse conditions from drier upper slopes to marshy lower areas that support our rich biodiversity.
             </p>
+            <div className="rounded-2xl overflow-hidden shadow-lg border border-stone-200">
+              <img src={bluebells} alt="Bluebells in the woodland" className="w-full h-64 object-cover" />
+              <div className="p-4 bg-white">
+                <p className="text-sm text-stone-600 italic">Bluebells flourishing in the park's woodland habitat</p>
+              </div>
+            </div>
           </div>
           <div className="bg-white p-8 rounded-[2.5rem] shadow-xl border border-stone-200">
             <h3 className="text-2xl font-bold mb-6">Park Statistics</h3>
@@ -142,7 +154,11 @@ const Ecology: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Eight Distinct Habitats</h2>
-            <p className="text-stone-600 max-w-2xl mx-auto">Each habitat zone supports unique flora and fauna, creating a mosaic of biodiversity across the park.</p>
+            <p className="text-stone-600 max-w-2xl mx-auto mb-8">Each habitat zone supports unique flora and fauna, creating a mosaic of biodiversity across the park.</p>
+            <div className="max-w-4xl mx-auto mb-12">
+              <img src={ecologyBoard} alt="Ecology zones map of Parkinson's Park" className="w-full rounded-2xl shadow-lg border border-stone-300" />
+              <p className="text-sm text-stone-500 mt-3 italic">Map showing the park's diverse ecological zones</p>
+            </div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {habitats.map((habitat, i) => (
@@ -155,6 +171,12 @@ const Ecology: React.FC = () => {
                 <p className="text-sm text-stone-600 leading-relaxed">{habitat.description}</p>
               </div>
             ))}
+          </div>
+
+          {/* Bog Garden Feature */}
+          <div className="mt-12 max-w-3xl mx-auto">
+            <img src={bogGardenPanel} alt="Bog Garden information panel" className="w-full rounded-2xl shadow-lg border border-stone-300" />
+            <p className="text-sm text-stone-500 mt-3 italic text-center">Our Bog Garden, established in 2016, features nine native wetland plant species</p>
           </div>
         </div>
       </section>
@@ -204,9 +226,13 @@ const Ecology: React.FC = () => {
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="bg-emerald-900 rounded-[3rem] p-12 text-center text-white">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Explore Our Ecology</h2>
-          <p className="text-xl text-emerald-100 mb-10 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl text-emerald-100 mb-8 max-w-2xl mx-auto leading-relaxed">
             Discover the park's wildlife with our plant species checklist from our October 2011 survey and our I-Spy Trail leaflet to help identify species during your visit.
           </p>
+          <div className="max-w-md mx-auto mb-8">
+            <img src={ispyTrail} alt="I-Spy Trail leaflet for children" className="w-full rounded-2xl shadow-xl border-4 border-emerald-700" />
+            <p className="text-sm text-emerald-200 mt-3 italic">Our I-Spy Trail leaflet helps young visitors discover park wildlife</p>
+          </div>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <button className="bg-white text-stone-900 px-10 py-4 rounded-full font-bold text-lg hover:bg-stone-100 transition-all">
               Download Species Checklist

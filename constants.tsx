@@ -72,6 +72,12 @@ export const VOLUNTEER_ROLES: VolunteerRole[] = [
 
 export const FEATURES: Feature[] = [
   {
+    icon: <BookOpen className="w-6 h-6 text-emerald-600" />,
+    title: "Deep History",
+    description: "1,000 years from Viking settlements to Victorian philanthropists. Discover Frank and Albert Parkinson's legacy, community decline, and FOPP's remarkable restoration journey.",
+    link: "/history"
+  },
+  {
     icon: <Leaf className="w-6 h-6 text-emerald-600" />,
     title: "Rich Ecology",
     description: "Eight distinct habitat zones from ancient woodland to wetland bog gardens, supporting diverse Yorkshire wildlife including rare red-list bird species.",
@@ -82,11 +88,5 @@ export const FEATURES: Feature[] = [
     title: "Ancient Geology",
     description: "Discover 300 million years of geological history from tropical Pangaea to ice age glaciers. Explore the Pennine Millstone Grit, fossilized marine life, and the forces that carved the Guiseley Gap.",
     link: "/geology"
-  },
-  {
-    icon: <BookOpen className="w-6 h-6 text-emerald-600" />,
-    title: "Deep History",
-    description: "1,000 years from Viking settlements to Victorian philanthropists. Discover Frank and Albert Parkinson's legacy, community decline, and FOPP's remarkable restoration journey.",
-    link: "/history"
   }
 ];
