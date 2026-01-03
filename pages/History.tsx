@@ -1166,8 +1166,27 @@ const History: React.FC = () => {
       </section>
 
       {/* Interactive Timeline Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-white rounded-[3rem]">
+      <section id="timeline" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-white rounded-[3rem]">
         <div className="text-center mb-16">
+          {/* Subtle Navigation Index */}
+          <nav className="mb-8">
+            <div className="flex flex-wrap items-center justify-center gap-2 text-sm">
+              <a href="#timeline" className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1">Timeline</a>
+              <span className="text-stone-300">•</span>
+              <a href="#field-names" className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1">Field Names</a>
+              <span className="text-stone-300">•</span>
+              <a href="#visionaries" className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1">Visionaries</a>
+              <span className="text-stone-300">•</span>
+              <a href="#parkinson-era" className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1">Parkinson Era</a>
+              <span className="text-stone-300">•</span>
+              <a href="#decline" className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1">Recent Times</a>
+              <span className="text-stone-300">•</span>
+              <a href="#renaissance" className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1">Renaissance</a>
+              <span className="text-stone-300">•</span>
+              <a href="#programs" className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1">Programs</a>
+            </div>
+          </nav>
+
           <div className="inline-block bg-emerald-50 px-4 py-2 rounded-full text-emerald-800 text-sm font-bold uppercase tracking-wider mb-4">
             4,000 Years of Heritage
           </div>
@@ -1319,7 +1338,7 @@ const History: React.FC = () => {
       </section>
 
       {/* Field Names Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section id="field-names" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center mb-16">
           <div className="inline-block bg-emerald-50 px-4 py-2 rounded-full text-emerald-800 text-sm font-bold uppercase tracking-wider mb-4">
             Windows Into The Past
@@ -1349,7 +1368,7 @@ const History: React.FC = () => {
       </section>
 
       {/* Key People Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section id="visionaries" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Visionary Philanthropists</h2>
           <p className="text-lg text-stone-600 max-w-3xl">
@@ -1379,7 +1398,7 @@ const History: React.FC = () => {
       </section>
 
       {/* F & A Parkinson Section */}
-      <section className="bg-emerald-900 text-white py-20">
+      <section id="parkinson-era" className="bg-emerald-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div className="space-y-6">
@@ -1474,7 +1493,7 @@ const History: React.FC = () => {
       </section>
 
       {/* Recent Times & Decline Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section id="decline" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="bg-stone-100 rounded-[3rem] p-12">
           <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-6">Recent Times: Decline & Neglect</h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -1546,7 +1565,7 @@ const History: React.FC = () => {
       </section>
 
       {/* FOPP Renaissance Section */}
-      <section className="bg-emerald-900 text-white py-20">
+      <section id="renaissance" className="bg-emerald-900 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <Heart className="w-12 h-12 text-emerald-400 mx-auto mb-6" />
@@ -1627,7 +1646,7 @@ const History: React.FC = () => {
       </section>
 
       {/* Community Programs Section */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section id="programs" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="bg-white rounded-[3rem] p-12 border border-stone-200 shadow-sm text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-stone-900">Continuing the Legacy</h2>
           <p className="text-xl text-stone-600 mb-10 max-w-2xl mx-auto leading-relaxed">
