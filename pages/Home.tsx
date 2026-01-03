@@ -22,7 +22,7 @@ const Home: React.FC = () => {
               Parkinson's Park <span className="text-emerald-400">Guiseley</span>
             </h1>
             <p className="text-xl md:text-2xl text-emerald-50 mb-8 font-light">
-              A treasured landscape park where everyone in Guiseley can enjoy wildlife, woodland walks, and the peaceful beauty of the Yorkshire countryside.
+              A treasured Landscape Park for everyone to enjoy wildlife, woodland walks, and the peaceful beauty of the Yorkshire countryside.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
               <Link to="/events" className="bg-emerald-700 hover:bg-emerald-800 px-8 py-4 rounded-full font-bold text-lg text-center transition-all flex items-center justify-center space-x-2">
