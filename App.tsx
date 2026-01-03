@@ -11,7 +11,6 @@ import Geology from './pages/Geology';
 import HistoryPage from './pages/History';
 import Location from './pages/Location';
 import YourStories from './pages/YourStories';
-import ParkTimeline from './pages/ParkTimeline';
 import {
   MapPin, Mail, Phone, Facebook, Instagram, Twitter,
   History, Shield, Users, TreePine, FileText, Gavel,
@@ -423,7 +422,6 @@ const App: React.FC = () => {
             <Route path="/geology" element={<Geology />} />
             <Route path="/history" element={<HistoryPage />} />
             <Route path="/your-stories" element={<YourStories />} />
-            <Route path="/park-timeline" element={<ParkTimeline />} />
             <Route path="/about" element={<AboutPage />} />
           </Routes>
         </main>
