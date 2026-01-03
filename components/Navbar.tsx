@@ -21,6 +21,7 @@ const Navbar: React.FC = () => {
             <Link to="/events" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">Events</Link>
             <Link to="/volunteer" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">Get Involved</Link>
             <Link to="/location" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">Find Us</Link>
+            <Link to="/your-stories" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">Your Stories</Link>
             <Link to="/about" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">About Us</Link>
             <a
               href="https://paypal.me/parkinsonspark"
@@ -47,6 +48,7 @@ const Navbar: React.FC = () => {
           <Link to="/events" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Events</Link>
           <Link to="/volunteer" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Get Involved</Link>
           <Link to="/location" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Find Us</Link>
+          <Link to="/your-stories" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Your Stories</Link>
           <Link to="/about" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>About Us</Link>
           <a
             href="https://paypal.me/parkinsonspark"
