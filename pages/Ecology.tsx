@@ -61,17 +61,17 @@ const Ecology: React.FC = () => {
   ];
 
   const birdSpecies = [
-    { name: "Starling", status: "red" },
-    { name: "Green woodpecker", status: "red" },
-    { name: "Mistle thrush", status: "red" },
-    { name: "Kestrel", status: "amber" },
-    { name: "House sparrow", status: "amber" },
-    { name: "Robin", status: "common" },
-    { name: "Blue tit", status: "common" },
-    { name: "Goldfinch", status: "common" },
-    { name: "Greenfinch", status: "common" },
-    { name: "Blackbird", status: "common" },
-    { name: "Wren", status: "common" }
+    { name: "Starling", status: "red", url: "https://www.rspb.org.uk/birds-and-wildlife/starling" },
+    { name: "Green woodpecker", status: "red", url: "https://www.rspb.org.uk/birds-and-wildlife/green-woodpecker" },
+    { name: "Mistle thrush", status: "red", url: "https://www.rspb.org.uk/birds-and-wildlife/mistle-thrush" },
+    { name: "Kestrel", status: "amber", url: "https://www.rspb.org.uk/birds-and-wildlife/kestrel" },
+    { name: "House sparrow", status: "amber", url: "https://www.rspb.org.uk/birds-and-wildlife/house-sparrow" },
+    { name: "Robin", status: "common", url: "https://www.rspb.org.uk/birds-and-wildlife/robin" },
+    { name: "Blue tit", status: "common", url: "https://www.rspb.org.uk/birds-and-wildlife/blue-tit" },
+    { name: "Goldfinch", status: "common", url: "https://www.rspb.org.uk/birds-and-wildlife/goldfinch" },
+    { name: "Greenfinch", status: "common", url: "https://www.rspb.org.uk/birds-and-wildlife/greenfinch" },
+    { name: "Blackbird", status: "common", url: "https://www.rspb.org.uk/birds-and-wildlife/blackbird" },
+    { name: "Wren", status: "common", url: "https://www.rspb.org.uk/birds-and-wildlife/wren" }
   ];
 
   return (
@@ -194,12 +194,18 @@ const Ecology: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {birdSpecies.map((bird, i) => (
               <div key={i} className="flex items-center gap-3 p-3 bg-stone-50 rounded-xl">
-                <div className={`w-2 h-2 rounded-full shrink-0 ${
-                  bird.status === 'red' ? 'bg-red-500' :
-                  bird.status === 'amber' ? 'bg-amber-500' :
-                  'bg-emerald-500'
-                }`} />
-                <span className="text-sm font-medium text-stone-700">{bird.name}</span>
+                <div className={`w-2 h-2 rounded-full shrink-0 ${bird.status === 'red' ? 'bg-red-500' :
+                    bird.status === 'amber' ? 'bg-amber-500' :
+                      'bg-emerald-500'
+                  }`} />
+                <a
+                  href={bird.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium text-stone-700 hover:text-emerald-600 hover:underline"
+                >
+                  {bird.name}
+                </a>
               </div>
             ))}
           </div>
