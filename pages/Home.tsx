@@ -7,6 +7,7 @@ import heroImage from '../src/assets/images/PPHeroV3.jpg';
 const Home: React.FC = () => {
   const [showManagementPlanDialog, setShowManagementPlanDialog] = useState(false);
   const [showDonateDialog, setShowDonateDialog] = useState(false);
+  const [showJoinFriendsDialog, setShowJoinFriendsDialog] = useState(false);
 
   return (
     <div className="space-y-24 pb-24">
@@ -48,6 +49,29 @@ const Home: React.FC = () => {
             </p>
             <button
               onClick={() => setShowDonateDialog(false)}
+              className="w-full bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-3 rounded-full font-bold transition-all"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Join the Friends Coming Soon Dialog */}
+      {showJoinFriendsDialog && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowJoinFriendsDialog(false)}>
+          <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl" onClick={(e) => e.stopPropagation()}>
+            <div className="flex justify-between items-start mb-6">
+              <h3 className="text-2xl font-bold text-stone-900">Join the Friends</h3>
+              <button onClick={() => setShowJoinFriendsDialog(false)} className="text-stone-400 hover:text-stone-600 transition-colors">
+                <X className="w-6 h-6" />
+              </button>
+            </div>
+            <p className="text-stone-600 mb-8 leading-relaxed">
+              Our membership system will be available soon. Check back later to join the Friends of Parkinson's Park.
+            </p>
+            <button
+              onClick={() => setShowJoinFriendsDialog(false)}
               className="w-full bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-3 rounded-full font-bold transition-all"
             >
               Close
@@ -217,7 +241,7 @@ const Home: React.FC = () => {
                 <Heart className="w-5 h-5 text-rose-500" />
                 <span>Make a Donation</span>
               </button>
-              <button className="bg-stone-800 text-white border border-stone-700 px-10 py-4 rounded-full font-bold text-lg hover:bg-stone-700 transition-all">
+              <button onClick={() => setShowJoinFriendsDialog(true)} className="bg-stone-800 text-white border border-stone-700 px-10 py-4 rounded-full font-bold text-lg hover:bg-stone-700 transition-all">
                 Join the Friends
               </button>
             </div>
