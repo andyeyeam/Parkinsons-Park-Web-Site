@@ -41,7 +41,7 @@ const Home: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">A Community Legacy</h2>
-          <p className="text-stone-600 max-w-2xl mx-auto">Parkinson's Park is a landscape park managed and maintained by a 'Friends' group who operate as a Community Interest Company (CIC). It is rich in historical, ecological and geological interest, all of which you can read about by scrolling down. Visit the '<Link to="/volunteer" className="text-emerald-700 font-semibold hover:underline">Get Involved</Link>' page if you would like help us keep the Park alive and well.</p>
+          <p className="text-stone-600 max-w-2xl mx-auto"><strong>Preserving the legacy. Enhancing the landscape.</strong> Parkinson's Park was gifted to the people of Guiseley in 1936 by F & A Parkinson Ltd. Today, our dedicated Friends group continues that mission, working to improve the park's quality of life for all Aireborough residents. Whether you are interested in our unique ecology, local history, or ancient geology, you can find our full story below. Want to help us keep the park alive and well? Visit our '<Link to="/volunteer" className="text-emerald-700 font-semibold hover:underline">Get Involved</Link>' page to see how you can make a difference.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {FEATURES.map((feature, i) => {
