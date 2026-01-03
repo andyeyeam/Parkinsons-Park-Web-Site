@@ -2,6 +2,18 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BookOpen, Users, Factory, Heart, Sparkles, ArrowLeft, Award, ChevronDown, X, MapPin, Trees, Calendar } from 'lucide-react';
 
+// Import historical images
+import lynchetCrookedLands from '../src/assets/images/lynchet-crooked-lands.jpg';
+import clapperBrow from '../src/assets/images/clapper-brow.jpg';
+import greatBrow from '../src/assets/images/great-brow.jpg';
+import titheMapDetail from '../src/assets/images/tithe-map-1838-detail.jpg';
+import peateOakTrees from '../src/assets/images/peate-oak-trees.jpg';
+import frankParkinson from '../src/assets/images/frank-parkinson.jpg';
+import parkinsonBuilding from '../src/assets/images/parkinson-building-leeds.jpg';
+import snowSledging from '../src/assets/images/snow-sledging.gif';
+import wakefieldResearchers from '../src/assets/images/wakefield-deeds-researchers.jpg';
+import geophysicsTeam from '../src/assets/images/geophysics-team-2013.jpg';
+
 // Timeline Event Interface
 interface TimelineImage {
   src: string;
@@ -114,7 +126,7 @@ const History: React.FC = () => {
         ],
         images: [
           {
-            src: '/src/assets/images/lynchet-crooked-lands.jpg',
+            src: lynchetCrookedLands,
             alt: 'Lynchet on Crooked Lands',
             caption: 'Anglo-Saxon lynchet (terraced field boundary) still visible in Crooked Lands field'
           }
@@ -136,7 +148,7 @@ const History: React.FC = () => {
         ],
         images: [
           {
-            src: '/src/assets/images/clapper-brow.jpg',
+            src: clapperBrow,
             alt: 'Clapper Brow woodland',
             caption: 'The wooded area of Clapper Brow, site of the medieval rabbit warren'
           }
@@ -234,7 +246,7 @@ const History: React.FC = () => {
         ],
         images: [
           {
-            src: '/src/assets/images/great-brow.jpg',
+            src: greatBrow,
             alt: 'Great Brow (Potterton Brow)',
             caption: 'Great Brow, renamed Potterton Brow by Marshall Grimshaw in 1837'
           }
@@ -257,7 +269,7 @@ const History: React.FC = () => {
         ],
         images: [
           {
-            src: '/src/assets/images/tithe-map-1838-detail.jpg',
+            src: titheMapDetail,
             alt: '1838 Tithe Map',
             caption: 'Outline of Parkinson\'s Park on the 1838 Tithe Map showing field boundaries and names'
           }
@@ -312,7 +324,7 @@ const History: React.FC = () => {
         ],
         images: [
           {
-            src: '/src/assets/images/peate-oak-trees.jpg',
+            src: peateOakTrees,
             alt: 'Peate\'s Oak Trees',
             caption: 'Peate\'s oak trees planted circa 1909 for King George V\'s coronation, with seedling'
           }
@@ -335,7 +347,7 @@ const History: React.FC = () => {
         ],
         images: [
           {
-            src: '/src/assets/images/frank-parkinson.jpg',
+            src: frankParkinson,
             alt: 'Frank Parkinson',
             caption: 'Frank Parkinson (1887-1946), co-founder of F & A Parkinson Ltd'
           }
@@ -473,7 +485,7 @@ const History: React.FC = () => {
         ],
         images: [
           {
-            src: '/src/assets/images/parkinson-building-leeds.jpg',
+            src: parkinsonBuilding,
             alt: 'Parkinson Building, Leeds University',
             caption: 'The Parkinson Building at Leeds University, funded by Frank Parkinson\'s £200,000 bequest (completed 1951)'
           }
@@ -565,7 +577,7 @@ const History: React.FC = () => {
         ],
         images: [
           {
-            src: '/src/assets/images/snow-sledging.gif',
+            src: snowSledging,
             alt: 'Children sledging in snow',
             caption: 'Winter sledging on the famous "Snowdrop" and "Bluebell Run" slopes'
           }
@@ -712,7 +724,7 @@ const History: React.FC = () => {
         ],
         images: [
           {
-            src: '/src/assets/images/wakefield-deeds-researchers.jpg',
+            src: wakefieldResearchers,
             alt: 'Jennifer Kirkby and Barbara Winfield at Wakefield Deeds Office',
             caption: 'Researchers Jennifer Kirkby and Barbara Winfield at the Wakefield Deeds Office during the Heritage Lottery Fund project'
           }
@@ -772,7 +784,7 @@ const History: React.FC = () => {
         ],
         images: [
           {
-            src: '/src/assets/images/geophysics-team-2013.jpg',
+            src: geophysicsTeam,
             alt: 'Geophysics survey team 2013',
             caption: 'Barbara Winfield with geophysics team members Jimmy Adcock and Finn Pope-Carter conducting archaeological survey in 2013'
           }
