@@ -54,6 +54,11 @@ export const MOCK_EVENTS: ParkEvent[] = [
 
 export const VOLUNTEER_ROLES: VolunteerRole[] = [
   {
+    title: 'General Interest',
+    description: 'A General Interest role to help with work groups where we carry out routine maintenances such as weeding, bulb planting, pruning, litter picking and other similar work.',
+    commitment: 'Flexible'
+  },
+  {
     title: 'Bog Garden Lead',
     description: 'Take responsibility for the upkeep and improvement of this wetland area near Netherfield entrance. Lead maintenance efforts to support pond-dwelling wildlife and ensure the area remains a thriving habitat.',
     commitment: 'Flexible'
