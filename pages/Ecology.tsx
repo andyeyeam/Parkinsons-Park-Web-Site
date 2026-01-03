@@ -194,18 +194,12 @@ const Ecology: React.FC = () => {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {birdSpecies.map((bird, i) => (
               <div key={i} className="flex items-center gap-3 p-3 bg-stone-50 rounded-xl">
-                <div className={`w-2 h-2 rounded-full shrink-0 ${bird.status === 'red' ? 'bg-red-500' :
-                    bird.status === 'amber' ? 'bg-amber-500' :
-                      'bg-emerald-500'
-                  }`} />
-                <a
-                  href={`https://www.rspb.org.uk/birds-and-wildlife/${bird.name}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-medium text-stone-700 hover:text-emerald-600 hover:underline"
-                >
-                  {bird.name}
-                </a>
+                <div className={`w-2 h-2 rounded-full shrink-0 ${
+                  bird.status === 'red' ? 'bg-red-500' :
+                  bird.status === 'amber' ? 'bg-amber-500' :
+                  'bg-emerald-500'
+                }`} />
+                <span className="text-sm font-medium text-stone-700">{bird.name}</span>
               </div>
             ))}
           </div>
