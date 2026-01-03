@@ -174,15 +174,14 @@ const YourStories: React.FC = () => {
 
     try {
       const templateParams = {
-        from_name: formData.isAnonymous ? 'Anonymous' : formData.name,
-        story: formData.story,
-        submission_type: 'Park Story',
-        to_email: 'parkinsonspark@example.com'
+        name: formData.isAnonymous ? 'Anonymous' : formData.name,
+        message: formData.story,
+        title: 'All our Story Submission'
       };
 
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        import.meta.env.VITE_EMAILJS_STORY_TEMPLATE_ID,
         templateParams,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
@@ -293,11 +292,9 @@ const YourStories: React.FC = () => {
                 value={formData.name}
                 onChange={handleInputChange}
                 disabled={formData.isAnonymous}
-                className={`w-full px-4 py-3 rounded-xl border ${
-                  errors.name ? 'border-red-500' : 'border-stone-200'
-                } focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all ${
-                  formData.isAnonymous ? 'bg-stone-100' : ''
-                }`}
+                className={`w-full px-4 py-3 rounded-xl border ${errors.name ? 'border-red-500' : 'border-stone-200'
+                  } focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all ${formData.isAnonymous ? 'bg-stone-100' : ''
+                  }`}
                 placeholder="Enter your name"
               />
               {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
@@ -323,9 +320,8 @@ const YourStories: React.FC = () => {
                 value={formData.story}
                 onChange={handleInputChange}
                 rows={6}
-                className={`w-full px-4 py-3 rounded-xl border ${
-                  errors.story ? 'border-red-500' : 'border-stone-200'
-                } focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all resize-none`}
+                className={`w-full px-4 py-3 rounded-xl border ${errors.story ? 'border-red-500' : 'border-stone-200'
+                  } focus:outline-none focus:ring-2 focus:ring-emerald-500 transition-all resize-none`}
                 placeholder="Share your memories of Parkinson's Park..."
               />
               {errors.story && <p className="text-red-500 text-sm mt-1">{errors.story}</p>}
