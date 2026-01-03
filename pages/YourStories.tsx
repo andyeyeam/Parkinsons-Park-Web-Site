@@ -191,10 +191,7 @@ const YourStories: React.FC = () => {
       setFormData({ name: '', isAnonymous: false, story: '' });
       setErrors({});
 
-      setTimeout(() => {
-        setShowSuccessPopup(false);
-        setStatus({ type: 'idle' });
-      }, 5000);
+
     } catch (error) {
       console.error('Error sending story:', error);
       setStatus({
@@ -368,7 +365,10 @@ const YourStories: React.FC = () => {
                 Your story has been submitted and will help preserve the social history of Parkinson's Park. The website will be updated as soon as possible and within the next 7 days.
               </p>
               <button
-                onClick={() => setShowSuccessPopup(false)}
+                onClick={() => {
+                  setShowSuccessPopup(false);
+                  setStatus({ type: 'idle' });
+                }}
                 className="bg-emerald-700 text-white px-6 py-3 rounded-full font-bold hover:bg-emerald-800 transition-all"
               >
                 Close
