@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, TreePine, Map, Heart, X } from 'lucide-react';
+import { ArrowRight, TreePine, Map, Heart, X, Info } from 'lucide-react';
 import { FEATURES, MOCK_EVENTS } from '../constants';
 import heroImage from '../src/assets/images/PPHeroV3.jpg';
 
@@ -114,6 +114,13 @@ const Home: React.FC = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">A Community Legacy</h2>
           <p className="text-stone-600 max-w-2xl mx-auto"><strong>Preserving the legacy. Enhancing the landscape.</strong> Parkinson's Park was gifted to the people of Guiseley in 1936 by F & A Parkinson Ltd. Today, our dedicated Friends group continues that mission, working to improve the park's quality of life for all Aireborough residents. Whether you are interested in our unique ecology, local history, or ancient geology, you can find our full story below. Want to help us keep the park alive and well? Visit our '<Link to="/volunteer" className="text-emerald-700 font-semibold hover:underline">Get Involved</Link>' page to see how you can make a difference.</p>
+
+          <div className="mt-8 max-w-2xl mx-auto bg-stone-50 border border-stone-200 rounded-2xl p-4 flex items-start gap-4 text-left">
+            <Info className="w-5 h-5 text-stone-400 shrink-0 mt-0.5" />
+            <div className="text-sm text-stone-600">
+              <p><strong>Note:</strong> This website replaces our previous site. You can still access the <a href="https://friendsofparkinsonspark.wordpress.com" target="_blank" rel="noopener noreferrer" className="text-emerald-700 font-semibold hover:underline">legacy WordPress archive here</a>.</p>
+            </div>
+          </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {FEATURES.map((feature, i) => {
@@ -168,9 +175,9 @@ const Home: React.FC = () => {
               </button>
             </div>
             <div className="relative">
-              <img 
-                src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop" 
-                alt="Views from Parkinson's Park" 
+              <img
+                src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop"
+                alt="Views from Parkinson's Park"
                 className="rounded-3xl shadow-2xl"
               />
               <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl hidden md:block">
@@ -208,11 +215,10 @@ const Home: React.FC = () => {
                 <img
                   src={event.imageUrl}
                   alt={event.title}
-                  className={`w-full h-full transition-transform duration-500 ${
-                    event.id === '2'
+                  className={`w-full h-full transition-transform duration-500 ${event.id === '2'
                       ? 'object-contain scale-90 group-hover:scale-100'
                       : 'object-cover group-hover:scale-105'
-                  }`}
+                    }`}
                 />
                 <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-800">
                   {event.type}

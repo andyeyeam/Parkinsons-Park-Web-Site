@@ -16,7 +16,7 @@ const Navbar: React.FC = () => {
       <SearchModal isOpen={showSearchModal} onClose={() => setShowSearchModal(false)} />
       {/* Donate Coming Soon Dialog */}
       {showDonateDialog && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowDonateDialog(false)}>
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] flex items-center justify-center p-4" onClick={() => setShowDonateDialog(false)}>
           <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl" onClick={(e) => e.stopPropagation()}>
             <div className="flex justify-between items-start mb-6">
               <h3 className="text-2xl font-bold text-stone-900">Donate</h3>

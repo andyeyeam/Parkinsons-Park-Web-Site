@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:docs.google.com)",
+      "Bash(copy \"C:\\\\Users\\\\andre\\\\Downloads\\\\PPVolunteers.jpg\" \"C:\\\\Users\\\\andre\\\\Repos\\\\Parkinsons-Park-Web-Site\\\\src\\\\assets\\\\images\\\\PPVolunteers.jpg\")",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(gh workflow:*)",
+      "Bash(curl:*)",
+      "Bash(npm install:*)",
+      "Bash(copy:*)",
+      "WebFetch(domain:friendsofparkinsonspark.wordpress.com)",
+      "WebFetch(domain:parkinsonspark.co.uk)",
+      "WebFetch(domain:www.pinewoodsconservationgroup.org.uk)",
+      "Bash(git reset:*)",
+      "Bash(ls -la \"C:\\\\Users\\\\andre\\\\Repos\\\\Parkinsons-Park-Web-Site\\\\src\\\\assets\\\\images\"\" 2>/dev/null || ls -la \"C:UsersandreReposParkinsons-Park-Web-Siteassetsimages\"\")",
+      "Bash(cat:*)",
+      "Bash(npm run dev:*)",
+      "Bash(timeout:*)",
+      "Bash(npm run build:*)"
+    ]
+  }
+}
