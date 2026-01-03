@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
-import { Heart, ArrowLeft, Send, User, MessageSquare, CheckCircle2, X, AlertCircle } from 'lucide-react';
+import { Heart, ArrowLeft, Send, User, MessageSquare, CheckCircle2, X, AlertCircle, Calendar } from 'lucide-react';
 import { FormStatus } from '../types';
 
 interface StoryFormData {
@@ -210,10 +210,17 @@ const YourStories: React.FC = () => {
       {/* Header Section */}
       <section className="bg-emerald-900 text-white py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link to="/" className="inline-flex items-center gap-2 text-emerald-200 hover:text-white mb-6 transition-colors">
-            <ArrowLeft className="w-4 h-4" />
-            Back to Home
-          </Link>
+          <div className="flex flex-wrap items-center gap-4 mb-6">
+            <Link to="/" className="inline-flex items-center gap-2 text-emerald-200 hover:text-white transition-colors">
+              <ArrowLeft className="w-4 h-4" />
+              Back to Home
+            </Link>
+            <span className="text-emerald-700">|</span>
+            <Link to="/park-timeline" className="inline-flex items-center gap-2 text-emerald-200/80 hover:text-white transition-colors text-sm">
+              <Calendar className="w-4 h-4" />
+              View park events timeline
+            </Link>
+          </div>
           <div className="inline-flex items-center justify-center p-3 bg-emerald-800/50 rounded-2xl mb-6 backdrop-blur-sm border border-emerald-700">
             <Heart className="w-8 h-8 text-emerald-400" />
           </div>
