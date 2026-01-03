@@ -111,6 +111,13 @@ const History: React.FC = () => {
           'These features are characteristic of Anglo-Saxon agricultural practices',
           'The field name "Crooked Lands" itself refers to these pre-1066 farming structures',
           'Evidence shows organized agriculture before the Norman Conquest'
+        ],
+        images: [
+          {
+            src: '/src/assets/images/lynchet-crooked-lands.jpg',
+            alt: 'Lynchet on Crooked Lands',
+            caption: 'Anglo-Saxon lynchet (terraced field boundary) still visible in Crooked Lands field'
+          }
         ]
       }
     },
@@ -126,6 +133,13 @@ const History: React.FC = () => {
           'Medieval rabbit warrens were commercial enterprises providing meat and fur',
           'Ownership of warrens was a privilege restricted to landowners',
           'The wooded area of Clapper Brow still exists in the park today'
+        ],
+        images: [
+          {
+            src: '/src/assets/images/clapper-brow.jpg',
+            alt: 'Clapper Brow woodland',
+            caption: 'The wooded area of Clapper Brow, site of the medieval rabbit warren'
+          }
         ]
       }
     },
@@ -217,6 +231,13 @@ const History: React.FC = () => {
           'Established a modern dairy farm serving growing urban populations',
           'Renamed Great Brow field to Potterton Brow after his mother\'s family',
           'Invested in new farming buildings and improved pastures'
+        ],
+        images: [
+          {
+            src: '/src/assets/images/great-brow.jpg',
+            alt: 'Great Brow (Potterton Brow)',
+            caption: 'Great Brow, renamed Potterton Brow by Marshall Grimshaw in 1837'
+          }
         ]
       }
     },
@@ -233,6 +254,13 @@ const History: React.FC = () => {
           'Showed rural farming/weaving community during industrial revolution',
           'This map became the foundation for the 2012 Heritage Lottery Fund research project',
           'Original map available at Wakefield Deeds Office'
+        ],
+        images: [
+          {
+            src: '/src/assets/images/tithe-map-1838-detail.jpg',
+            alt: '1838 Tithe Map',
+            caption: 'Outline of Parkinson\'s Park on the 1838 Tithe Map showing field boundaries and names'
+          }
         ]
       }
     },
@@ -281,6 +309,13 @@ const History: React.FC = () => {
           'Several of these trees still stand in the park today',
           'Represented the Victorian/Edwardian tradition of commemorative tree planting',
           'The oaks became landmark features helping preserve the park\'s character'
+        ],
+        images: [
+          {
+            src: '/src/assets/images/peate-oak-trees.jpg',
+            alt: 'Peate\'s Oak Trees',
+            caption: 'Peate\'s oak trees planted circa 1909 for King George V\'s coronation, with seedling'
+          }
         ]
       }
     },
@@ -297,6 +332,13 @@ const History: React.FC = () => {
           'Brother Albert joined the business in 1913',
           'Initially an agency for electrical motors before manufacturing their own',
           'The brothers\' "practical idealism" philosophy aligned with Gandhi\'s principles'
+        ],
+        images: [
+          {
+            src: '/src/assets/images/frank-parkinson.jpg',
+            alt: 'Frank Parkinson',
+            caption: 'Frank Parkinson (1887-1946), co-founder of F & A Parkinson Ltd'
+          }
         ],
         relatedPeople: ['Frank Parkinson', 'Albert Parkinson']
       }
@@ -429,6 +471,13 @@ const History: React.FC = () => {
           'Funded annual Children\'s Gala, Flower & Produce Show, and October bonfire',
           'One of the largest philanthropic bequests in Yorkshire history'
         ],
+        images: [
+          {
+            src: '/src/assets/images/parkinson-building-leeds.jpg',
+            alt: 'Parkinson Building, Leeds University',
+            caption: 'The Parkinson Building at Leeds University, funded by Frank Parkinson\'s £200,000 bequest (completed 1951)'
+          }
+        ],
         relatedPeople: ['Frank Parkinson']
       }
     },
@@ -513,6 +562,13 @@ const History: React.FC = () => {
           'Families picnicked and walked dogs',
           'Children played freely in natural environment',
           'Strong sense of community ownership despite private ownership'
+        ],
+        images: [
+          {
+            src: '/src/assets/images/snow-sledging.gif',
+            alt: 'Children sledging in snow',
+            caption: 'Winter sledging on the famous "Snowdrop" and "Bluebell Run" slopes'
+          }
         ]
       }
     },
@@ -653,6 +709,13 @@ const History: React.FC = () => {
           'Geophysical surveys using Time Team methodology',
           'Discovered continuous usage since Bronze Age (2300-801 BC)',
           'Results shared through exhibitions and publications'
+        ],
+        images: [
+          {
+            src: '/src/assets/images/wakefield-deeds-researchers.jpg',
+            alt: 'Jennifer Kirkby and Barbara Winfield at Wakefield Deeds Office',
+            caption: 'Researchers Jennifer Kirkby and Barbara Winfield at the Wakefield Deeds Office during the Heritage Lottery Fund project'
+          }
         ]
       }
     },
@@ -706,6 +769,13 @@ const History: React.FC = () => {
           'Ground-penetrating radar and resistivity survey',
           'Results added depth to historical understanding',
           'Evidence of continuous usage for over 2,000 years'
+        ],
+        images: [
+          {
+            src: '/src/assets/images/geophysics-team-2013.jpg',
+            alt: 'Geophysics survey team 2013',
+            caption: 'Barbara Winfield with geophysics team members Jimmy Adcock and Finn Pope-Carter conducting archaeological survey in 2013'
+          }
         ]
       }
     },
@@ -1175,6 +1245,32 @@ const History: React.FC = () => {
                               <span>{text}</span>
                             </p>
                           ))}
+                        </div>
+                      )}
+
+                      {event.details.images && event.details.images.length > 0 && (
+                        <div className="mt-4 pt-4 border-t border-stone-100">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {event.details.images.map((image, idx) => (
+                              <div
+                                key={idx}
+                                className="cursor-pointer group"
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  setSelectedImage(image);
+                                }}
+                              >
+                                <img
+                                  src={image.src}
+                                  alt={image.alt}
+                                  className="w-full h-48 object-cover rounded-lg border border-stone-200 group-hover:border-emerald-500 transition-all"
+                                />
+                                {image.caption && (
+                                  <p className="text-xs text-stone-600 mt-2 italic">{image.caption}</p>
+                                )}
+                              </div>
+                            ))}
+                          </div>
                         </div>
                       )}
 
