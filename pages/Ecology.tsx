@@ -189,14 +189,14 @@ const Ecology: React.FC = () => {
             <h2 className="text-3xl font-bold text-stone-900">Bird Species</h2>
           </div>
           <p className="text-stone-600 mb-8 max-w-3xl">
-            The park hosts numerous bird species including those on RSPB red and amber conservation lists, making it an important sanctuary for Yorkshire birdlife.
+            The park hosts numerous bird species including those on RSPB red and amber conservation lists, making it an important sanctuary for Yorkshire birdlife. Click on each bird name to go to the RSPB site for more details.
           </p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {birdSpecies.map((bird, i) => (
               <div key={i} className="flex items-center gap-3 p-3 bg-stone-50 rounded-xl">
                 <div className={`w-2 h-2 rounded-full shrink-0 ${bird.status === 'red' ? 'bg-red-500' :
-                    bird.status === 'amber' ? 'bg-amber-500' :
-                      'bg-emerald-500'
+                  bird.status === 'amber' ? 'bg-amber-500' :
+                    'bg-emerald-500'
                   }`} />
                 <a
                   href={bird.url}
