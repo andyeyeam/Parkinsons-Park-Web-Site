@@ -365,7 +365,7 @@ const YourStories: React.FC = () => {
               </div>
               <h3 className="text-2xl font-bold text-stone-900 mb-2">Thank You!</h3>
               <p className="text-stone-600 mb-6">
-                Your story has been submitted and will help preserve the social history of Parkinson's Park.
+                Your story has been submitted and will help preserve the social history of Parkinson's Park. The website will be updated as soon as possible and within the next 7 days.
               </p>
               <button
                 onClick={() => setShowSuccessPopup(false)}
