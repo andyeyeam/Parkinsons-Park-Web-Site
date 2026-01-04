@@ -113,7 +113,7 @@ const Home: React.FC = () => {
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">A Community Legacy</h2>
-          <p className="text-stone-600 max-w-2xl mx-auto"><strong>Parkinson's Park</strong> was gifted to the people of Guiseley in 1936 by F & A Parkinson Ltd. Today, our dedicated Friends group continues that mission, working to improve the park's quality of life for all Aireborough residents. Whether you are interested in our unique ecology, local history, or ancient geology, you can find our full story below. <strong>Want to help us keep the park alive and well? Visit our '<Link to="/volunteer" className="text-emerald-700 font-semibold hover:underline">Get Involved</Link>' page to see how you can make a difference.</strong></p>
+          <p className="text-stone-600 max-w-2xl mx-auto"><strong>Parkinson's Park</strong> was gifted to the people of Guiseley in 1936 by F & A Parkinson Ltd. Today, a Friends Group continues that mission, working to improve the park's quality of life for all Aireborough residents. Whether you are interested in the Friends Group, the unique ecology, local history, or ancient geology, you can find full details on this website. <strong>Want to help us keep the park alive and well? Visit our '<Link to="/volunteer" className="text-emerald-700 font-semibold hover:underline">Get Involved</Link>' page to see how you can make a difference.</strong></p>
 
           <div className="mt-8 max-w-2xl mx-auto bg-stone-50 border border-stone-200 rounded-2xl p-4 flex items-start gap-4 text-left">
             <Info className="w-5 h-5 text-stone-400 shrink-0 mt-0.5" />
