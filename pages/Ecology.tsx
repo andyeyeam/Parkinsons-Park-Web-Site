@@ -241,7 +241,7 @@ const Ecology: React.FC = () => {
           </div>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <a
-              href="/documents/species-checklist.pdf"
+              href={`${import.meta.env.BASE_URL}documents/species-checklist.pdf`}
               download="Parkinsons-Park-Species-Checklist.pdf"
               className="bg-white text-stone-900 px-10 py-4 rounded-full font-bold text-lg hover:bg-stone-100 transition-all text-center"
             >
