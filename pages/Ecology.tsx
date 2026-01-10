@@ -240,9 +240,13 @@ const Ecology: React.FC = () => {
             <p className="text-sm text-emerald-200 mt-3 italic">Our I-Spy Trail leaflet helps young visitors discover park wildlife</p>
           </div>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="bg-white text-stone-900 px-10 py-4 rounded-full font-bold text-lg hover:bg-stone-100 transition-all">
+            <a
+              href="/documents/species-checklist.pdf"
+              download="Parkinsons-Park-Species-Checklist.pdf"
+              className="bg-white text-stone-900 px-10 py-4 rounded-full font-bold text-lg hover:bg-stone-100 transition-all text-center"
+            >
               Download Species Checklist
-            </button>
+            </a>
             <button className="bg-emerald-800 text-white border border-emerald-700 px-10 py-4 rounded-full font-bold text-lg hover:bg-emerald-700 transition-all">
               Get I-Spy Trail Leaflet
             </button>

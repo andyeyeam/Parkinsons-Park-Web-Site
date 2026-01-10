@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parkinson's Park Species Checklist</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: #1c1917;
+            background: #fafaf9;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 60px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 3px solid #047857;
+        }
+
+        .header h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #064e3b;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .emoji {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .tagline {
+            font-size: 20px;
+            color: #047857;
+            font-style: italic;
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+
+        .intro {
+            font-size: 16px;
+            color: #57534e;
+            line-height: 1.8;
+            background: #f0fdf4;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #059669;
+        }
+
+        .section {
+            margin: 45px 0;
+            page-break-inside: avoid;
+        }
+
+        .section-header {
+            background: linear-gradient(135deg, #064e3b 0%, #047857 100%);
+            color: white;
+            padding: 20px 25px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .section-header h2 {
+            font-size: 28px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-header .emoji {
+            font-size: 32px;
+        }
+
+        .section-description {
+            font-size: 15px;
+            color: #d1fae5;
+            margin-top: 10px;
+            font-weight: 400;
+        }
+
+        .checklist {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .checklist-item {
+            background: #fafaf9;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 2px solid #e7e5e4;
+            transition: all 0.2s;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .checklist-item:hover {
+            border-color: #10b981;
+            background: #f0fdf4;
+        }
+
+        .checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #059669;
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .checklist-item a {
+            color: #064e3b;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            flex: 1;
+        }
+
+        .checklist-item a:hover {
+            color: #059669;
+            text-decoration: underline;
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px solid #e7e5e4;
+            text-align: center;
+            color: #78716c;
+            font-size: 14px;
+        }
+
+        .footer p {
+            margin: 8px 0;
+        }
+
+        .footer strong {
+            color: #064e3b;
+            font-weight: 700;
+        }
+
+        @media print {
+            body {
+                padding: 20px;
+                background: white;
+            }
+
+            .container {
+                box-shadow: none;
+                padding: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="emoji">🌿</div>
+            <h1>Parkinson's Park Species Checklist</h1>
+            <p class="tagline">"A Landscape Park in the Guiseley Gap"</p>
+        </div>
+
+        <div class="intro">
+            This 11-acre historic park reflects the unique geology of the Chevin escarpment, featuring acid grassland, wetlands, and century-old woodland. Use this checklist to discover and record the diverse species that call Parkinson's Park home.
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="emoji">🌳</span> Woodland & Mature Trees</h2>
+                <p class="section-description">Home to 200-year-old Sycamores and the commemorative Jubilee Oak</p>
+            </div>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/a-z-of-british-trees/english-oak/" target="_blank">English Oak</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/a-z-of-british-trees/silver-birch/" target="_blank">Silver Birch</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/a-z-of-british-trees/sycamore/" target="_blank">Sycamore</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/a-z-of-british-trees/horse-chestnut/" target="_blank">Horse-chestnut</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/a-z-of-british-trees/scots-pine/" target="_blank">Scots Pine</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/a-z-of-british-trees/rowan/" target="_blank">Rowan</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.woodlandtrust.org.uk/trees-woods-and-wildlife/british-trees/a-z-of-british-trees/hazel/" target="_blank">Hazel</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="emoji">💧</span> The Bog Garden</h2>
+                <p class="section-description">A unique wetland habitat fed by hillside springs</p>
+            </div>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.wildlifetrusts.org/wildlife-explorer/wildflowers/yellow-flag-iris" target="_blank">Yellow Flag Iris</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.wildlifetrusts.org/wildlife-explorer/wildflowers/marsh-marigold" target="_blank">Marsh Marigold</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.wildlifetrusts.org/wildlife-explorer/wildflowers/purple-loosestrife" target="_blank">Purple Loosestrife</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.wildlifetrusts.org/wildlife-explorer/wildflowers/ragged-robin" target="_blank">Ragged Robin</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.wildlifetrusts.org/wildlife-explorer/wildflowers/devils-bit-scabious" target="_blank">Devil's-bit Scabious</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.wildlifetrusts.org/wildlife-explorer/wildflowers/cuckoo-flower" target="_blank">Cuckoo Flower</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.wildlifetrusts.org/wildlife-explorer/wildflowers/water-forget-me-not" target="_blank">Water Forget-Me-Not</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="emoji">🌸</span> Meadow & Wildflowers</h2>
+                <p class="section-description">From the "Bluebell Run" to the Wildflower Meadow</p>
+            </div>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.wildlifetrusts.org/wildlife-explorer/wildflowers/bluebell" target="_blank">Native Bluebell</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.wildlifetrusts.org/wildlife-explorer/wildflowers/wood-anemone" target="_blank">Wood Anemone</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.wildlifetrusts.org/wildlife-explorer/wildflowers/lesser-celandine" target="_blank">Lesser Celandine</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.wildlifetrusts.org/wildlife-explorer/wildflowers/pignut" target="_blank">Pignut</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.wildlifetrusts.org/wildlife-explorer/wildflowers/common-knapweed" target="_blank">Common Knapweed</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.wildlifetrusts.org/wildlife-explorer/wildflowers/greater-birds-foot-trefoil" target="_blank">Greater Bird's-foot Trefoil</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.wildlifetrusts.org/wildlife-explorer/wildflowers/red-clover" target="_blank">Red Clover</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="emoji">🦋</span> Invertebrates & Small Mammals</h2>
+                <p class="section-description">Butterflies, moths, and wildlife of the meadow and woodland</p>
+            </div>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://butterfly-conservation.org/butterflies/orange-tip" target="_blank">Orange-tip Butterfly (Spring)</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://butterfly-conservation.org/butterflies/ringlet" target="_blank">Ringlet (Summer)</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://butterfly-conservation.org/butterflies/meadow-brown" target="_blank">Meadow Brown (Summer)</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://butterfly-conservation.org/butterflies/small-skipper" target="_blank">Small Skipper</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://butterfly-conservation.org/moths/six-spot-burnet" target="_blank">Six-spot Burnet Moth</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.wildlifetrusts.org/wildlife-explorer/amphibians/common-frog" target="_blank">Common Frog</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.wildlifetrusts.org/wildlife-explorer/amphibians/smooth-newt" target="_blank">Smooth Newt</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.wildlifetrusts.org/wildlife-explorer/mammals/pipistrelle-bat" target="_blank">Pipistrelle Bat</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="emoji">🦅</span> Birds of the Guiseley Gap</h2>
+                <p class="section-description">A key corridor for resident hunters and migratory visitors</p>
+            </div>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.rspb.org.uk/birds-and-wildlife/wildlife-guides/bird-a-z/red-kite/" target="_blank">Red Kite</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.rspb.org.uk/birds-and-wildlife/wildlife-guides/bird-a-z/buzzard/" target="_blank">Buzzard</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.rspb.org.uk/birds-and-wildlife/wildlife-guides/bird-a-z/bullfinch/" target="_blank">Bullfinch</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.rspb.org.uk/birds-and-wildlife/wildlife-guides/bird-a-z/goldfinch/" target="_blank">Goldfinch</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.rspb.org.uk/birds-and-wildlife/wildlife-guides/bird-a-z/curlew/" target="_blank">Curlew</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.rspb.org.uk/birds-and-wildlife/wildlife-guides/bird-a-z/pink-footed-goose/" target="_blank">Pink-footed Geese</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.rspb.org.uk/birds-and-wildlife/wildlife-guides/bird-a-z/tawny-owl/" target="_blank">Tawny Owl</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-header">
+                <h2><span class="emoji">🍎</span> Community Orchard</h2>
+                <p class="section-description">Heritage Yorkshire apple varieties</p>
+            </div>
+            <div class="checklist">
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.orangepippin.com/varieties/apples/yorkshire-greening" target="_blank">'Yorkshire Greening' Apple</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.orangepippin.com/varieties/apples/ribston-pippin" target="_blank">'Ribston Pippin' Apple</a>
+                </div>
+                <div class="checklist-item">
+                    <div class="checkbox"></div>
+                    <a href="https://www.orangepippin.com/varieties/apples/red-devil" target="_blank">'Red Devil' Apple</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p><strong>Managed by the Friends of Parkinson's Park CIC</strong></p>
+            <p>Supporting the legacy of Frank & Albert Parkinson</p>
+            <p style="margin-top: 20px; font-size: 13px;">Visit <strong>www.parkinsonspark.org.uk</strong> for more information</p>
+        </div>
+    </div>
+</body>
+</html>
