@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import WillowChat from './components/WillowChat';
+import DownloadDialog from './components/DownloadDialog';
+import { useDownload } from './hooks/useDownload';
 import Home from './pages/Home';
 import Events from './pages/Events';
 import Volunteer from './pages/Volunteer';
@@ -21,6 +23,7 @@ const Footer: React.FC = () => {
   const [showManagementPlanDialog, setShowManagementPlanDialog] = useState(false);
   const [showDonateDialog, setShowDonateDialog] = useState(false);
   const [showJoinFriendsDialog, setShowJoinFriendsDialog] = useState(false);
+  const { downloadState, initiateDownload, closeDialog } = useDownload();
 
   return (
     <footer className="bg-stone-900 text-stone-400 py-16">
@@ -147,6 +150,13 @@ const Footer: React.FC = () => {
         <p className="mt-4 md:mt-0">Designed for the People of Guiseley.</p>
       </div>
     </div>
+
+    <DownloadDialog
+      isOpen={downloadState.isOpen}
+      onClose={closeDialog}
+      fileName={downloadState.fileName}
+      fileUrl={downloadState.fileUrl}
+    />
     </footer>
   );
 };
@@ -246,9 +256,15 @@ const AboutPage = () => (
                 Funding for basic maintenance comes out of an annual charge made by Meadfleet to the residents of Edison Fields; other money for Park improvements and events is raised by FOPP.
               </p>
               <div className="flex flex-wrap gap-3 mt-6">
-                <a href="/Parkinsons-Park-Web-Site/documents/FOPP-CIC-Constitution.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-emerald-700 font-bold hover:underline">
+                <button
+                  onClick={() => initiateDownload(
+                    `${import.meta.env.BASE_URL}documents/FOPP-CIC-Constitution.pdf`,
+                    'FOPP-CIC-Constitution.pdf'
+                  )}
+                  className="flex items-center gap-2 text-emerald-700 font-bold hover:underline cursor-pointer"
+                >
                   <FileText className="w-4 h-4" /> CIC Constitution
-                </a>
+                </button>
               </div>
             </div>
           </div>
@@ -374,9 +390,16 @@ const AboutPage = () => (
               { year: "2022/23", file: "CIC34-2022-23.pdf" },
               { year: "2024/25", file: "CIC34-2024-25.pdf" }
             ].map((report) => (
-              <a key={report.year} href={`/Parkinsons-Park-Web-Site/documents/${report.file}`} target="_blank" rel="noopener noreferrer" className="p-3 bg-white border border-stone-200 rounded-xl text-xs font-bold text-stone-700 hover:border-emerald-600 hover:text-emerald-700 transition-all text-center">
+              <button
+                key={report.year}
+                onClick={() => initiateDownload(
+                  `${import.meta.env.BASE_URL}documents/${report.file}`,
+                  report.file
+                )}
+                className="p-3 bg-white border border-stone-200 rounded-xl text-xs font-bold text-stone-700 hover:border-emerald-600 hover:text-emerald-700 transition-all text-center cursor-pointer"
+              >
                 Report {report.year}
-              </a>
+              </button>
             ))}
           </div>
           <p className="text-xs text-stone-400 italic">2023/24 Report: Not yet available</p>
@@ -395,10 +418,17 @@ const AboutPage = () => (
               { date: "April 2014", type: "AGM", file: "AGM-Minutes-April-2014.docx" },
               { date: "November 2015", type: "EGM", file: "EGM-Minutes-November-2015.pdf" }
             ].map((min, i) => (
-              <a key={i} href={`/Parkinsons-Park-Web-Site/documents/${min.file}`} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between p-4 bg-white border border-stone-200 rounded-2xl hover:bg-stone-50 transition-all group">
+              <button
+                key={i}
+                onClick={() => initiateDownload(
+                  `${import.meta.env.BASE_URL}documents/${min.file}`,
+                  min.file
+                )}
+                className="flex items-center justify-between p-4 bg-white border border-stone-200 rounded-2xl hover:bg-stone-50 transition-all group w-full cursor-pointer"
+              >
                 <span className="font-bold text-stone-800">{min.type} Minutes - {min.date}</span>
                 <ExternalLink className="w-4 h-4 text-stone-300 group-hover:text-emerald-600" />
-              </a>
+              </button>
             ))}
           </div>
         </div>

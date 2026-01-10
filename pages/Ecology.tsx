@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Leaf, Trees, Flower2, Bird, Bug, Mountain, ArrowLeft } from 'lucide-react';
+import DownloadDialog from '../components/DownloadDialog';
+import { useDownload } from '../hooks/useDownload';
 
 // Import ecology images
 import bluebells from '../src/assets/images/ecology-bluebells.jpg';
@@ -9,6 +11,7 @@ import bogGardenPanel from '../src/assets/images/bog-garden-panel.png';
 import ispyTrail from '../src/assets/images/ispy-trail-leaflet.jpg';
 
 const Ecology: React.FC = () => {
+  const { downloadState, initiateDownload, closeDialog } = useDownload();
   const habitats = [
     {
       icon: <Flower2 className="w-6 h-6 text-emerald-600" />,
@@ -240,17 +243,26 @@ const Ecology: React.FC = () => {
             <p className="text-sm text-emerald-200 mt-3 italic">Our I-Spy Trail leaflet helps young visitors discover park wildlife</p>
           </div>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a
-              href={`${import.meta.env.BASE_URL}documents/species-checklist.pdf`}
-              download="Parkinsons-Park-Species-Checklist.pdf"
-              className="bg-white text-stone-900 px-10 py-4 rounded-full font-bold text-lg hover:bg-stone-100 transition-all text-center"
+            <button
+              onClick={() => initiateDownload(
+                `${import.meta.env.BASE_URL}documents/species-checklist.pdf`,
+                'Parkinsons-Park-Species-Checklist.pdf'
+              )}
+              className="bg-white text-stone-900 px-10 py-4 rounded-full font-bold text-lg hover:bg-stone-100 transition-all"
             >
               Download Species Checklist
-            </a>
+            </button>
             <button className="bg-emerald-800 text-white border border-emerald-700 px-10 py-4 rounded-full font-bold text-lg hover:bg-emerald-700 transition-all">
               Get I-Spy Trail Leaflet
             </button>
           </div>
+
+          <DownloadDialog
+            isOpen={downloadState.isOpen}
+            onClose={closeDialog}
+            fileName={downloadState.fileName}
+            fileUrl={downloadState.fileUrl}
+          />
         </div>
       </section>
     </div>

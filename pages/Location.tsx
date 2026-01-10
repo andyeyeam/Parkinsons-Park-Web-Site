@@ -1,5 +1,7 @@
 import React from 'react';
 import { MapPin, Compass, Car, Trees, Info, Download, History } from 'lucide-react';
+import DownloadDialog from '../components/DownloadDialog';
+import { useDownload } from '../hooks/useDownload';
 import accessMap from '../src/assets/images/access-map.png';
 import parkFeaturesMap from '../src/assets/images/park-features-map.jpg';
 import historical1980s from '../src/assets/images/historical-1980s.jpg';
@@ -8,6 +10,8 @@ import historical1938 from '../src/assets/images/historical-1938.jpg';
 import titheMap1838 from '../src/assets/images/tithe-map-1838.jpg';
 
 const Location: React.FC = () => {
+  const { downloadState, initiateDownload, closeDialog } = useDownload();
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
       {/* Header Section */}
@@ -112,15 +116,16 @@ const Location: React.FC = () => {
             <p className="text-sm text-stone-500">
               Detailed map showing park features, trails, and facilities
             </p>
-            <a
-              href="/Parkinsons-Park-Web-Site/documents/park-features-map-2021.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-emerald-700 text-white px-6 py-3 rounded-xl font-bold hover:bg-emerald-800 transition-all shadow-md"
+            <button
+              onClick={() => initiateDownload(
+                `${import.meta.env.BASE_URL}documents/park-features-map-2021.pdf`,
+                'park-features-map-2021.pdf'
+              )}
+              className="flex items-center gap-2 bg-emerald-700 text-white px-6 py-3 rounded-xl font-bold hover:bg-emerald-800 transition-all shadow-md cursor-pointer"
             >
               <Download className="w-5 h-5" />
               Download PDF
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -183,6 +188,13 @@ const Location: React.FC = () => {
           ))}
         </div>
       </section>
+
+      <DownloadDialog
+        isOpen={downloadState.isOpen}
+        onClose={closeDialog}
+        fileName={downloadState.fileName}
+        fileUrl={downloadState.fileUrl}
+      />
     </div>
   );
 };
