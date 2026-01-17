@@ -232,7 +232,7 @@ const YourStories: React.FC = () => {
       </section>
 
       {/* Stories Section */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section id="stories" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 scroll-mt-24">
         <div className="text-center mb-16">
           <div className="inline-block bg-emerald-50 px-4 py-2 rounded-full text-emerald-800 text-sm font-bold uppercase tracking-wider mb-4">
             Community Memories
@@ -267,7 +267,7 @@ const YourStories: React.FC = () => {
       </section>
 
       {/* Story Submission Form */}
-      <section id="story-form" className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <section id="share" className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-20 scroll-mt-24">
         <div className="bg-white rounded-[3rem] p-12 border border-stone-200 shadow-lg">
           <div className="text-center mb-8">
             <Heart className="w-12 h-12 text-emerald-700 mx-auto mb-4" />

@@ -154,7 +154,7 @@ const Volunteer: React.FC = () => {
         </div>
       </section>
 
-      <section>
+      <section id="roles" className="scroll-mt-24">
         <h2 className="text-3xl font-bold text-stone-900 mb-12 text-center">Available Roles</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {VOLUNTEER_ROLES.map((role, i) => (
@@ -170,7 +170,7 @@ const Volunteer: React.FC = () => {
         </div>
       </section>
 
-      <section className="bg-stone-50 rounded-[3rem] p-12">
+      <section id="apply" className="bg-stone-50 rounded-[3rem] p-12 scroll-mt-24">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl font-bold text-stone-900 mb-6">Ready to join us?</h2>
           <p className="text-stone-600 mb-10 text-lg">Community participation sustains the park. If you're interested and able, we'd love to hear from you! Fill out our quick interest form and our volunteer coordinator will get back to you.</p>

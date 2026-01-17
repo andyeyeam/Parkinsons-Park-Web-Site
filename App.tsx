@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import WillowChat from './components/WillowChat';
 import DownloadDialog from './components/DownloadDialog';
 import { useDownload } from './hooks/useDownload';
+import { useScrollToHash } from './hooks/useScrollToHash';
 import Home from './pages/Home';
 import Events from './pages/Events';
 import Volunteer from './pages/Volunteer';
@@ -191,7 +192,7 @@ const AboutPage = () => {
     </section>
 
     {/* Purpose Section */}
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+    <section id="mission" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 scroll-mt-24">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
         <div className="space-y-6">
           <div className="inline-block bg-emerald-50 px-4 py-2 rounded-full text-emerald-800 text-sm font-bold uppercase tracking-wider">
@@ -300,7 +301,7 @@ const AboutPage = () => {
     </section>
 
     {/* Key People Section */}
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+    <section id="directors" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 scroll-mt-24">
       <div className="text-center mb-16">
         <h2 className="text-4xl font-bold text-stone-900 mb-4">Key People & Contacts</h2>
         <p className="text-stone-500">The dedicated individuals making Parkinson's Park possible.</p>
@@ -374,7 +375,7 @@ const AboutPage = () => {
     </section>
 
     {/* Reports Section */}
-    <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <section id="reports" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 scroll-mt-24">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Reports */}
         <div className="space-y-6">
@@ -451,27 +452,36 @@ const AboutPage = () => {
   );
 };
 
+// Inner app component that can use router hooks
+const AppContent: React.FC = () => {
+  useScrollToHash();
+
+  return (
+    <div className="flex flex-col min-h-screen">
+      <Navbar />
+      <main className="flex-grow">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/volunteer" element={<Volunteer />} />
+          <Route path="/location" element={<Location />} />
+          <Route path="/ecology" element={<Ecology />} />
+          <Route path="/geology" element={<Geology />} />
+          <Route path="/history" element={<HistoryPage />} />
+          <Route path="/your-stories" element={<YourStories />} />
+          <Route path="/about" element={<AboutPage />} />
+        </Routes>
+      </main>
+      <Footer />
+      <WillowChat />
+    </div>
+  );
+};
+
 const App: React.FC = () => {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/events" element={<Events />} />
-            <Route path="/volunteer" element={<Volunteer />} />
-            <Route path="/location" element={<Location />} />
-            <Route path="/ecology" element={<Ecology />} />
-            <Route path="/geology" element={<Geology />} />
-            <Route path="/history" element={<HistoryPage />} />
-            <Route path="/your-stories" element={<YourStories />} />
-            <Route path="/about" element={<AboutPage />} />
-          </Routes>
-        </main>
-        <Footer />
-        <WillowChat />
-      </div>
+      <AppContent />
     </Router>
   );
 };

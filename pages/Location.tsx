@@ -44,7 +44,7 @@ const Location: React.FC = () => {
       </section>
 
       {/* Access Routes Section */}
-      <section>
+      <section id="access" className="scroll-mt-24">
         <h2 className="text-3xl font-bold text-stone-900 mb-8 flex items-center gap-3">
           <Compass className="w-8 h-8 text-emerald-600" />
           Access Routes
@@ -101,7 +101,7 @@ const Location: React.FC = () => {
       </section>
 
       {/* Park Features Map Section */}
-      <section>
+      <section id="features" className="scroll-mt-24">
         <h2 className="text-3xl font-bold text-stone-900 mb-8 flex items-center gap-3">
           <Trees className="w-8 h-8 text-emerald-600" />
           Park Features Map
@@ -131,7 +131,7 @@ const Location: React.FC = () => {
       </section>
 
       {/* Walking Connections */}
-      <section>
+      <section id="walking" className="scroll-mt-24">
         <h2 className="text-3xl font-bold text-stone-900 mb-8 flex items-center gap-3">
           <Compass className="w-8 h-8 text-emerald-600" />
           Walking Connections

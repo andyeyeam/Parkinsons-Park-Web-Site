@@ -1,14 +1,155 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X as CloseIcon, Search } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Menu, X as CloseIcon, Search, ChevronDown } from 'lucide-react';
 import logo from '../src/assets/images/logo.jpg';
 import SearchModal from './SearchModal';
+
+// Dropdown menu component
+const NavDropdown: React.FC<{
+  label: string;
+  items: { label: string; to: string }[];
+  mainLink?: string;
+}> = ({ label, items, mainLink }) => {
+  const navigate = useNavigate();
+
+  const handleMainClick = () => {
+    if (mainLink) {
+      navigate(mainLink);
+    }
+  };
+
+  return (
+    <div className="relative group">
+      <button
+        onClick={handleMainClick}
+        className="flex items-center gap-1 text-stone-600 hover:text-emerald-700 font-medium transition-colors cursor-pointer"
+      >
+        {label}
+        <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+      </button>
+      <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+        <div className="bg-white rounded-xl shadow-xl border border-stone-200 py-2 min-w-[200px]">
+          {items.map((item, i) => (
+            <Link
+              key={i}
+              to={item.to}
+              className="block px-4 py-2 text-sm text-stone-600 hover:bg-emerald-50 hover:text-emerald-700 transition-colors"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Mobile dropdown component
+const MobileDropdown: React.FC<{
+  label: string;
+  items: { label: string; to: string }[];
+  mainLink?: string;
+  onNavigate: () => void;
+}> = ({ label, items, mainLink, onNavigate }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <div>
+      <div className="flex items-center justify-between">
+        {mainLink ? (
+          <Link to={mainLink} className="text-stone-600 font-medium" onClick={onNavigate}>
+            {label}
+          </Link>
+        ) : (
+          <span className="text-stone-600 font-medium">{label}</span>
+        )}
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="p-1 text-stone-400"
+        >
+          <ChevronDown className={`w-4 h-4 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+        </button>
+      </div>
+      {isExpanded && (
+        <div className="ml-4 mt-2 space-y-2 border-l-2 border-emerald-200 pl-4">
+          {items.map((item, i) => (
+            <Link
+              key={i}
+              to={item.to}
+              className="block text-sm text-stone-500 hover:text-emerald-700"
+              onClick={onNavigate}
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showDonateDialog, setShowDonateDialog] = useState(false);
   const [showSearchModal, setShowSearchModal] = useState(false);
+
+  // Navigation structure with dropdowns
+  const navItems = {
+    learn: {
+      label: 'Learn',
+      items: [
+        { label: 'History', to: '/history' },
+        { label: 'Ecology', to: '/ecology' },
+        { label: 'Geology', to: '/geology' },
+      ]
+    },
+    events: {
+      label: 'Events',
+      mainLink: '/events',
+      items: [
+        { label: 'All Events', to: '/events' },
+        { label: 'Family Events', to: '/events#family' },
+        { label: 'Walks', to: '/events#walk' },
+        { label: 'Workshops', to: '/events#workshop' },
+      ]
+    },
+    getInvolved: {
+      label: 'Get Involved',
+      mainLink: '/volunteer',
+      items: [
+        { label: 'Volunteer Opportunities', to: '/volunteer' },
+        { label: 'Available Roles', to: '/volunteer#roles' },
+        { label: 'Application Form', to: '/volunteer#apply' },
+      ]
+    },
+    findUs: {
+      label: 'Find Us',
+      mainLink: '/location',
+      items: [
+        { label: 'Access Routes', to: '/location#access' },
+        { label: 'Park Features Map', to: '/location#features' },
+        { label: 'Walking Connections', to: '/location#walking' },
+      ]
+    },
+    stories: {
+      label: 'Your Stories',
+      mainLink: '/your-stories',
+      items: [
+        { label: 'Community Memories', to: '/your-stories#stories' },
+        { label: 'Share Your Story', to: '/your-stories#share' },
+      ]
+    },
+    about: {
+      label: 'About Us',
+      mainLink: '/about',
+      items: [
+        { label: 'Our Mission', to: '/about#mission' },
+        { label: 'Directors & Officers', to: '/about#directors' },
+        { label: 'CIC Reports', to: '/about#reports' },
+      ]
+    }
+  };
 
   return (
     <>
@@ -44,13 +185,14 @@ const Navbar: React.FC = () => {
               <span className="text-xl font-bold text-stone-800 tracking-tight">Parkinson's Park <span className="text-emerald-700 font-normal italic">Guiseley</span></span>
             </Link>
 
-            <div className="hidden md:flex space-x-8 items-center">
+            <div className="hidden lg:flex space-x-6 items-center">
               <Link to="/" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">Home</Link>
-              <Link to="/events" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">Events</Link>
-              <Link to="/volunteer" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">Get Involved</Link>
-              <Link to="/location" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">Find Us</Link>
-              <Link to="/your-stories" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">Your Stories</Link>
-              <Link to="/about" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">About Us</Link>
+              <NavDropdown {...navItems.learn} />
+              <NavDropdown {...navItems.events} />
+              <NavDropdown {...navItems.getInvolved} />
+              <NavDropdown {...navItems.findUs} />
+              <NavDropdown {...navItems.stories} />
+              <NavDropdown {...navItems.about} />
               <button
                 onClick={() => setShowSearchModal(true)}
                 className="text-stone-600 hover:text-emerald-700 transition-colors p-2"
@@ -66,7 +208,7 @@ const Navbar: React.FC = () => {
               </button>
             </div>
 
-            <div className="md:hidden">
+            <div className="lg:hidden">
               <button onClick={() => setIsOpen(!isOpen)} className="text-stone-600">
                 {isOpen ? <CloseIcon className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -76,13 +218,14 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="md:hidden bg-white border-b border-stone-200 py-4 px-4 space-y-4 shadow-lg">
+          <div className="lg:hidden bg-white border-b border-stone-200 py-4 px-4 space-y-4 shadow-lg max-h-[80vh] overflow-y-auto">
             <Link to="/" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Home</Link>
-            <Link to="/events" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Events</Link>
-            <Link to="/volunteer" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Get Involved</Link>
-            <Link to="/location" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Find Us</Link>
-            <Link to="/your-stories" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Your Stories</Link>
-            <Link to="/about" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>About Us</Link>
+            <MobileDropdown {...navItems.learn} onNavigate={() => setIsOpen(false)} />
+            <MobileDropdown {...navItems.events} onNavigate={() => setIsOpen(false)} />
+            <MobileDropdown {...navItems.getInvolved} onNavigate={() => setIsOpen(false)} />
+            <MobileDropdown {...navItems.findUs} onNavigate={() => setIsOpen(false)} />
+            <MobileDropdown {...navItems.stories} onNavigate={() => setIsOpen(false)} />
+            <MobileDropdown {...navItems.about} onNavigate={() => setIsOpen(false)} />
             <button
               onClick={() => { setShowSearchModal(true); setIsOpen(false); }}
               className="flex items-center gap-2 text-stone-600 font-medium"
