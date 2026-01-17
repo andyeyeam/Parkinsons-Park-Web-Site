@@ -42,17 +42,25 @@ The park was gifted to the people of Guiseley in 1936 by F & A Parkinson Ltd and
 ## HISTORY
 
 **Timeline Highlights**:
-- **Bronze Age (2000 BC)**: Evidence of early human activity, including burial sites and agricultural practices
-- **Viking Period (800-1000 AD)**: Norse settlements, reflected in local place names
-- **Medieval Period (1000-1500 AD)**: Agricultural development, ancient field systems, ridge and furrow patterns
-- **1838**: Tithe Map shows the area divided into distinct fields with historic names
-- **1909**: Jonathan Peate plants oak trees during George V's coronation
-- **1936-37**: Frank and Albert Parkinson purchase the land and establish the park
-- **1936**: Park officially gifted to employees of Crompton Parkinson and people of Guiseley
-- **1970s-2000s**: Period of decline and neglect
-- **2011**: Friends of Parkinson's Park (FOPP) formed by local residents to save the park
-- **2013**: Geophysical surveys reveal ancient field systems
-- **2016**: FOPP registered as a Community Interest Company (CIC)
+- **Bronze Age (2300-801 BC)**: Archaeological evidence of human presence dating back over 4,000 years
+- **Romano-British Period (AD 43-410)**: Geophysical surveys revealed evidence of rural Romano-British farming landscape
+- **Viking Period (AD 866-950)**: Kelcliffe name derives from Old Norse meaning "steep area where springs are"
+- **Anglo-Saxon (Pre-1066)**: Lynchets and headlands in Crooked Lands from strip farming
+- **Medieval (1066-1500)**: Clapper Brow rabbit warren; Common Close divided among 13 families in 1639
+- **17th Century**: Tanning industry at Kelcliffe House; Kelcliffe Lane formalized circa 1709
+- **1838**: Tithe Map records field names that became "windows into the past"
+- **Circa 1909**: Jonathan Peate plants oak trees during George V's coronation
+- **1913**: Frank Parkinson starts F & A Parkinson from a shed with £21
+- **1927**: Merger with Crompton's to form Crompton Parkinson Ltd
+- **1936-37**: Frank and Albert Parkinson acquire park fields and develop with footpaths, gates, benches
+- **1949**: First Children's Gala
+- **1968**: Hawker Siddeley Aerospace acquired Crompton Parkinson - beginning of corporate ownership
+- **1971**: Albert Parkinson's death - company lost family character
+- **1999-2006**: Decline - Cooper Industries, St Modwen, factory demolished by Bellway
+- **13 September 2011**: Friends of Parkinson's Park (FOPP) formed by six founding members
+- **2012**: Heritage Lottery Fund "All Our Stories" grant for Diamond Jubilee research
+- **4 March 2016**: FOPP registered as Community Interest Company (CIC Number 10044868)
+- **2022**: Voted "Local Favourite" in Fields in Trust awards
 - **Present**: Active restoration and community engagement ongoing
  
  **Modern History (The Restoration Years)**:
@@ -67,40 +75,79 @@ The park was gifted to the people of Guiseley in 1936 by F & A Parkinson Ltd and
  - **2020**: Park featured on ITV Calendar's "Park Life". Vital community resource during Covid lockdown.
  - **2022**: Platinum Jubilee Picnic and Jubilee Tree dedication (part of Queen's Green Canopy). Voted "Local Favourite" in Fields in Trust awards. Commemorative booklet published for Queen Elizabeth II.
 
-**Frank and Albert Parkinson**:
-Frank and Albert Parkinson were visionary philanthropists who believed in using their wealth for public good.
-They saw themselves as "trustees of their possessions" and were committed to enhancing the quality of life
-for their employees and the local community. Their legacy includes:
-- The gift of Parkinson's Park to Guiseley
-- The Parkinson Building at the University of Leeds
-- Support for education and community welfare
+**Key Historical Figures**:
 
-**Field Names** (reveal agricultural history):
-- Lynchet Crooked Lands: Medieval strip farming terraces
-- Clapper Brow: Ancient stone bridges or stepping stones
-- Great Brow: Prominent hillside location
-- Old Man's Corner: Named after a notable local resident
-- New Dykes Gate: Historic field boundary markers
+**Jonathan Peate** (circa 1900-1913):
+Philanthropist and woollen cloth manufacturer who set the example of using wealth for public good. He:
+- Purchased surrounding land
+- Planted oak trees during George V's coronation (circa 1909) - some still stand today
+- Donated land for Yeadon Town Hall and Nunroyd Park
+- Provided allotments and housing for working men
+
+**Frank Parkinson** (1913-1946):
+Started electrical motor business from a shed at Eldon Mount with just £21 from postal savings. His legacy:
+- Founded F & A Parkinson Ltd (later Crompton Parkinson)
+- Developed the park (1936-37) with paths, facilities and commemorative copses
+- Left £1.5 million legacy including £200,000 for the Parkinson Building at Leeds University
+- Established trusts for the poor and elderly, and annual funding for community events
+- Funded the first Children's Gala (1949) and Flower & Produce Show
+
+**Albert Parkinson** (1913-1971):
+Joined his brother in 1913, helped grow Crompton Parkinson Ltd through the Great Depression by maintaining "practical idealism" - paying workers well while maintaining quality production. Preserved family-oriented character until his death.
+
+Both brothers saw themselves as "trustees of their possessions" committed to enhancing the quality of life for employees and the local community. Their philosophy aligned with Gandhi's principles of practical idealism.
+
+**Field Names** (reveal agricultural history - "windows into the past" from 1838 Tithe Map):
+- **Kelcliffe** (Old Norse, AD 866-950): Means "steep area where springs are" - evidence of Viking settlement
+- **Great Brow / Potterton Brow**: Renamed in 1837 by Marshall Grimshaw after his mother's family when converting to dairy farm
+- **Clapper Brow** (Middle English): Means "rabbit hole" - site of a medieval rabbit warren providing meat and fur
+- **Crooked Lands** (Pre-1066): Refers to irregular medieval fields with Anglo-Saxon lynchets (terraces) from strip farming
+- **The Flatts** (Medieval): Bundles of flat agricultural strips in common field system
+- **New Dykes** (Early medieval): Extension of cultivated land with new boundary ditches
+- **Tanhouse Brow** (17th century): Named after the tanning industry at Kelcliffe House, which ended in 1837
+- **Old Man's Corner**: A gathering spot near Kelcliffe Lane where elderly residents shared country knowledge
+
+## THE CELEBRATION TREE
+
+A beloved community tradition, the Celebration Tree marks the seasons and special occasions throughout the year.
+**Location**: Flat area near the bridle way path
+
+**Seasonal Decorations**:
+- **Easter**: Spring flowers and eggs
+- **Remembrance**: Poppies and tributes
+- **Christmas**: Festive ornaments and lights
+- **Special Events**: Community celebrations
 
 ## ECOLOGY
 
+The park comprises a patchwork of grassland, wetland and woodland with both scrub and a scattering of mature trees.
+The ecology reflects millstone grit geology, with habitats varying by altitude and soil chemistry.
+The land has been pasture and meadow for centuries, historically maintained through cattle grazing from local farms.
+
+**Soil Type**: Slowly permeable, seasonally wet, acid loam and clay soil, creating diverse conditions from drier upper slopes to marshy lower areas.
+
 **Habitats** (8 distinct zones):
-1. **Ancient Woodland**: Mature trees, diverse understory, woodland birds
-2. **Wildflower Meadows**: Seasonal blooms, pollinator-friendly plants
-3. **Hedgerows**: Historic boundaries, wildlife corridors, berry-producing shrubs
-4. **Bog Garden**: Wetland area near Netherfield entrance, pond-dwelling wildlife
-5. **Community Orchard**: Soft fruit trees and heritage varieties.
-   - *Apples*: Cider Lady's Finger (Old variety, early Oct), Golden Delicious (Late harvest), various seedlings.
-   - *Plums*: Jubilee (Hardy, mid-Aug), Laxton's Cropper (Blue-black, Sept).
-   - *Pears*: Invincible (Double flowering, stores well).
-6. **Top Copse**: Secluded woodland with bug hotel
-7. **Grassland**: Open areas for recreation and biodiversity
-8. **Field Margins**: Transition zones supporting diverse species
+1. **Wetland** (Bottom of Park): Features tufted hair grass, reed canary grass, hairy sedge, and soft rush.
+2. **Woodland & Mature Trees** (Throughout Park): Mixed broad-leafed woodland with planted species (Norway maple, Horse-chestnut) and self-seeded varieties (Birch, Oak). Oldest trees are approximately 200-year-old Sycamores and 100-year-old Oaks.
+3. **Hedges & Copses** (Park Boundaries): Hawthorn and Elder hedgerows supporting birds and small mammals. The park lies on migration routes for Curlews and Pink-footed geese.
+4. **Wildflower Meadow** (Central Areas): Supports abundant invertebrates including butterflies, moths, beetles, and bees. Notable species include Small Skipper, Ringlets, Meadow brown, and Burnet moths.
+5. **Community Orchard** (Crooklands Area): Heritage fruit trees including Red Devil, Ribston Pippin, and Yorkshire Greening apples, plus pear and plum varieties.
+6. **Hay Meadow** (Mid-level Slopes): Semi-improved grassland with Cocksfoot and Common bentgrass, with wildflower herbs increasingly present.
+7. **Drystone Walls** (Historic Boundaries): Mostly dating to the 17th and 18th centuries, serving as refuges for common lizards, toads, insects, lichens, and mosses.
+8. **Great Brow – Acid Grassland** (Steep Upper Slopes): Steep slopes with acidic moorland soil supporting Red fescue, Heath bedstraw, Sheep fescue, and Wavy hair-grass.
+
+**Bog Garden** (established 2016):
+Nine native wetland plant species including Devil's-bit Scabious, Lady's Smock, Marsh Marigold, Meadowsweet, Purple Loosestrife, Ragged Robin, Water Avens, Water Forget-Me-Not, and Yellow Flag Iris.
+
+**Bird Species**:
+- **Red List (High conservation concern)**: Starling, Green woodpecker, Mistle thrush
+- **Amber List (Moderate concern)**: Kestrel, House sparrow
+- **Common species**: Robin, Blue tit, Goldfinch, Greenfinch, Blackbird, Wren
 
 **Wildlife**:
-- **Birds**: Including red-list species, woodland birds, garden birds
-- **Insects**: Butterflies, bees, dragonflies (in bog garden)
-- **Mammals**: Foxes, hedgehogs, small rodents
+- **Birds**: 11+ species recorded including red-list species, woodland birds, garden birds
+- **Insects**: Butterflies (Small Skipper, Ringlets, Meadow brown), Burnet moths, beetles, bees, dragonflies
+- **Mammals**: Foxes, hedgehogs, small rodents, bats (in mature trees)
 - **Plants**: Bluebells, wildflowers, native trees (oak, ash, birch)
 
 **Conservation Work**:
@@ -112,44 +159,89 @@ for their employees and the local community. Their legacy includes:
 
 ## GEOLOGY
 
+The park sits on the west flank of The Chevin escarpment, above a hanging valley between Wharfedale and Airedale, known as the Guiseley Gap.
+
 **Age**: 300 million years (Carboniferous period)
 
-**Key Features**:
-- **Millstone Grit**: Coarse sandstone formed from ancient river deltas
-- **Carboniferous Period**: When the area was part of tropical Pangaea near the equator
-- **Marine Fossils**: Goniatites (extinct cephalopods) and other sea creatures
-- **The Guiseley Gap**: Glacially carved valley formed during Ice Ages
-- **Glacial Features**: Evidence of ice sheet movement, erratic boulders
+**Rock Formations (Pennine Millstone Grit)**:
+1. **Guiseley Grit** (Sandstone): 25 meters (82 feet) thick, displaying distinctive ripple patterns formed in ancient tropical seas
+2. **Mudstone Shale**: Found beneath Great Brow, contains fossilized Goniatites (ancient squid-like creatures with coiled shells)
+3. **Coal Deposits**: Thin bands formed from ancient tropical forest vegetation in the swampy delta environment
 
-**Geological History**:
-1. 300 million years ago: Tropical seas deposit sediments
-2. Sediments compress into Millstone Grit sandstone
-3. Continental drift moves Britain northward
-4. Ice Ages carve the Guiseley Gap
-5. Modern landscape shaped by erosion and human activity
+**Three Major Geological Eras**:
+
+1. **Tropical River Delta (300 million years ago)**:
+   When Pangaea existed as one supercontinent, massive rivers transported sediment from granite mountains through tropical forests to a swampy delta emptying into warm seas. Marine life, vegetation, and minerals accumulated and compressed into rock.
+
+2. **Formation of the Pennines (Continental Drift)**:
+   Pangaea fragmented into modern continents, elevating the ancient delta's rock bands to form the Pennine Hills and The Chevin escarpment. Different rock types eroded at varying rates, creating the distinctive stepped terrain.
+
+3. **Ice Age Glaciation (30,000 - 13,000 years ago)**:
+   A glacial ice sheet 250 meters thick covered northern England. The Wharfedale and Airedale glaciers carved the Guiseley Gap, depositing glacial till that contributes to the park's characteristic muddy conditions.
+
+**Geological Timeline**:
+- ~400 million years ago: Pangaea forms as a supercontinent
+- ~300 million years ago: Sediment accumulates in tropical delta
+- ~200 million years ago: Pangaea begins to break apart
+- ~30,000 years ago: Ice age glaciers shape the landscape
+
+**Fossils**: Goniatites preserved in mudstone shale provide evidence of marine life from 300 million years ago
+
+**Features Visible Today**:
+- The Chevin Escarpment: Stepped hillside formed by differential erosion
+- Visible Rock Bands: Ancient delta sediments hardened into gritstone
+- Glacial Till Deposits: Clay-rich soil creating muddy conditions
 
 ## EVENTS & ACTIVITIES
 
+**2025 Event Calendar**:
+- **Working Party January** (24th Jan): Hillside Entrance improvements, tidy up and planting activities
+- **Working Party March** (28th March): Great British Spring Clean - litter picking
+- **Annual General Meeting** (April): FOPP status updates and community feedback
+- **Guiseley Carnival** (28th June): Find FOPP's stall to learn about the park
+- **Working Party July**: Top Copse improvements - pathway definitions, woodchip spreading, insect hotel maintenance
+- **Children's Gala** (6th September): Themed annual summer fete with stalls, entertainment, face painting
+- **Working Party November**: Orchard pruning and maintenance
+- **Advent Trees & Lights** (December): Celebration tree adorned with Christmas decorations, entrances lit with festive lights
+- **Christmas Lantern Parade** (13th December): Parade from the park to Guiseley Cross for carols with brass band
+
 **Annual Events**:
-- **Children's Gala** (September): Games, costumes, themed activities
+- **Children's Gala** (September): Games, costumes, themed activities - revived in 2012 after years of absence
 - **Heritage Open Days** (September): History tours, heritage activities
-- **Remembrance Week** (November 4-12): Commemorative displays
-- **Advent Trees & Lights** (December): Festive lighting displays
-- **Lantern Parade** (December): Community parade from park to Guiseley Cross
+- **Apple Day** (Autumn): Celebrating the orchard harvest since 2016
+- **Remembrance Week** (November): Commemorative displays
+- **Advent Trees & Lights** (December): Festive lighting displays on the Celebration Tree
+- **Lantern Parade** (December): Community parade from park to Guiseley Cross with handmade lanterns, brass band, and carols
 
 **Regular Activities**:
 - Work groups (weeding, planting, pruning, litter picking)
 - Guided walks
 - Educational programs
 - Community gatherings
+- Little Friends Forest School (since 2017): Nature-based learning for young children
 
 ## VOLUNTEERING
 
-**Volunteer Roles**:
-1. **General Interest**: Help with routine maintenance (weeding, bulb planting, pruning, litter picking)
-2. **Bog Garden Lead**: Maintain wetland area, support pond wildlife
-3. **Top Copse Lead**: Upkeep secluded woodland, maintain bug hotel
-4. **Community Orchard Lead**: Pruning and maintenance of fruit trees
+**Current Volunteer Roles**:
+1. **General Interest**: Help with work groups doing routine maintenance such as weeding, bulb planting, pruning, litter picking, and spreading wood chipping for paths
+2. **Events Director**: Ensure events are planned, coordinated and executed safely and in line with Friends goals
+3. **Publicity, Marketing and Facebook**: Publicize key events, manage the Facebook account, and maintain regular posts about park activities
+4. **Projects Director**: Oversight of park improvement plan, coordinating key improvement projects, ensuring work is carried out in line with budgets and goals
+
+**What Volunteers Do**:
+- Spreading wood chipping to maintain paths
+- Planting bulbs and seasonal flowers
+- Picking litter and keeping the park tidy
+- Marshalling and drumming at the Lantern Parade
+- Setup, teardown, and staffing at the Children's Gala
+- Pruning and orchard maintenance
+
+**Benefits of Volunteering**:
+- No prior expertise necessary
+- Supervision provided
+- Work in a team
+- Flexible commitment
+- Great opportunity for students studying nature and ecology
 
 **How to Get Involved**:
 - Join work groups (flexible commitment)
@@ -200,16 +292,25 @@ and environmental heritage.
 
 ## VISITING THE PARK
 
-**Access Points**:
-- Kelcliffe Lane (main entrance)
-- Netherfield Road (near bog garden)
-- Edison Fields (residential area)
+**Location**: The park is situated between Netherfield Road and Kelcliffe Lane, positioned behind the former Crompton Parkinsons site, now Edison Fields residential development.
+
+**Access Routes**:
+1. **Via Netherfield Road Car Park**: Take the footpath up by the side of Greenshaw Terrace, turn left just uphill from the houses through a ginnell which continues to Oxford Avenue
+2. **Through the Estate**: Walk through the residential area and proceed either directly through public green space or via a kissing gate at Edison Way's end
+3. **Nethercliffe Road Entrance**: Alternative access point providing convenient entry
+4. **Historic Kelcliffe Lane Route**: Traditional approach from the junction with West Villa Road or from the Nursery Road/Hillside direction
+
+**Accessible Entrance**: The most accessible entrance for those with less mobility is to park at the top of Oxford Avenue and use a small unmade road behind some houses with a gate at the end.
+
+**Walking Connections - Guiseley Gap Circular**:
+Experience stunning views on this countryside walk with hilly terrain. The trail takes you through Wills Gill, Chevin Forest Park, Moor Top Quarry, High Royds Woods, and Parkinson's Park. The route crosses the Guiseley Gap, a unique geological feature of a glacial U-shaped valley connecting Wharfedale and Airedale. Available on AllTrails.
 
 **Facilities**:
 - Walking paths (some wheelchair accessible)
 - Benches throughout the park
 - Natural play areas
 - Entrance gates
+- Information boards installed in 2018
 
 **Best For**:
 - Woodland walks
@@ -218,11 +319,13 @@ and environmental heritage.
 - Community events
 - Children's outdoor play
 - Dog walking (on lead, please clean up)
+- Sledging in winter (historic runs: "Snow Drop" on Great Brow, "Bluebell Run" on Crooked Lands slopes)
 
 ## CONTACT INFORMATION
 
 **Email**: parkinsonspark@gmail.com
-**Website**: [Current website URL]
+**Website**: parkinsonspark.co.uk
+**Legacy WordPress archive**: friendsofparkinsonspark.wordpress.com (previous site with historical content)
 **Facebook**: Friends of Parkinson's Park group
 **Land Management Queries**: customercare@meadfleet.co.uk
 
@@ -232,6 +335,34 @@ Kelcliffe Lane
 Guiseley
 West Yorkshire
 LS20
+
+## COMMUNITY STORIES ("YOUR STORIES")
+
+The park preserves community memories spanning eight decades, from the 1940s to today. These cherished memories reveal how Parkinson's Park has been woven into the fabric of Guiseley life.
+
+**Common Themes in Community Stories**:
+- Childhood adventures: picking wildflowers, May Queen ceremonies, building dens
+- Winter sledging on the famous runs: "Snow Drop" (steep Great Brow) and "Bluebell Run" (gentle Crooked Lands slopes)
+- "Old Man's Corner" near Kelcliffe Lane where elderly residents gathered to watch sunsets
+- The Children's Day celebrations with races, Punch & Judy, trains, fancy dress
+- Bonfire Night ("chumping" - gathering firewood)
+- Walking to Green Bottom School through the park
+- The Crompton Parkinson factory siren that marked time for the whole area
+- The cows that used to graze in the park
+- Collecting conkers, flying kites, picking bluebells and blackberries
+
+Visitors can share their own stories through the website's "Your Stories" page.
+
+## RESOURCES & DOWNLOADS
+
+**Available Resources**:
+- **Species Checklist**: Plant species list from October 2011 ecological survey (PDF download)
+- **I-Spy Trail Leaflet**: Helps young visitors discover park wildlife
+- **Park Features Map**: Detailed map showing trails and facilities (PDF download)
+- **Story Trail Leaflets**: Self-guided walks through park history
+- **Children's I-Spy Guide**: For families exploring nature
+
+These resources are available at events or by contacting parkinsonspark@gmail.com.
 
 ## FREQUENTLY ASKED QUESTIONS
 
