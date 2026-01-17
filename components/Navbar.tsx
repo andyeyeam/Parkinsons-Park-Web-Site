@@ -96,6 +96,17 @@ const Navbar: React.FC = () => {
 
   // Navigation structure with dropdowns
   const navItems = {
+    home: {
+      label: 'Home',
+      mainLink: '/',
+      items: [
+        { label: 'History', to: '/history' },
+        { label: 'Ecology', to: '/ecology' },
+        { label: 'Geology', to: '/geology' },
+        { label: 'Celebration Tree', to: '/#celebration-tree' },
+        { label: 'Park Activities', to: '/#activities' },
+      ]
+    },
     learn: {
       label: 'Learn',
       items: [
@@ -186,7 +197,7 @@ const Navbar: React.FC = () => {
             </Link>
 
             <div className="hidden xl:flex space-x-3 items-center">
-              <Link to="/" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors text-sm whitespace-nowrap">Home</Link>
+              <NavDropdown {...navItems.home} />
               <NavDropdown {...navItems.learn} />
               <NavDropdown {...navItems.events} />
               <NavDropdown {...navItems.getInvolved} />
@@ -219,7 +230,7 @@ const Navbar: React.FC = () => {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="xl:hidden bg-white border-b border-stone-200 py-4 px-4 space-y-4 shadow-lg max-h-[80vh] overflow-y-auto">
-            <Link to="/" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Home</Link>
+            <MobileDropdown {...navItems.home} onNavigate={() => setIsOpen(false)} />
             <MobileDropdown {...navItems.learn} onNavigate={() => setIsOpen(false)} />
             <MobileDropdown {...navItems.events} onNavigate={() => setIsOpen(false)} />
             <MobileDropdown {...navItems.getInvolved} onNavigate={() => setIsOpen(false)} />
