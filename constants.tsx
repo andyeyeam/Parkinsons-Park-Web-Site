@@ -1,6 +1,7 @@
 import React from 'react';
 import { Leaf, Mountain, BookOpen } from 'lucide-react';
 import { ParkEvent, VolunteerRole, Feature } from './types';
+import guiseleyCarnivalImage from './src/assets/images/guiseley-carnival.jpg';
 
 export const MOCK_EVENTS: ParkEvent[] = [
   {
@@ -37,7 +38,7 @@ export const MOCK_EVENTS: ParkEvent[] = [
     time: '28th June',
     description: 'Come and find our stall at the Guiseley Carnival where you will be able to chat to us and learn more about the Park and what the Friends of Parkinson\'s Park do.',
     type: 'family',
-    imageUrl: 'https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=800&auto=format&fit=crop'
+    imageUrl: guiseleyCarnivalImage
   },
   {
     id: '5',
