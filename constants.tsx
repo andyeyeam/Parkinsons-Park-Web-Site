@@ -3,6 +3,7 @@ import { Leaf, Mountain, BookOpen } from 'lucide-react';
 import { ParkEvent, VolunteerRole, Feature } from './types';
 import guiseleyCarnivalImage from './src/assets/images/guiseley-carnival.jpg';
 import childrensGalaImage from './src/assets/images/childrens-gala.jpg';
+import lanternParadeImage from './src/assets/images/lantern-parade.jpg';
 
 export const MOCK_EVENTS: ParkEvent[] = [
   {
@@ -84,7 +85,7 @@ export const MOCK_EVENTS: ParkEvent[] = [
     time: '13th December',
     description: 'Parade with us as we congregate at the park and walk down to the Guiseley Cross for Carols with a brass band, cakes and a magical Christmassy event.',
     type: 'family',
-    imageUrl: 'https://parkinsonspark.co.uk/wp-content/uploads/2022/12/stuart2.jpg?w=768'
+    imageUrl: lanternParadeImage
   }
 ];
 
