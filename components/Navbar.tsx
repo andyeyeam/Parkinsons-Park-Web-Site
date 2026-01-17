@@ -23,10 +23,10 @@ const NavDropdown: React.FC<{
     <div className="relative group">
       <button
         onClick={handleMainClick}
-        className="flex items-center gap-1 text-stone-600 hover:text-emerald-700 font-medium transition-colors cursor-pointer"
+        className="flex items-center gap-1 text-stone-600 hover:text-emerald-700 font-medium transition-colors cursor-pointer text-sm whitespace-nowrap"
       >
         {label}
-        <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180" />
+        <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" />
       </button>
       <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
         <div className="bg-white rounded-xl shadow-xl border border-stone-200 py-2 min-w-[200px]">
@@ -178,15 +178,15 @@ const Navbar: React.FC = () => {
         </div>
       )}
       <nav className="bg-white/90 backdrop-blur-md border-b border-stone-200 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-20 items-center">
-            <Link to="/" className="flex items-center space-x-3">
-              <img src={logo} alt="Parkinson's Park Logo" className="h-16 w-auto p-2 bg-white rounded-xl border-2 border-emerald-600 shadow-md hover:shadow-lg transition-shadow" />
-              <span className="text-xl font-bold text-stone-800 tracking-tight">Parkinson's Park <span className="text-emerald-700 font-normal italic">Guiseley</span></span>
+            <Link to="/" className="flex items-center space-x-2 shrink-0">
+              <img src={logo} alt="Parkinson's Park Logo" className="h-14 w-auto p-1.5 bg-white rounded-xl border-2 border-emerald-600 shadow-md hover:shadow-lg transition-shadow" />
+              <span className="text-lg font-bold text-stone-800 tracking-tight hidden sm:inline">Parkinson's Park <span className="text-emerald-700 font-normal italic">Guiseley</span></span>
             </Link>
 
-            <div className="hidden lg:flex space-x-6 items-center">
-              <Link to="/" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors">Home</Link>
+            <div className="hidden xl:flex space-x-3 items-center">
+              <Link to="/" className="text-stone-600 hover:text-emerald-700 font-medium transition-colors text-sm whitespace-nowrap">Home</Link>
               <NavDropdown {...navItems.learn} />
               <NavDropdown {...navItems.events} />
               <NavDropdown {...navItems.getInvolved} />
@@ -195,20 +195,20 @@ const Navbar: React.FC = () => {
               <NavDropdown {...navItems.about} />
               <button
                 onClick={() => setShowSearchModal(true)}
-                className="text-stone-600 hover:text-emerald-700 transition-colors p-2"
+                className="text-stone-600 hover:text-emerald-700 transition-colors p-1.5"
                 aria-label="Search site"
               >
                 <Search className="w-5 h-5" />
               </button>
               <button
                 onClick={() => setShowDonateDialog(true)}
-                className="bg-emerald-700 text-white px-5 py-2 rounded-full font-semibold hover:bg-emerald-800 transition-all shadow-sm"
+                className="bg-emerald-700 text-white px-4 py-2 rounded-full font-semibold text-sm hover:bg-emerald-800 transition-all shadow-sm whitespace-nowrap"
               >
                 Donate
               </button>
             </div>
 
-            <div className="lg:hidden">
+            <div className="xl:hidden">
               <button onClick={() => setIsOpen(!isOpen)} className="text-stone-600">
                 {isOpen ? <CloseIcon className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
               </button>
@@ -218,7 +218,7 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <div className="lg:hidden bg-white border-b border-stone-200 py-4 px-4 space-y-4 shadow-lg max-h-[80vh] overflow-y-auto">
+          <div className="xl:hidden bg-white border-b border-stone-200 py-4 px-4 space-y-4 shadow-lg max-h-[80vh] overflow-y-auto">
             <Link to="/" className="block text-stone-600 font-medium" onClick={() => setIsOpen(false)}>Home</Link>
             <MobileDropdown {...navItems.learn} onNavigate={() => setIsOpen(false)} />
             <MobileDropdown {...navItems.events} onNavigate={() => setIsOpen(false)} />
