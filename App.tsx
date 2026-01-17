@@ -332,30 +332,33 @@ const AboutPage = () => {
             <h4 className="font-bold text-xl mb-8 border-b border-stone-100 pb-4">Directors & Officers</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8">
               <div>
-                <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest">Chair of Directors</span>
+                <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest">Chair, Maintenance Director, Volunteer Co-ordinator & Meadfleet Link</span>
                 <p className="font-bold text-stone-900">Mrs Chris Parapia</p>
-                <p className="text-sm text-stone-500">01943 877282</p>
+                <p className="text-sm text-stone-500">Oversight of maintenance plan</p>
               </div>
               <div>
-                <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest">Technical & Facilities</span>
-                <p className="font-bold text-stone-900">Mr Andy Cheetham</p>
-                <p className="text-sm text-stone-500">01943 879310</p>
+                <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest">Vice Chair & Secretarial Director</span>
+                <p className="font-bold text-stone-900">Susan Wright</p>
+              </div>
+              <div>
+                <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest">Finance & Funding Director</span>
+                <p className="font-bold text-stone-900">Ryan Sample</p>
+              </div>
+              <div>
+                <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest">TBC</span>
+                <p className="font-bold text-stone-900">Nicola Denson</p>
               </div>
               <div>
                 <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest">Ecology</span>
-                <p className="font-bold text-stone-900">Mrs Joanna Brooks</p>
+                <p className="font-bold text-stone-900">Josie Brookes</p>
               </div>
               <div>
-                <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest">Fund Raising</span>
-                <p className="font-bold text-stone-900">Mrs Nicola Denson</p>
+                <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest">Membership Director</span>
+                <p className="font-bold text-stone-900">Hazel Berry</p>
               </div>
               <div>
-                <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest">Treasurer & Finance</span>
-                <p className="font-bold text-stone-900">Mr Ryan Sample</p>
-              </div>
-              <div>
-                <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest">Operations</span>
-                <p className="font-bold text-stone-900">Mrs Susan Wright</p>
+                <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest">Web Site Manager</span>
+                <p className="font-bold text-stone-900">Andy Cheetham</p>
               </div>
             </div>
             <div className="mt-12 pt-8 border-t border-stone-100">
