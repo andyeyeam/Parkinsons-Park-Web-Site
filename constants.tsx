@@ -94,18 +94,18 @@ export const VOLUNTEER_ROLES: VolunteerRole[] = [
     commitment: 'Flexible'
   },
   {
-    title: 'Bog Garden Lead',
-    description: 'Take responsibility for the upkeep and improvement of this wetland area near Netherfield entrance. Lead maintenance efforts to support pond-dwelling wildlife and ensure the area remains a thriving habitat.',
+    title: 'Events Director',
+    description: 'Ensure events are planned, coordinated and executed safely and in line with Friends goals and purpose.',
     commitment: 'Flexible'
   },
   {
-    title: 'Top Copse Lead',
-    description: 'Lead the upkeep and improvement of this secluded woodland section. Take responsibility for maintaining the bug hotel structure and coordinating regular tidying to preserve this important wildlife habitat.',
+    title: 'Publicity, Marketing and Facebook',
+    description: 'Publicise key events like the Children\'s Gala and the Lantern Parade. Manage the Facebook account and ensure there is a regular stream of posts detailing the day to day and week to week activities in the Park.',
     commitment: 'Flexible'
   },
   {
-    title: 'Community Orchard Lead',
-    description: 'Take responsibility for the upkeep and improvement of the community orchard. Lead pruning and maintenance efforts for soft fruit trees. Knowledge of fruit tree care is beneficial, with full training provided.',
+    title: 'Projects Director',
+    description: 'Oversight of the Park improvement plan. Coordinating key improvement projects and initiatives. Ensure work is carried out in line with budgets and goals.',
     commitment: 'Flexible'
   }
 ];
