@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, TreePine, Map, Heart, X, Info } from 'lucide-react';
+import { ArrowRight, TreePine, Map, Heart, X, Info, Sparkles, MapPin, Calendar } from 'lucide-react';
 import { FEATURES, MOCK_EVENTS } from '../constants';
 import heroImage from '../src/assets/images/PPHeroV3.jpg';
+import celebrationTreeImage from '/images/celebration-tree.jpg';
 
 const Home: React.FC = () => {
   const [showManagementPlanDialog, setShowManagementPlanDialog] = useState(false);
@@ -192,6 +193,58 @@ const Home: React.FC = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Celebration Tree Section */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="relative">
+            <img
+              src={celebrationTreeImage}
+              alt="The Celebration Tree decorated for Christmas"
+              className="rounded-3xl shadow-xl w-full object-cover"
+            />
+            <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-bold text-emerald-800 flex items-center gap-2">
+              <Sparkles className="w-4 h-4" />
+              Community Tradition
+            </div>
+          </div>
+          <div className="space-y-6">
+            <div className="inline-block bg-emerald-50 px-4 py-2 rounded-full text-emerald-800 text-sm font-bold uppercase tracking-wider">
+              Park Feature
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold text-stone-900">The Celebration Tree</h2>
+            <p className="text-lg text-stone-600 leading-relaxed">
+              A beloved community tradition, our Celebration Tree marks the seasons and special occasions throughout the year.
+              Visitors will find this special tree adorned with decorations that change with the calendar.
+            </p>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { season: 'Easter', decoration: 'Spring flowers & eggs' },
+                { season: 'Remembrance', decoration: 'Poppies & tributes' },
+                { season: 'Christmas', decoration: 'Festive ornaments & lights' },
+                { season: 'Special Events', decoration: 'Community celebrations' }
+              ].map((item, i) => (
+                <div key={i} className="bg-stone-50 p-4 rounded-2xl border border-stone-100">
+                  <div className="font-bold text-stone-900">{item.season}</div>
+                  <div className="text-sm text-stone-500">{item.decoration}</div>
+                </div>
+              ))}
+            </div>
+            <div className="flex items-center gap-6 pt-4">
+              <div className="flex items-center gap-2 text-stone-600">
+                <MapPin className="w-5 h-5 text-emerald-600" />
+                <span className="text-sm">Flat area near the bridle way path</span>
+              </div>
+            </div>
+            <Link
+              to="/events"
+              className="inline-flex items-center gap-2 text-emerald-700 font-bold hover:underline"
+            >
+              See upcoming seasonal events <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </div>
       </section>
