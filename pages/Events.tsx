@@ -102,12 +102,18 @@ const Events: React.FC = () => {
                 }`}
               />
               <div className="absolute top-6 right-6 bg-white/95 backdrop-blur px-5 py-3 rounded-[1.5rem] shadow-xl text-center border border-white/50">
-                <div className="text-xs font-black text-emerald-800 uppercase tracking-tighter leading-none mb-1">
-                  {new Date(event.date).toLocaleDateString('en-GB', { month: 'short' })}
-                </div>
-                <div className="text-2xl font-black text-stone-900 leading-none">
-                  {event.date.split('-')[2]}
-                </div>
+                {/^(TBA|January|February|March|April|May|June|July|August|September|October|November|December)$/i.test(event.time) ? (
+                  <div className="text-lg font-black text-stone-900 leading-none">TBA</div>
+                ) : (
+                  <>
+                    <div className="text-xs font-black text-emerald-800 uppercase tracking-tighter leading-none mb-1">
+                      {new Date(event.date).toLocaleDateString('en-GB', { month: 'short' })}
+                    </div>
+                    <div className="text-2xl font-black text-stone-900 leading-none">
+                      {event.date.split('-')[2]}
+                    </div>
+                  </>
+                )}
               </div>
               <div className="absolute bottom-6 left-6">
                 <span className="bg-emerald-700/90 backdrop-blur-md text-white text-[10px] font-black tracking-widest uppercase px-3 py-1.5 rounded-full border border-emerald-500/30 shadow-lg">
