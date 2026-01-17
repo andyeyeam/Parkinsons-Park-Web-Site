@@ -2,6 +2,7 @@ import React from 'react';
 import { Leaf, Mountain, BookOpen } from 'lucide-react';
 import { ParkEvent, VolunteerRole, Feature } from './types';
 import guiseleyCarnivalImage from './src/assets/images/guiseley-carnival.jpg';
+import childrensGalaImage from './src/assets/images/childrens-gala.jpg';
 
 export const MOCK_EVENTS: ParkEvent[] = [
   {
@@ -56,7 +57,7 @@ export const MOCK_EVENTS: ParkEvent[] = [
     time: '6th September',
     description: 'All the fun of the themed annual Summer fare with stalls, entertainment, face painting and more.',
     type: 'family',
-    imageUrl: 'https://parkinsonspark.co.uk/wp-content/uploads/2016/10/1-parkinsons-park.jpg?w=2000&h=576&crop=1'
+    imageUrl: childrensGalaImage
   },
   {
     id: '7',
