@@ -161,7 +161,10 @@ const Footer: React.FC = () => {
   );
 };
 
-const AboutPage = () => (
+const AboutPage = () => {
+  const { downloadState, initiateDownload, closeDialog } = useDownload();
+
+  return (
   <div className="bg-stone-50 pb-24">
     {/* Header Section */}
     <section className="bg-emerald-900 text-white py-24">
@@ -434,8 +437,16 @@ const AboutPage = () => (
         </div>
       </div>
     </section>
+
+    <DownloadDialog
+      isOpen={downloadState.isOpen}
+      onClose={closeDialog}
+      fileName={downloadState.fileName}
+      fileUrl={downloadState.fileUrl}
+    />
   </div>
-);
+  );
+};
 
 const App: React.FC = () => {
   return (
