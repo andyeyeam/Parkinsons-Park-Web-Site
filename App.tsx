@@ -259,7 +259,7 @@ const AboutPage = () => {
               <p>
                 Funding for basic maintenance comes out of an annual charge made by Meadfleet to the residents of Edison Fields; other money for Park improvements and events is raised by FOPP.
               </p>
-              <div className="flex flex-wrap gap-3 mt-6">
+              <div className="flex flex-wrap gap-x-6 gap-y-3 mt-6">
                 <button
                   onClick={() => initiateDownload(
                     `${import.meta.env.BASE_URL}documents/FOPP-CIC-Constitution.pdf`,
@@ -268,6 +268,15 @@ const AboutPage = () => {
                   className="flex items-center gap-2 text-emerald-700 font-bold hover:underline cursor-pointer"
                 >
                   <FileText className="w-4 h-4" /> CIC Constitution
+                </button>
+                <button
+                  onClick={() => initiateDownload(
+                    `${import.meta.env.BASE_URL}documents/Management-Plan-2026.docx`,
+                    'Management-Plan-2026.docx'
+                  )}
+                  className="flex items-center gap-2 text-emerald-700 font-bold hover:underline cursor-pointer"
+                >
+                  <FileText className="w-4 h-4" /> Management Plan 2026
                 </button>
               </div>
             </div>
