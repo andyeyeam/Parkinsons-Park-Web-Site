@@ -291,6 +291,17 @@ const AboutPage = () => {
                 <li className="flex gap-2"><span>•</span> Dog owners must remove all fouling to bins located around the Park edge.</li>
                 <li className="flex gap-2"><span>•</span> No events without consent.</li>
               </ul>
+              <div className="flex flex-wrap gap-3 mt-6">
+                <button
+                  onClick={() => initiateDownload(
+                    `${import.meta.env.BASE_URL}documents/Leeds-Parks-Bylaws-Appendix-One.docx`,
+                    'Leeds-Parks-Bylaws-Appendix-One.docx'
+                  )}
+                  className="flex items-center gap-2 text-emerald-700 font-bold hover:underline cursor-pointer"
+                >
+                  <FileText className="w-4 h-4" /> Full Bylaws Document
+                </button>
+              </div>
               <p className="mt-4 text-xs font-semibold text-stone-400 uppercase tracking-widest">
                 Parkwatch scheme supported by West Yorkshire Police.
               </p>
