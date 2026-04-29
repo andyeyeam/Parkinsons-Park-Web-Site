@@ -21,36 +21,12 @@ import {
 } from 'lucide-react';
 
 const Footer: React.FC = () => {
-  const [showManagementPlanDialog, setShowManagementPlanDialog] = useState(false);
   const [showDonateDialog, setShowDonateDialog] = useState(false);
   const [showJoinFriendsDialog, setShowJoinFriendsDialog] = useState(false);
   const { downloadState, initiateDownload, closeDialog } = useDownload();
 
   return (
     <footer className="bg-stone-900 text-stone-400 py-16">
-      {/* Management Plan Coming Soon Dialog */}
-      {showManagementPlanDialog && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowManagementPlanDialog(false)}>
-          <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl" onClick={(e) => e.stopPropagation()}>
-            <div className="flex justify-between items-start mb-6">
-              <h3 className="text-2xl font-bold text-stone-900">Management Plan</h3>
-              <button onClick={() => setShowManagementPlanDialog(false)} className="text-stone-400 hover:text-stone-600 transition-colors">
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-            <p className="text-stone-600 mb-8 leading-relaxed">
-              The management plan will be available soon. Check back later for details on how we're maintaining and improving the park.
-            </p>
-            <button
-              onClick={() => setShowManagementPlanDialog(false)}
-              className="w-full bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-3 rounded-full font-bold transition-all"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
-
       {/* Donate Coming Soon Dialog */}
       {showDonateDialog && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowDonateDialog(false)}>
@@ -115,7 +91,7 @@ const Footer: React.FC = () => {
           <h4 className="text-white font-bold mb-6">Quick Links</h4>
           <ul className="space-y-4 text-sm">
             <li><a href="#/history" className="hover:text-white">Our History</a></li>
-            <li><button onClick={() => setShowManagementPlanDialog(true)} className="hover:text-white text-left">Management Plan</button></li>
+            <li><button onClick={() => initiateDownload(`${import.meta.env.BASE_URL}documents/Management-Plan-2026.docx`, 'Management-Plan-2026.docx')} className="hover:text-white text-left">Management Plan</button></li>
             <li><a href="#" className="hover:text-white">Park Map</a></li>
           </ul>
         </div>

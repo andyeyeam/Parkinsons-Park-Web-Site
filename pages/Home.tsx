@@ -2,39 +2,18 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, TreePine, Map, Heart, X, Info, Sparkles, MapPin, Calendar } from 'lucide-react';
 import { FEATURES, MOCK_EVENTS } from '../constants';
+import { useDownload } from '../hooks/useDownload';
+import DownloadDialog from '../components/DownloadDialog';
 import heroImage from '../src/assets/images/PPHeroV3.jpg';
 import celebrationTreeImage from '/images/celebration-tree.jpg';
 
 const Home: React.FC = () => {
-  const [showManagementPlanDialog, setShowManagementPlanDialog] = useState(false);
   const [showDonateDialog, setShowDonateDialog] = useState(false);
   const [showJoinFriendsDialog, setShowJoinFriendsDialog] = useState(false);
+  const { downloadState, initiateDownload, closeDialog } = useDownload();
 
   return (
     <div className="space-y-24 pb-24">
-      {/* Management Plan Coming Soon Dialog */}
-      {showManagementPlanDialog && (
-        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowManagementPlanDialog(false)}>
-          <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl" onClick={(e) => e.stopPropagation()}>
-            <div className="flex justify-between items-start mb-6">
-              <h3 className="text-2xl font-bold text-stone-900">Management Plan</h3>
-              <button onClick={() => setShowManagementPlanDialog(false)} className="text-stone-400 hover:text-stone-600 transition-colors">
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-            <p className="text-stone-600 mb-8 leading-relaxed">
-              The management plan will be available soon. Check back later for details on how we're maintaining and improving the park.
-            </p>
-            <button
-              onClick={() => setShowManagementPlanDialog(false)}
-              className="w-full bg-emerald-700 hover:bg-emerald-800 text-white px-6 py-3 rounded-full font-bold transition-all"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
-
       {/* Donate Coming Soon Dialog */}
       {showDonateDialog && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4" onClick={() => setShowDonateDialog(false)}>
@@ -170,7 +149,13 @@ const Home: React.FC = () => {
                   <div className="text-emerald-200 mt-2">Volunteer Managed</div>
                 </div>
               </div>
-              <button onClick={() => setShowManagementPlanDialog(true)} className="flex items-center space-x-2 text-emerald-400 font-bold hover:text-emerald-300 transition-colors">
+              <button
+                onClick={() => initiateDownload(
+                  `${import.meta.env.BASE_URL}documents/Management-Plan-2026.docx`,
+                  'Management-Plan-2026.docx'
+                )}
+                className="flex items-center space-x-2 text-emerald-400 font-bold hover:text-emerald-300 transition-colors"
+              >
                 <span>View our management plan</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
@@ -307,6 +292,13 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+
+      <DownloadDialog
+        isOpen={downloadState.isOpen}
+        onClose={closeDialog}
+        fileName={downloadState.fileName}
+        fileUrl={downloadState.fileUrl}
+      />
     </div>
   );
 };
