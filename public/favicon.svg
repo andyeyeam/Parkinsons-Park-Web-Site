@@ -1,10 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- Dark emerald background -->
-  <rect width="32" height="32" rx="7" fill="#064e3b"/>
-  <!-- Tree canopy (three overlapping circles for a fuller silhouette) -->
-  <circle cx="16" cy="11" r="6.5" fill="#ffffff"/>
-  <circle cx="11" cy="14" r="5" fill="#ffffff"/>
-  <circle cx="21" cy="14" r="5" fill="#ffffff"/>
-  <!-- Trunk -->
-  <rect x="14.5" y="19" width="3" height="6" rx="1.2" fill="#ffffff"/>
+  <!-- White background -->
+  <rect width="32" height="32" rx="4" fill="#ffffff"/>
+  <!-- Brown trunk -->
+  <rect x="13" y="22" width="6" height="8" rx="1.5" fill="#78350f"/>
+  <!-- Canopy: round top, flat base where trunk meets -->
+  <path d="M16,3
+    C 10,3 4,7 4,13
+    C 4,18 8,22 14,22
+    L 18,22
+    C 24,22 28,18 28,13
+    C 28,7 22,3 16,3 Z"
+    fill="#15803d"/>
+  <!-- Darker left half for subtle depth -->
+  <path d="M16,3
+    C 10,3 4,7 4,13
+    C 4,18 8,22 14,22
+    L 16,22 L 16,3 Z"
+    fill="#166534"/>
 </svg>
