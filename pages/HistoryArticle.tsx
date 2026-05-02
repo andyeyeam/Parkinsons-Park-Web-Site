@@ -536,22 +536,16 @@ const HistoryArticle: React.FC = () => {
         {chapter.content}
 
         {/* Source attribution */}
-        <div className="mt-14 pt-6 border-t border-stone-200 text-sm text-stone-400 space-y-1">
-          <p>
-            Original source:{' '}
-            <a href={chapter.source} target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:underline inline-flex items-center gap-1">
-              Friends of Parkinson&apos;s Park Archive <ExternalLink className="w-3 h-3" />
-            </a>
-          </p>
+        <div className="mt-14 pt-6 border-t border-stone-200 text-sm text-stone-400">
           <p>Research by Jennifer Kirkby and Barbara Winfield.</p>
         </div>
 
         {/* NLHF acknowledgement */}
-        <div className="mt-8 p-6 bg-stone-100 rounded-2xl flex flex-col sm:flex-row items-center gap-6">
+        <div className="mt-6 p-6 bg-stone-100 rounded-2xl flex flex-col sm:flex-row items-center gap-6">
           <img
             src={nlhfStampImg}
             alt="Made possible with National Lottery Heritage Fund"
-            className="w-24 h-24 shrink-0 object-contain"
+            className="w-28 h-28 shrink-0 object-contain"
           />
           <div>
             <p className="text-sm font-semibold text-stone-700 mb-1">Thanks to National Lottery players</p>
