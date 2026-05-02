@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, TreePine, Map, Heart, X, Info, Sparkles, MapPin, Calendar } from 'lucide-react';
+import { ArrowRight, TreePine, Map, Heart, X, Info, Sparkles, MapPin, Calendar, BookOpen } from 'lucide-react';
 import { FEATURES, MOCK_EVENTS } from '../constants';
 import { useDownload } from '../hooks/useDownload';
 import DownloadDialog from '../components/DownloadDialog';
@@ -127,6 +127,30 @@ const Home: React.FC = () => {
               <div key={i}>{FeatureCard}</div>
             );
           })}
+        </div>
+
+        {/* ── Read the Full History banner ── */}
+        <div className="mt-12 bg-gradient-to-r from-emerald-950 to-stone-800 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center gap-8">
+          <div className="flex items-center justify-center w-16 h-16 bg-emerald-700/40 rounded-2xl shrink-0 border border-emerald-600/40">
+            <BookOpen className="w-8 h-8 text-emerald-300" />
+          </div>
+          <div className="flex-1 text-white text-center md:text-left">
+            <div className="text-emerald-300 text-xs font-bold uppercase tracking-widest mb-2">
+              Illustrated History &mdash; Five Chapters
+            </div>
+            <h3 className="text-2xl font-bold mb-2">Read the Full Story of Parkinson&apos;s Park</h3>
+            <p className="text-stone-300 text-sm leading-relaxed max-w-xl">
+              From Viking settlers naming our springs, through Georgian farmers and Victorian philanthropists,
+              to the community-led renaissance that saved the park — told in full with photographs and original
+              research from the Heritage Lottery Fund project.
+            </p>
+          </div>
+          <Link
+            to="/history-article"
+            className="shrink-0 bg-white text-emerald-900 px-7 py-3 rounded-full font-bold text-sm hover:bg-emerald-50 transition-all flex items-center gap-2 whitespace-nowrap shadow-lg"
+          >
+            Read Now <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
 

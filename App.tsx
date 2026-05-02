@@ -12,6 +12,7 @@ import Volunteer from './pages/Volunteer';
 import Ecology from './pages/Ecology';
 import Geology from './pages/Geology';
 import HistoryPage from './pages/History';
+import HistoryArticle from './pages/HistoryArticle';
 import Location from './pages/Location';
 import YourStories from './pages/YourStories';
 import {
@@ -464,6 +465,7 @@ const AppContent: React.FC = () => {
           <Route path="/ecology" element={<Ecology />} />
           <Route path="/geology" element={<Geology />} />
           <Route path="/history" element={<HistoryPage />} />
+          <Route path="/history-article" element={<HistoryArticle />} />
           <Route path="/your-stories" element={<YourStories />} />
           <Route path="/about" element={<AboutPage />} />
         </Routes>
