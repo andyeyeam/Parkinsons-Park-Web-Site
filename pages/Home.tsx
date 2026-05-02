@@ -6,6 +6,7 @@ import { useDownload } from '../hooks/useDownload';
 import DownloadDialog from '../components/DownloadDialog';
 import heroImage from '../src/assets/images/PPHeroV3.jpg';
 import celebrationTreeImage from '/images/celebration-tree.jpg';
+import nlhfStampImg from '../src/assets/images/nlhf-acknowledgement-stamp.png';
 
 const Home: React.FC = () => {
   const [showDonateDialog, setShowDonateDialog] = useState(false);
@@ -144,6 +145,17 @@ const Home: React.FC = () => {
               to the community-led renaissance that saved the park — told in full with photographs and original
               research from the Heritage Lottery Fund project.
             </p>
+            <div className="flex items-center gap-3 mt-4 pt-4 border-t border-emerald-800/60">
+              <img
+                src={nlhfStampImg}
+                alt="Made possible with National Lottery Heritage Fund"
+                className="w-10 h-10 shrink-0 object-contain"
+              />
+              <p className="text-xs text-emerald-300 leading-snug">
+                <span className="font-semibold text-white">Thanks to National Lottery players</span><br />
+                Funded by The National Lottery Heritage Fund &ldquo;All Our Stories&rdquo; grant (2012).
+              </p>
+            </div>
           </div>
           <Link
             to="/history-article"
