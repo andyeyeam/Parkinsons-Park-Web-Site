@@ -35,6 +35,7 @@ const images = {
   sledging:      img64('src/assets/images/snow-sledging.gif'),
   oldMansCorner: img64('src/assets/images/old-mans-corner.jpg'),
   greatBrow:     img64('src/assets/images/great-brow.jpg'),
+  nlhfStamp:     img64('src/assets/images/nlhf-acknowledgement-stamp.png'),
 };
 
 // WordPress-hosted images — fetched as base64 before PDF generation
@@ -578,6 +579,64 @@ const html = `<!DOCTYPE html>
     font-size: 8pt;
     color: #a8a29e;
   }
+
+  /* ── NLHF acknowledgement ── */
+  .nlhf-ack {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 32px 32px 0;
+    padding: 16px 20px;
+    background: #f5f5f4;
+    border-radius: 8px;
+    page-break-inside: avoid;
+  }
+  .nlhf-ack img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  .nlhf-ack-text {
+    font-family: system-ui, sans-serif;
+    font-size: 8.5pt;
+    color: #57534e;
+    line-height: 1.5;
+  }
+  .nlhf-ack-text strong {
+    display: block;
+    color: #1c1917;
+    margin-bottom: 4px;
+    font-size: 9pt;
+  }
+
+  /* ── Cover NLHF ── */
+  .cover-nlhf {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 36px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.25);
+  }
+  .cover-nlhf img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+  }
+  .cover-nlhf-text {
+    font-family: system-ui, sans-serif;
+    font-size: 8.5pt;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.5;
+    text-align: left;
+  }
+  .cover-nlhf-text strong {
+    display: block;
+    color: #ffffff;
+    margin-bottom: 2px;
+  }
 </style>
 </head>
 <body>
@@ -599,8 +658,15 @@ const html = `<!DOCTYPE html>
     </ul>
   </div>
   <div class="cover-footer">
-    Research by Jennifer Kirkby &amp; Barbara Winfield &bull;
-    Heritage Lottery Fund &ldquo;All Our Stories&rdquo; Grant 2012
+    Research by Jennifer Kirkby &amp; Barbara Winfield
+  </div>
+  <div class="cover-nlhf">
+    <img src="${images.nlhfStamp}" alt="Made possible with National Lottery Heritage Fund" />
+    <div class="cover-nlhf-text">
+      <strong>Thanks to National Lottery players</strong>
+      This research was made possible by The National Lottery Heritage Fund<br>
+      &ldquo;All Our Stories&rdquo; grant, 2012
+    </div>
   </div>
 </div>
 
@@ -609,7 +675,17 @@ const html = `<!DOCTYPE html>
 <div class="chapter">${chapter2}</div>
 <div class="chapter">${chapter3}</div>
 <div class="chapter">${chapter4}</div>
-<div class="chapter">${chapter5}</div>
+<div class="chapter">
+  ${chapter5}
+  <div class="nlhf-ack">
+    <img src="${images.nlhfStamp}" alt="Made possible with National Lottery Heritage Fund" />
+    <div class="nlhf-ack-text">
+      <strong>Thanks to National Lottery players</strong>
+      This history was researched and written by Jennifer Kirkby and Barbara Winfield, made possible
+      by a grant from The National Lottery Heritage Fund &ldquo;All Our Stories&rdquo; programme (2012).
+    </div>
+  </div>
+</div>
 
 </body>
 </html>`;

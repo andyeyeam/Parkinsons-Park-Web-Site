@@ -19,6 +19,7 @@ import driverGravestoneImg from '../src/assets/images/driver-gravestone.jpg';
 import haymakingImg from '../src/assets/images/haymaking-eragny.jpg';
 import newDykesGateImg from '../src/assets/images/new-dykes-gate.jpg';
 import oldMansCornerImg from '../src/assets/images/old-mans-corner.jpg';
+import nlhfStampImg from '../src/assets/images/nlhf-acknowledgement-stamp.png';
 
 // ── Shared layout helpers ──────────────────────────────────────────────────────
 
@@ -542,7 +543,23 @@ const HistoryArticle: React.FC = () => {
               Friends of Parkinson&apos;s Park Archive <ExternalLink className="w-3 h-3" />
             </a>
           </p>
-          <p>Research by Jennifer Kirkby and Barbara Winfield, funded by the Heritage Lottery Fund &ldquo;All Our Stories&rdquo; grant (2012).</p>
+          <p>Research by Jennifer Kirkby and Barbara Winfield.</p>
+        </div>
+
+        {/* NLHF acknowledgement */}
+        <div className="mt-8 p-6 bg-stone-100 rounded-2xl flex flex-col sm:flex-row items-center gap-6">
+          <img
+            src={nlhfStampImg}
+            alt="Made possible with National Lottery Heritage Fund"
+            className="w-24 h-24 shrink-0 object-contain"
+          />
+          <div>
+            <p className="text-sm font-semibold text-stone-700 mb-1">Thanks to National Lottery players</p>
+            <p className="text-sm text-stone-500 leading-relaxed">
+              This research was funded by The National Lottery Heritage Fund &ldquo;All Our Stories&rdquo; grant (2012),
+              enabling Jennifer Kirkby and Barbara Winfield to document the history of Parkinson&apos;s Park for the community.
+            </p>
+          </div>
         </div>
       </main>
 
