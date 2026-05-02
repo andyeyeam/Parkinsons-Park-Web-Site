@@ -137,11 +137,6 @@ const Chapter1: React.FC = () => (
 
     <Img src={geophysicsTeamImg} alt="Geophysics survey team" caption="The geophysics survey team at work in Parkinson's Park — using the same methods as the television series Time Team" />
 
-    <ExtLink
-      href="https://www.heritagefund.org.uk"
-      label="National Lottery Heritage Fund"
-      description="The Heritage Fund's 'All Our Stories' scheme supported community groups researching and sharing local heritage as part of the Diamond Jubilee celebrations."
-    />
   </>
 );
 
@@ -447,11 +442,6 @@ const Chapter5: React.FC = () => (
       <a href="mailto:parkinsonspark@gmail.com" className="text-emerald-700 font-semibold hover:underline">parkinsonspark@gmail.com</a>.</em>
     </P>
 
-    <ExtLink
-      href="https://www.heritagefund.org.uk"
-      label="National Lottery Heritage Fund"
-      description="The Heritage Fund's 'All Our Stories' grant funded the research that uncovered the park's history."
-    />
     <ExtLink
       href="https://www.fieldsintrust.org"
       label="Fields In Trust"
