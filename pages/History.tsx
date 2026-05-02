@@ -1165,7 +1165,7 @@ const History: React.FC = () => {
           <div className="inline-flex items-center justify-center p-3 bg-emerald-800/50 rounded-2xl mb-6 backdrop-blur-sm border border-emerald-700">
             <BookOpen className="w-8 h-8 text-emerald-400" />
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">All Our Stories</h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">A journey through time</h1>
           <p className="text-xl text-emerald-100 max-w-3xl font-light leading-relaxed">
             From Bronze Age settlements through Viking era to Victorian industrialists, from decline to
             community-led renaissance — discover over 4,000 years of Parkinson's Park history.
