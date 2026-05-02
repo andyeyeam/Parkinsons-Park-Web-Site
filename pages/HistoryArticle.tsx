@@ -517,7 +517,7 @@ const HistoryArticle: React.FC = () => {
           <h1 className="text-4xl md:text-5xl font-bold mb-3 leading-tight">{chapter.title}</h1>
           <p className="text-xl text-emerald-100 font-light italic">{chapter.subtitle}</p>
 
-          <div className="mt-8">
+          <div className="mt-8 flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <button
               onClick={() => initiateDownload(
                 `${import.meta.env.BASE_URL}documents/Parkinsons-Park-Full-History.pdf`,
@@ -527,6 +527,21 @@ const HistoryArticle: React.FC = () => {
             >
               <Download className="w-4 h-4" /> Download Full History (PDF)
             </button>
+          </div>
+
+          {/* NLHF acknowledgement — header */}
+          <div className="mt-8 pt-8 border-t border-emerald-800 flex items-center gap-5">
+            <img
+              src={nlhfStampImg}
+              alt="Made possible with National Lottery Heritage Fund"
+              className="w-16 h-16 shrink-0 object-contain"
+            />
+            <div>
+              <p className="text-sm font-semibold text-white mb-0.5">Thanks to National Lottery players</p>
+              <p className="text-sm text-emerald-200 leading-relaxed">
+                This research was funded by The National Lottery Heritage Fund &ldquo;All Our Stories&rdquo; grant (2012).
+              </p>
+            </div>
           </div>
         </div>
       </header>
