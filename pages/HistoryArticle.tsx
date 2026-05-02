@@ -550,8 +550,7 @@ const HistoryArticle: React.FC = () => {
           <div>
             <p className="text-sm font-semibold text-stone-700 mb-1">Thanks to National Lottery players</p>
             <p className="text-sm text-stone-500 leading-relaxed">
-              This research was funded by The National Lottery Heritage Fund &ldquo;All Our Stories&rdquo; grant (2012),
-              enabling Jennifer Kirkby and Barbara Winfield to document the history of Parkinson&apos;s Park for the community.
+              This research was funded by The National Lottery Heritage Fund &ldquo;All Our Stories&rdquo; grant (2012).
             </p>
           </div>
         </div>
