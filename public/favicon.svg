@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Dark emerald background -->
+  <rect width="32" height="32" rx="7" fill="#064e3b"/>
+  <!-- Tree canopy (three overlapping circles for a fuller silhouette) -->
+  <circle cx="16" cy="11" r="6.5" fill="#ffffff"/>
+  <circle cx="11" cy="14" r="5" fill="#ffffff"/>
+  <circle cx="21" cy="14" r="5" fill="#ffffff"/>
+  <!-- Trunk -->
+  <rect x="14.5" y="19" width="3" height="6" rx="1.2" fill="#ffffff"/>
+</svg>
