@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Users, Factory, Heart, Sparkles, ArrowLeft, Award, ChevronDown, X, MapPin, Trees, Calendar, Camera } from 'lucide-react';
+import { BookOpen, Users, Factory, Heart, Sparkles, ArrowLeft, ArrowRight, Award, ChevronDown, X, MapPin, Trees, Calendar, Camera } from 'lucide-react';
 
 // Import historical images
 import lynchetCrookedLands from '../src/assets/images/lynchet-crooked-lands.jpg';
@@ -17,6 +17,7 @@ import driverGravestone from '../src/assets/images/driver-gravestone.jpg';
 import haymaking from '../src/assets/images/haymaking-eragny.jpg';
 import newDykesGate from '../src/assets/images/new-dykes-gate.jpg';
 import oldMansCorner from '../src/assets/images/old-mans-corner.jpg';
+import nlhfStampImg from '../src/assets/images/nlhf-acknowledgement-stamp.png';
 
 // Timeline Event Interface
 interface TimelineImage {
@@ -1687,6 +1688,43 @@ const History: React.FC = () => {
               </a>
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* ── Read the Full History banner ── */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="bg-gradient-to-r from-emerald-950 to-stone-800 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center gap-8">
+          <div className="flex items-center justify-center w-16 h-16 bg-emerald-700/40 rounded-2xl shrink-0 border border-emerald-600/40">
+            <BookOpen className="w-8 h-8 text-emerald-300" />
+          </div>
+          <div className="flex-1 text-white text-center md:text-left">
+            <div className="text-emerald-300 text-xs font-bold uppercase tracking-widest mb-2">
+              Illustrated History &mdash; Five Chapters
+            </div>
+            <h3 className="text-2xl font-bold mb-2">Read the Full Story of Parkinson&apos;s Park</h3>
+            <p className="text-stone-300 text-sm leading-relaxed max-w-xl">
+              From Viking settlers naming our springs, through Georgian farmers and Victorian philanthropists,
+              to the community-led renaissance that saved the park — told in full with photographs and original
+              research from the Heritage Lottery Fund project.
+            </p>
+            <div className="flex items-center gap-3 mt-4 pt-4 border-t border-emerald-800/60">
+              <img
+                src={nlhfStampImg}
+                alt="Made possible with National Lottery Heritage Fund"
+                className="w-10 h-10 shrink-0 object-contain"
+              />
+              <p className="text-xs text-emerald-300 leading-snug">
+                <span className="font-semibold text-white">Thanks to National Lottery players</span><br />
+                Funded by The National Lottery Heritage Fund &ldquo;All Our Stories&rdquo; grant (2012).
+              </p>
+            </div>
+          </div>
+          <Link
+            to="/history-article"
+            className="shrink-0 bg-white text-emerald-900 px-7 py-3 rounded-full font-bold text-sm hover:bg-emerald-50 transition-all flex items-center gap-2 whitespace-nowrap shadow-lg"
+          >
+            Read Now <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
       </section>
 
