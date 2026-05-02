@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, ExternalLink, BookOpen } from 'lucide-react';
+import { ArrowLeft, ArrowRight, ExternalLink, BookOpen, Download } from 'lucide-react';
+import { useDownload } from '../hooks/useDownload';
+import DownloadDialog from '../components/DownloadDialog';
 
 // Local image imports
 import lynchetImg from '../src/assets/images/lynchet-crooked-lands.jpg';
@@ -470,6 +472,7 @@ const chapters = [
 const HistoryArticle: React.FC = () => {
   const [currentChapter, setCurrentChapter] = useState(0);
   const chapter = chapters[currentChapter];
+  const { downloadState, initiateDownload, closeDialog } = useDownload();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -512,6 +515,18 @@ const HistoryArticle: React.FC = () => {
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-3 leading-tight">{chapter.title}</h1>
           <p className="text-xl text-emerald-100 font-light italic">{chapter.subtitle}</p>
+
+          <div className="mt-8">
+            <button
+              onClick={() => initiateDownload(
+                `${import.meta.env.BASE_URL}documents/Parkinsons-Park-Full-History.pdf`,
+                'Parkinsons-Park-Full-History.pdf'
+              )}
+              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-all"
+            >
+              <Download className="w-4 h-4" /> Download Full History (PDF)
+            </button>
+          </div>
         </div>
       </header>
 
@@ -573,6 +588,13 @@ const HistoryArticle: React.FC = () => {
           )}
         </div>
       </nav>
+
+      <DownloadDialog
+        isOpen={downloadState.isOpen}
+        onClose={closeDialog}
+        fileName={downloadState.fileName}
+        fileUrl={downloadState.fileUrl}
+      />
     </div>
   );
 };

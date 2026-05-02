@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "pdf:history": "node generate-history-pdf.js"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
