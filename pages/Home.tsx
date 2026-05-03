@@ -71,23 +71,25 @@ const Home: React.FC = () => {
           <img
             src={heroImage}
             alt="Parkinson's Park Landscape"
-            className="w-full h-full object-cover object-[center_62.5%] brightness-75 saturate-125 contrast-105"
+            className="w-full h-full object-cover object-[center_62.5%] brightness-[0.55] saturate-125 contrast-105"
           />
+          {/* Gradient overlay for text contrast */}
+          <div className="absolute inset-0 bg-gradient-to-b from-stone-950/50 via-stone-950/30 to-stone-950/60" />
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white z-10">
           <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
-              Parkinson's Park <span className="text-emerald-400">Guiseley</span>
+            <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6 [text-shadow:0_2px_16px_rgba(0,0,0,0.6)]">
+              Parkinson's Park <span className="text-emerald-300">Guiseley</span>
             </h1>
-            <p className="text-xl md:text-2xl text-emerald-50 mb-8 font-light">
+            <p className="text-xl md:text-2xl text-white mb-8 font-light leading-relaxed [text-shadow:0_1px_10px_rgba(0,0,0,0.7)]">
               A treasured Landscape Park for everyone to enjoy wildlife, woodland walks, and the peaceful beauty of the Yorkshire countryside.
             </p>
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-              <Link to="/events" className="bg-emerald-700 hover:bg-emerald-800 px-8 py-4 rounded-full font-bold text-lg text-center transition-all flex items-center justify-center space-x-2">
+              <Link to="/events" className="bg-emerald-600 hover:bg-emerald-500 px-8 py-4 rounded-full font-bold text-lg text-center transition-all flex items-center justify-center space-x-2 shadow-lg">
                 <span>Explore Events</span>
                 <ArrowRight className="w-5 h-5" />
               </Link>
-              <Link to="/volunteer" className="bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/30 px-8 py-4 rounded-full font-bold text-lg text-center transition-all">
+              <Link to="/volunteer" className="bg-white/15 hover:bg-white/25 backdrop-blur-md border-2 border-white/70 px-8 py-4 rounded-full font-bold text-lg text-center transition-all shadow-lg">
                 Support the Park
               </Link>
             </div>
