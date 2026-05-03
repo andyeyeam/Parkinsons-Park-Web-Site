@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, TreePine, Map, Heart, X, Sparkles, MapPin, Calendar, BookOpen } from 'lucide-react';
-import { FEATURES, MOCK_EVENTS } from '../constants';
+import { ArrowRight, TreePine, Heart, X, Sparkles, MapPin, BookOpen } from 'lucide-react';
+import { MOCK_EVENTS } from '../constants';
+import historyCardImage from '../src/assets/images/old-mans-corner.jpg';
+import ecologyCardImage from '../src/assets/images/ecology-bluebells.jpg';
+import geologyCardImage from '../src/assets/images/guiseley-gap-formation.jpg';
+import locationCardImage from '../src/assets/images/new-dykes-gate.jpg';
+import storiesCardImage from '../src/assets/images/lantern-parade.jpg';
 import { useDownload } from '../hooks/useDownload';
 import DownloadDialog from '../components/DownloadDialog';
 import heroImage from '../src/assets/images/PPHeroV3.jpg';
@@ -97,31 +102,25 @@ const Home: React.FC = () => {
           <p className="text-stone-600 max-w-2xl mx-auto"><strong>Parkinson's Park</strong> was gifted to the people of Guiseley in 1936 by F & A Parkinson Ltd. Today, a Friends Group continues that mission, working to maintain and improve the park for all of Aireborough's residents.</p>
 
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-          {FEATURES.map((feature, i) => {
-            const FeatureCard = (
-              <div className={`bg-white p-8 rounded-3xl border border-stone-100 shadow-sm hover:shadow-md transition-all ${feature.link ? 'cursor-pointer hover:border-emerald-600' : ''}`}>
-                <div className="bg-emerald-50 w-14 h-14 rounded-2xl flex items-center justify-center mb-6">
-                  {feature.icon}
-                </div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-stone-600 leading-relaxed">{feature.description}</p>
-                {feature.link && (
-                  <div className="mt-4 text-emerald-700 font-semibold text-sm flex items-center gap-2">
-                    Learn more <ArrowRight className="w-4 h-4" />
-                  </div>
-                )}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+          {[
+            { title: 'Deep History', tag: 'Heritage', description: 'A thousand years of stories, from Viking settlers to the Victorian philanthropists who gifted this park.', link: '/history', image: historyCardImage },
+            { title: 'Rich Ecology', tag: 'Nature', description: 'Eight wild habitats from ancient woodland to bog garden, alive with birds, wildflowers, and fungi.', link: '/ecology', image: ecologyCardImage },
+            { title: 'Ancient Geology', tag: 'Geology', description: '300 million years of earth history shaped by tropical seas, glaciers, and the Guiseley Gap.', link: '/geology', image: geologyCardImage },
+            { title: 'Find Us', tag: 'Visit', description: 'Free to visit year-round in the heart of Guiseley — maps, directions, and parking all here.', link: '/location', image: locationCardImage },
+            { title: 'Your Stories', tag: 'Community', description: 'Share your memories and photographs from Parkinson\'s Park with the community.', link: '/your-stories', image: storiesCardImage },
+          ].map((card) => (
+            <Link key={card.link} to={card.link} className="group block">
+              <div className="overflow-hidden rounded-2xl aspect-[4/3] mb-4">
+                <img src={card.image} alt={card.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
-            );
-
-            return feature.link ? (
-              <Link key={i} to={feature.link} className="block">
-                {FeatureCard}
-              </Link>
-            ) : (
-              <div key={i}>{FeatureCard}</div>
-            );
-          })}
+              <div className="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1.5">{card.tag}</div>
+              <h3 className="text-base font-bold text-stone-900 group-hover:text-emerald-700 transition-colors flex items-center gap-1.5">
+                {card.title} <ArrowRight className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+              </h3>
+              <p className="text-stone-500 text-sm mt-1.5 leading-relaxed">{card.description}</p>
+            </Link>
+          ))}
         </div>
 
         {/* ── Read the Full History banner ── */}
