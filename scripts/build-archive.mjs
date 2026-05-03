@@ -261,7 +261,9 @@ async function main() {
         const baseUrl = fullUrl.replace(/\?.*$/, '').replace(/^.*?(?=https?:\/\/)/, '');
         const cleanUrl = baseUrl.replace(/\?.*$/, '');
         const filename = urlToLocal[cleanUrl];
-        return filename ? `${prefix}/archive-images/${filename}"` : `${prefix}${fullUrl}"`;
+        return filename
+          ? `${prefix}/archive-images/${filename}" data-original-src="${cleanUrl}"`
+          : `${prefix}${fullUrl}"`;
       }
     );
     // Remove srcset attributes (they reference WP CDN sizes we haven't downloaded)

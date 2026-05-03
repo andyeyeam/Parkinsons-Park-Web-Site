@@ -111,38 +111,42 @@ const PostModal: React.FC<{ post: ArchivePost; onClose: () => void }> = ({ post,
     return () => { document.removeEventListener('keydown', handler); document.body.style.overflow = ''; };
   }, [onClose]);
 
-  const openWordPress = () => window.open(post.link, '_blank', 'noopener,noreferrer');
+  const [pendingUrl, setPendingUrl] = useState<string>(post.link);
 
-  const handleWpClick = () => {
-    if (localStorage.getItem(WP_NOTICE_KEY)) { openWordPress(); } else { setShowNotice(true); }
+  const openUrl = (url: string) => window.open(url, '_blank', 'noopener,noreferrer');
+
+  const handleWpClick = (url: string) => {
+    setPendingUrl(url);
+    if (localStorage.getItem(WP_NOTICE_KEY)) { openUrl(url); } else { setShowNotice(true); }
   };
 
-  // Intercept ALL clicks inside post content — prevent <a> navigation and
-  // treat any image or link click as a redirect to the original WP post
+  // Intercept all clicks inside post content
   useEffect(() => {
     const el = contentRef.current;
     if (!el) return;
     const handleClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
-      const img = target.closest('img');
-      const link = target.closest('a');
+      const img = target.closest('img') as HTMLImageElement | null;
+      const link = target.closest('a') as HTMLAnchorElement | null;
       if (img || link) {
         e.preventDefault();
         e.stopPropagation();
-        handleWpClick();
+        // For images, use the embedded original URL (full-size image on WP CDN)
+        const url = img?.dataset.originalSrc || link?.href || post.link;
+        handleWpClick(url);
       }
     };
     el.addEventListener('click', handleClick);
     return () => el.removeEventListener('click', handleClick);
   }, [post.link]);
 
-  // Style images and links as clickable pointers
+  // Style images as clickable
   useEffect(() => {
     const el = contentRef.current;
     if (!el) return;
     el.querySelectorAll('img').forEach(img => {
-      img.style.cursor = 'pointer';
-      img.title = 'Click to view on original WordPress site';
+      img.style.cursor = 'zoom-in';
+      img.title = 'Click to view full size on original site';
     });
     el.querySelectorAll('a').forEach(a => { a.style.cursor = 'pointer'; });
   }, [post.content]);
@@ -168,7 +172,7 @@ const PostModal: React.FC<{ post: ArchivePost; onClose: () => void }> = ({ post,
               <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" />{date}</span>
               {post.author && <span className="flex items-center gap-1.5"><User className="w-4 h-4" />{post.author}</span>}
               {post.link && (
-                <button onClick={handleWpClick} className="flex items-center gap-1.5 hover:text-white transition-colors">
+                <button onClick={() => handleWpClick(post.link)} className="flex items-center gap-1.5 hover:text-white transition-colors">
                   <ExternalLink className="w-4 h-4" /> View original post
                 </button>
               )}
@@ -199,8 +203,8 @@ const PostModal: React.FC<{ post: ArchivePost; onClose: () => void }> = ({ post,
 
       {showNotice && (
         <WpRedirectNotice
-          url={post.link}
-          onConfirm={() => { setShowNotice(false); openWordPress(); }}
+          url={pendingUrl}
+          onConfirm={() => { setShowNotice(false); openUrl(pendingUrl); }}
           onCancel={() => setShowNotice(false)}
         />
       )}
