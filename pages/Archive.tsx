@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Search, ArrowLeft, Calendar, Tag, User, ExternalLink, X, ChevronDown, Archive as ArchiveIcon } from 'lucide-react';
 
@@ -43,44 +43,11 @@ const categoryColour = (cat: string) => {
   return map[cat] || 'bg-stone-100 text-stone-600';
 };
 
-// ── Post modal ────────────────────────────────────────────────────────────────
-
-// ── Image lightbox ────────────────────────────────────────────────────────────
-
-const Lightbox: React.FC<{ src: string; alt: string; onClose: () => void }> = ({ src, alt, onClose }) => {
-  useEffect(() => {
-    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
-    document.addEventListener('keydown', handler);
-    return () => document.removeEventListener('keydown', handler);
-  }, [onClose]);
-
-  return (
-    <div
-      className="fixed inset-0 bg-black/90 backdrop-blur-sm z-[60] flex items-center justify-center p-4 cursor-zoom-out"
-      onClick={onClose}
-    >
-      <button
-        onClick={onClose}
-        className="absolute top-4 right-4 text-white/70 hover:text-white bg-black/40 rounded-full p-2 transition-colors"
-        aria-label="Close image"
-      >
-        <X className="w-6 h-6" />
-      </button>
-      <img
-        src={src}
-        alt={alt}
-        className="max-w-full max-h-[90vh] rounded-xl shadow-2xl object-contain"
-        onClick={e => e.stopPropagation()}
-      />
-    </div>
-  );
-};
-
 const WP_NOTICE_KEY = 'archive_wp_notice_dismissed';
 
 // ── WordPress redirect notice ─────────────────────────────────────────────────
 
-const WpRedirectNotice: React.FC<{ url: string; onConfirm: () => void; onCancel: () => void }> = ({ url, onConfirm, onCancel }) => {
+const WpRedirectNotice: React.FC<{ context: 'image' | 'post'; url: string; onConfirm: () => void; onCancel: () => void }> = ({ context, url, onConfirm, onCancel }) => {
   const [dontShow, setDontShow] = useState(false);
 
   const handleConfirm = () => {
@@ -98,7 +65,9 @@ const WpRedirectNotice: React.FC<{ url: string; onConfirm: () => void; onCancel:
           <h3 className="font-bold text-stone-900 text-lg">Leaving this site</h3>
         </div>
         <p className="text-stone-600 text-sm leading-relaxed mb-2">
-          You are about to visit the original Friends of Parkinson's Park WordPress site where this post was first published.
+          {context === 'image'
+            ? "You are about to view this image on the original Friends of Parkinson's Park WordPress site. It will open in a new tab."
+            : "You are about to visit the original Friends of Parkinson's Park WordPress site where this post was first published. It will open in a new tab."}
         </p>
         <p className="text-stone-400 text-xs mb-6 break-all">{url}</p>
         <label className="flex items-center gap-2.5 mb-6 cursor-pointer select-none group">
@@ -117,7 +86,7 @@ const WpRedirectNotice: React.FC<{ url: string; onConfirm: () => void; onCancel:
             onClick={handleConfirm}
             className="flex-1 bg-emerald-700 hover:bg-emerald-800 text-white py-2.5 rounded-xl font-semibold text-sm transition-all flex items-center justify-center gap-2"
           >
-            <ExternalLink className="w-4 h-4" /> Visit WordPress site
+            <ExternalLink className="w-4 h-4" /> Continue to WordPress
           </button>
           <button
             onClick={onCancel}
@@ -134,20 +103,17 @@ const WpRedirectNotice: React.FC<{ url: string; onConfirm: () => void; onCancel:
 // ── Post modal ────────────────────────────────────────────────────────────────
 
 const PostModal: React.FC<{ post: ArchivePost; onClose: () => void }> = ({ post, onClose }) => {
-  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
-  const [showWpNotice, setShowWpNotice] = useState(false);
+  const [wpNoticeContext, setWpNoticeContext] = useState<'image' | 'post' | null>(null);
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handler = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') { lightbox ? setLightbox(null) : onClose(); }
-    };
+    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', handler);
     document.body.style.overflow = 'hidden';
     return () => { document.removeEventListener('keydown', handler); document.body.style.overflow = ''; };
-  }, [onClose, lightbox]);
+  }, [onClose]);
 
-  // Intercept clicks on images inside the rendered HTML content
+  // Intercept image clicks — show redirect notice or go direct if dismissed
   useEffect(() => {
     const el = contentRef.current;
     if (!el) return;
@@ -155,20 +121,24 @@ const PostModal: React.FC<{ post: ArchivePost; onClose: () => void }> = ({ post,
       const img = (e.target as HTMLElement).closest('img');
       if (img) {
         e.stopPropagation();
-        setLightbox({ src: img.src, alt: img.alt || '' });
+        if (localStorage.getItem(WP_NOTICE_KEY)) {
+          window.open(post.link, '_blank', 'noopener,noreferrer');
+        } else {
+          setWpNoticeContext('image');
+        }
       }
     };
     el.addEventListener('click', handleClick);
     return () => el.removeEventListener('click', handleClick);
-  }, []);
+  }, [post.link]);
 
-  // Style images in content as clickable once mounted
+  // Style images as clickable
   useEffect(() => {
     const el = contentRef.current;
     if (!el) return;
     el.querySelectorAll('img').forEach(img => {
-      img.style.cursor = 'zoom-in';
-      img.title = 'Click to enlarge';
+      img.style.cursor = 'pointer';
+      img.title = 'Click to view on original site';
     });
   }, [post.content]);
 
@@ -198,7 +168,7 @@ const PostModal: React.FC<{ post: ArchivePost; onClose: () => void }> = ({ post,
                     if (localStorage.getItem(WP_NOTICE_KEY)) {
                       window.open(post.link, '_blank', 'noopener,noreferrer');
                     } else {
-                      setShowWpNotice(true);
+                      setWpNoticeContext('post');
                     }
                   }}
                   className="flex items-center gap-1.5 hover:text-white transition-colors"
@@ -231,18 +201,15 @@ const PostModal: React.FC<{ post: ArchivePost; onClose: () => void }> = ({ post,
         </div>
       </div>
 
-      {lightbox && (
-        <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={() => setLightbox(null)} />
-      )}
-
-      {showWpNotice && (
+      {wpNoticeContext && (
         <WpRedirectNotice
+          context={wpNoticeContext}
           url={post.link}
           onConfirm={() => {
-            setShowWpNotice(false);
+            setWpNoticeContext(null);
             window.open(post.link, '_blank', 'noopener,noreferrer');
           }}
-          onCancel={() => setShowWpNotice(false)}
+          onCancel={() => setWpNoticeContext(null)}
         />
       )}
     </>
