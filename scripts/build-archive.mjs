@@ -235,7 +235,10 @@ async function main() {
       .filter(Boolean);
 
     const date = (post['wp:post_date'] || '').replace(' ', 'T');
-    const title = post.title?.__cdata || post.title || '(Untitled)';
+    const rawTitle = post.title;
+    const title = typeof rawTitle === 'string' ? rawTitle
+      : rawTitle?.__cdata != null ? (rawTitle.__cdata || '(Untitled)')
+      : rawTitle?.['#text'] || '(Untitled)';
     const link = post.link || '';
 
     return {
