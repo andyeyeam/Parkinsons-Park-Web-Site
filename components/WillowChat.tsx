@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { X, Send, MessageCircle, Leaf } from 'lucide-react';
+import { X, Send, MessageCircle, Leaf, Maximize2, Minimize2 } from 'lucide-react';
 import { willowKnowledge } from '../willowKnowledge';
 
 interface Message {
@@ -10,6 +10,7 @@ interface Message {
 
 const WillowChat: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -162,7 +163,11 @@ const WillowChat: React.FC = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-6 right-6 w-96 h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col z-40 border border-stone-200">
+        <div className={`fixed bg-white rounded-2xl shadow-2xl flex flex-col z-40 border border-stone-200 transition-all duration-300 ${
+          isExpanded
+            ? 'bottom-4 right-4 w-[min(720px,95vw)] h-[85vh]'
+            : 'bottom-6 right-6 w-96 h-[600px]'
+        }`}>
           {/* Header */}
           <div className="bg-emerald-700 text-white p-4 rounded-t-2xl flex items-center justify-between">
             <div className="flex items-center gap-3">
@@ -174,13 +179,23 @@ const WillowChat: React.FC = () => {
                 <p className="text-xs text-emerald-100">Park Guide Assistant</p>
               </div>
             </div>
-            <button
-              onClick={() => setIsOpen(false)}
-              className="text-white hover:text-emerald-100 transition-colors"
-              aria-label="Close chat"
-            >
-              <X className="w-5 h-5" />
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setIsExpanded(e => !e)}
+                className="text-white hover:text-emerald-100 transition-colors"
+                aria-label={isExpanded ? 'Collapse chat' : 'Expand chat'}
+                title={isExpanded ? 'Collapse' : 'Expand'}
+              >
+                {isExpanded ? <Minimize2 className="w-5 h-5" /> : <Maximize2 className="w-5 h-5" />}
+              </button>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-white hover:text-emerald-100 transition-colors"
+                aria-label="Close chat"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
           </div>
 
           {/* Messages */}
