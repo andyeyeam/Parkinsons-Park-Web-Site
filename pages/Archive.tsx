@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { Search, ArrowLeft, Calendar, Tag, User, ExternalLink, X, ChevronDown, Archive as ArchiveIcon } from 'lucide-react';
 
@@ -45,62 +45,130 @@ const categoryColour = (cat: string) => {
 
 // ── Post modal ────────────────────────────────────────────────────────────────
 
-const PostModal: React.FC<{ post: ArchivePost; onClose: () => void }> = ({ post, onClose }) => {
+// ── Image lightbox ────────────────────────────────────────────────────────────
+
+const Lightbox: React.FC<{ src: string; alt: string; onClose: () => void }> = ({ src, alt, onClose }) => {
   useEffect(() => {
     const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onClose(); };
     document.addEventListener('keydown', handler);
+    return () => document.removeEventListener('keydown', handler);
+  }, [onClose]);
+
+  return (
+    <div
+      className="fixed inset-0 bg-black/90 backdrop-blur-sm z-[60] flex items-center justify-center p-4 cursor-zoom-out"
+      onClick={onClose}
+    >
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 text-white/70 hover:text-white bg-black/40 rounded-full p-2 transition-colors"
+        aria-label="Close image"
+      >
+        <X className="w-6 h-6" />
+      </button>
+      <img
+        src={src}
+        alt={alt}
+        className="max-w-full max-h-[90vh] rounded-xl shadow-2xl object-contain"
+        onClick={e => e.stopPropagation()}
+      />
+    </div>
+  );
+};
+
+// ── Post modal ────────────────────────────────────────────────────────────────
+
+const PostModal: React.FC<{ post: ArchivePost; onClose: () => void }> = ({ post, onClose }) => {
+  const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { lightbox ? setLightbox(null) : onClose(); }
+    };
+    document.addEventListener('keydown', handler);
     document.body.style.overflow = 'hidden';
     return () => { document.removeEventListener('keydown', handler); document.body.style.overflow = ''; };
-  }, [onClose]);
+  }, [onClose, lightbox]);
+
+  // Intercept clicks on images inside the rendered HTML content
+  useEffect(() => {
+    const el = contentRef.current;
+    if (!el) return;
+    const handleClick = (e: MouseEvent) => {
+      const img = (e.target as HTMLElement).closest('img');
+      if (img) {
+        e.stopPropagation();
+        setLightbox({ src: img.src, alt: img.alt || '' });
+      }
+    };
+    el.addEventListener('click', handleClick);
+    return () => el.removeEventListener('click', handleClick);
+  }, []);
+
+  // Style images in content as clickable once mounted
+  useEffect(() => {
+    const el = contentRef.current;
+    if (!el) return;
+    el.querySelectorAll('img').forEach(img => {
+      img.style.cursor = 'zoom-in';
+      img.title = 'Click to enlarge';
+    });
+  }, [post.content]);
 
   const date = new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 
   return (
-    <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-start justify-center p-4 overflow-y-auto" onClick={onClose}>
-      <div className="bg-white rounded-3xl max-w-3xl w-full my-8 shadow-2xl" onClick={e => e.stopPropagation()}>
-        {/* Modal header */}
-        <div className="bg-emerald-900 text-white p-8 rounded-t-3xl relative">
-          <button onClick={onClose} className="absolute top-4 right-4 text-emerald-200 hover:text-white transition-colors">
-            <X className="w-6 h-6" />
-          </button>
-          <div className="flex flex-wrap gap-2 mb-4">
-            {post.categories.map(c => (
-              <span key={c} className={`text-xs font-bold px-3 py-1 rounded-full ${categoryColour(c)}`}>{c}</span>
-            ))}
-          </div>
-          <h2 className="text-2xl md:text-3xl font-bold leading-tight mb-3">{post.title}</h2>
-          <div className="flex flex-wrap items-center gap-4 text-emerald-200 text-sm">
-            <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" />{date}</span>
-            {post.author && <span className="flex items-center gap-1.5"><User className="w-4 h-4" />{post.author}</span>}
-            <a href={post.link} target="_blank" rel="noopener noreferrer"
-              className="flex items-center gap-1.5 hover:text-white transition-colors">
-              <ExternalLink className="w-4 h-4" /> View original post
-            </a>
-          </div>
-        </div>
-
-        {/* Modal body */}
-        <div className="p-8">
-          {/* Post HTML content */}
-          <div
-            className="prose prose-stone max-w-none prose-img:rounded-xl prose-img:shadow-md prose-a:text-emerald-700 prose-headings:text-stone-900"
-            dangerouslySetInnerHTML={{ __html: post.content || `<p>${post.excerpt}</p>` }}
-          />
-
-          {/* Tags */}
-          {post.tags.length > 0 && (
-            <div className="mt-8 pt-6 border-t border-stone-100">
-              <div className="flex items-center gap-2 flex-wrap">
-                <Tag className="w-4 h-4 text-stone-400 shrink-0" />
-                {post.tags.map(t => (
-                  <span key={t} className="text-xs bg-stone-100 text-stone-600 px-2.5 py-1 rounded-full">{t}</span>
-                ))}
-              </div>
+    <>
+      <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-start justify-center p-4 overflow-y-auto" onClick={onClose}>
+        <div className="bg-white rounded-3xl max-w-3xl w-full my-8 shadow-2xl" onClick={e => e.stopPropagation()}>
+          {/* Modal header */}
+          <div className="bg-emerald-900 text-white p-8 rounded-t-3xl relative">
+            <button onClick={onClose} className="absolute top-4 right-4 text-emerald-200 hover:text-white transition-colors">
+              <X className="w-6 h-6" />
+            </button>
+            <div className="flex flex-wrap gap-2 mb-4">
+              {post.categories.map(c => (
+                <span key={c} className={`text-xs font-bold px-3 py-1 rounded-full ${categoryColour(c)}`}>{c}</span>
+              ))}
             </div>
-          )}
+            <h2 className="text-2xl md:text-3xl font-bold leading-tight mb-3">{post.title}</h2>
+            <div className="flex flex-wrap items-center gap-4 text-emerald-200 text-sm">
+              <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" />{date}</span>
+              {post.author && <span className="flex items-center gap-1.5"><User className="w-4 h-4" />{post.author}</span>}
+              <a href={post.link} target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-1.5 hover:text-white transition-colors">
+                <ExternalLink className="w-4 h-4" /> View original post
+              </a>
+            </div>
+          </div>
+
+          {/* Modal body */}
+          <div className="p-8">
+            <div
+              ref={contentRef}
+              className="prose prose-stone max-w-none prose-img:rounded-xl prose-img:shadow-md prose-a:text-emerald-700 prose-headings:text-stone-900"
+              dangerouslySetInnerHTML={{ __html: post.content || `<p>${post.excerpt}</p>` }}
+            />
+
+            {post.tags.length > 0 && (
+              <div className="mt-8 pt-6 border-t border-stone-100">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <Tag className="w-4 h-4 text-stone-400 shrink-0" />
+                  {post.tags.map(t => (
+                    <span key={t} className="text-xs bg-stone-100 text-stone-600 px-2.5 py-1 rounded-full">{t}</span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
-    </div>
+
+      {lightbox && (
+        <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={() => setLightbox(null)} />
+      )}
+    </>
   );
 };
 
