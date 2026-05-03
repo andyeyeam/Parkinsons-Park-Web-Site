@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, TreePine, Heart, X, Sparkles, MapPin } from 'lucide-react';
+import { ArrowRight, Heart, X, Sparkles, MapPin } from 'lucide-react';
 import { MOCK_EVENTS } from '../constants';
 import historyCardImage from '../src/assets/images/driver-gravestone.jpg';
 import ecologyCardImage from '../src/assets/images/ecology-bluebells.jpg';
@@ -124,58 +124,6 @@ const Home: React.FC = () => {
           ))}
         </div>
 
-      </section>
-
-      {/* Impact Section */}
-      <section className="bg-emerald-900 text-white py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <h2 className="text-4xl md:text-5xl font-bold leading-tight">Preserving Our Yorkshire Heritage</h2>
-              <p className="text-emerald-100 text-lg leading-relaxed">
-                Parkinson's Park serves as a gateway to the Yorkshire countryside. Our ongoing work includes wildflower meadow restoration and the protection of local hedgerows that have stood for generations.
-              </p>
-              <div className="grid grid-cols-2 gap-8">
-                <div>
-                  <div className="text-4xl font-bold text-emerald-400">Guiseley</div>
-                  <div className="text-emerald-200 mt-2">Location</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-bold text-emerald-400">100%</div>
-                  <div className="text-emerald-200 mt-2">Volunteer Managed</div>
-                </div>
-              </div>
-              <button
-                onClick={() => initiateDownload(
-                  `${import.meta.env.BASE_URL}documents/Management-Plan-2026.docx`,
-                  'Management-Plan-2026.docx'
-                )}
-                className="flex items-center space-x-2 text-emerald-400 font-bold hover:text-emerald-300 transition-colors"
-              >
-                <span>View our management plan</span>
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
-            <div className="relative">
-              <img
-                src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=800&auto=format&fit=crop"
-                alt="Views from Parkinson's Park"
-                className="rounded-3xl shadow-2xl"
-              />
-              <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-2xl shadow-xl hidden md:block">
-                <div className="flex items-center space-x-4">
-                  <div className="bg-emerald-100 p-3 rounded-xl">
-                    <TreePine className="w-8 h-8 text-emerald-700" />
-                  </div>
-                  <div>
-                    <div className="text-stone-900 font-bold">Friends Group</div>
-                    <div className="text-stone-500 text-sm">Founded 2011</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </section>
 
       {/* Celebration Tree Section */}
