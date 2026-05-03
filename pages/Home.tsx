@@ -71,7 +71,7 @@ const Home: React.FC = () => {
           <img
             src={heroImage}
             alt="Parkinson's Park Landscape"
-            className="w-full h-full object-cover object-[center_62.5%] brightness-[0.65] saturate-125 contrast-105"
+            className="w-full h-full object-cover object-[center_62.5%] brightness-[0.75] saturate-125 contrast-105"
           />
           {/* Gradient overlay for text contrast */}
           <div className="absolute inset-0 bg-gradient-to-b from-stone-950/50 via-stone-950/30 to-stone-950/60" />
