@@ -481,9 +481,17 @@ const HistoryArticle: React.FC = () => {
             <ArrowLeft className="w-4 h-4" /> Back to Home
           </Link>
 
-          <div className="flex items-center gap-2 mb-6">
-            <BookOpen className="w-5 h-5 text-emerald-400" />
-            <span className="text-emerald-300 text-sm font-bold uppercase tracking-widest">All Our Stories — Illustrated History</span>
+          <div className="flex items-center justify-between flex-wrap gap-4 mb-6">
+            <div className="flex items-center gap-2">
+              <BookOpen className="w-5 h-5 text-emerald-400" />
+              <span className="text-emerald-300 text-sm font-bold uppercase tracking-widest">All Our Stories — Illustrated History</span>
+            </div>
+            <Link
+              to="/history/timeline"
+              className="inline-flex items-center gap-2 bg-emerald-800/60 hover:bg-emerald-700 border border-emerald-600/50 text-emerald-100 px-4 py-2 rounded-full text-sm font-semibold transition-all"
+            >
+              Interactive Timeline <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
           </div>
 
           {/* Chapter tabs */}

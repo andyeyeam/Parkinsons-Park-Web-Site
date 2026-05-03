@@ -110,12 +110,12 @@ const Navbar: React.FC = () => {
       label: 'Home',
       mainLink: '/',
       items: [
-        { label: 'History — All Our Stories', to: '/history' },
-        { label: 'Interactive Timeline', to: '/history/timeline' },
+        { label: 'History', to: '/history' },
         { label: 'Ecology', to: '/ecology' },
         { label: 'Geology', to: '/geology' },
+        { label: 'Find Us', to: '/location' },
+        { label: 'Your Stories', to: '/your-stories' },
         { label: 'Celebration Tree', to: '/#celebration-tree' },
-        { label: 'Park Activities', to: '/#activities' },
       ]
     },
     events: {
