@@ -111,7 +111,7 @@ const Home: React.FC = () => {
             { title: 'Your Stories', tag: 'Community', description: 'Share your memories and photographs from Parkinson\'s Park with the community.', link: '/your-stories', image: storiesCardImage },
           ].map((card) => (
             <Link key={card.link} to={card.link} className="group block">
-              <div className="overflow-hidden rounded-2xl aspect-[4/3] mb-4 border border-stone-200">
+              <div className="overflow-hidden rounded-2xl aspect-[4/3] mb-4 border border-stone-300">
                 <img src={card.image} alt={card.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
               <div className="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1.5">{card.tag}</div>
