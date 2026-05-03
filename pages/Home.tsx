@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Heart, X, Sparkles, MapPin } from 'lucide-react';
-import { MOCK_EVENTS } from '../constants';
+import { ArrowRight, X, Sparkles, MapPin } from 'lucide-react';
 import historyCardImage from '../src/assets/images/driver-gravestone.jpg';
 import ecologyCardImage from '../src/assets/images/ecology-bluebells.jpg';
 import geologyCardImage from '../src/assets/images/guiseley-gap-formation.jpg';
@@ -178,64 +177,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Events Sneak Peek */}
-      <section id="activities" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 scroll-mt-24">
-        <div className="flex justify-between items-end mb-12">
-          <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Park Activities</h2>
-            <p className="text-stone-600">What's happening in Parkinson's Park this month.</p>
-          </div>
-          <Link to="/events" className="text-emerald-700 font-bold hover:underline flex items-center space-x-2">
-            <span>View all events</span>
-            <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {MOCK_EVENTS.slice(0, 3).map(event => (
-            <div key={event.id} className="group cursor-pointer">
-              <div className="relative h-64 overflow-hidden rounded-2xl mb-4">
-                <img
-                  src={event.imageUrl}
-                  alt={event.title}
-                  className={`w-full h-full transition-transform duration-500 ${event.id === '2'
-                    ? 'object-contain scale-90 group-hover:scale-100'
-                    : 'object-cover group-hover:scale-105'
-                    }`}
-                />
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider text-emerald-800">
-                  {event.type}
-                </div>
-              </div>
-              <h3 className="text-xl font-bold mb-2 group-hover:text-emerald-700 transition-colors">{event.title}</h3>
-              <p className="text-stone-500 text-sm mb-4">{new Date(event.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' })} • {event.time}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-stone-900 rounded-[3rem] p-12 text-center text-white relative overflow-hidden">
-          <div className="relative z-10">
-            <h2 className="text-3xl md:text-5xl font-bold mb-6">Support the Friends Group</h2>
-            <p className="text-xl text-stone-400 mb-10 max-w-2xl mx-auto leading-relaxed">
-              Every penny helps us maintain the benches, keep the paths clear, and run our community events in the park.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-              <button
-                onClick={() => setShowDonateDialog(true)}
-                className="bg-white text-stone-900 px-10 py-4 rounded-full font-bold text-lg hover:bg-stone-100 transition-all flex items-center justify-center space-x-2"
-              >
-                <Heart className="w-5 h-5 text-rose-500" />
-                <span>Make a Donation</span>
-              </button>
-              <button onClick={() => setShowJoinFriendsDialog(true)} className="bg-stone-800 text-white border border-stone-700 px-10 py-4 rounded-full font-bold text-lg hover:bg-stone-700 transition-all">
-                Join the Friends
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <DownloadDialog
         isOpen={downloadState.isOpen}
