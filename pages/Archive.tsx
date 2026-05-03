@@ -155,6 +155,8 @@ const Archive: React.FC = () => {
   const [search, setSearch] = useState('');
   const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category') || 'all');
   const [selectedYear, setSelectedYear] = useState(Number(searchParams.get('year')) || 0);
+  const [selectedTags, setSelectedTags] = useState<Set<string>>(new Set());
+  const [showAllTags, setShowAllTags] = useState(false);
   const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest');
   const [selectedPost, setSelectedPost] = useState<ArchivePost | null>(null);
   const [visibleCount, setVisibleCount] = useState(24);
@@ -165,6 +167,29 @@ const Archive: React.FC = () => {
       .then(d => { setData(d); setLoading(false); })
       .catch(e => { setError(e.message); setLoading(false); });
   }, []);
+
+  // Build sorted tag list (tags with 2+ posts)
+  const availableTags = useMemo(() => {
+    if (!data) return [];
+    const counts: Record<string, number> = {};
+    for (const post of data.posts) {
+      for (const tag of post.tags) counts[tag] = (counts[tag] || 0) + 1;
+    }
+    return Object.entries(counts)
+      .filter(([, c]) => c >= 2)
+      .sort((a, b) => b[1] - a[1])
+      .map(([name, count]) => ({ name, count }));
+  }, [data]);
+
+  const visibleTags = showAllTags ? availableTags : availableTags.slice(0, 20);
+
+  const toggleTag = (tag: string) => {
+    setSelectedTags(prev => {
+      const next = new Set(prev);
+      next.has(tag) ? next.delete(tag) : next.add(tag);
+      return next;
+    });
+  };
 
   const filtered = useMemo(() => {
     if (!data) return [];
@@ -188,15 +213,19 @@ const Archive: React.FC = () => {
       posts = posts.filter(p => p.year === selectedYear);
     }
 
+    if (selectedTags.size > 0) {
+      posts = posts.filter(p => p.tags.some(t => selectedTags.has(t)));
+    }
+
     if (sortOrder === 'oldest') posts.reverse();
 
     return posts;
-  }, [data, search, selectedCategory, selectedYear, sortOrder]);
+  }, [data, search, selectedCategory, selectedYear, selectedTags, sortOrder]);
 
   const visible = filtered.slice(0, visibleCount);
 
   // Reset visible count when filters change
-  useEffect(() => { setVisibleCount(24); }, [search, selectedCategory, selectedYear, sortOrder]);
+  useEffect(() => { setVisibleCount(24); }, [search, selectedCategory, selectedYear, selectedTags, sortOrder]);
 
   if (loading) return (
     <div className="min-h-screen flex items-center justify-center">
@@ -303,8 +332,61 @@ const Archive: React.FC = () => {
             })}
           </div>
 
+          {/* Label (tag) multi-select */}
+          <div className="border-t border-stone-100 pt-5">
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-2">
+                <Tag className="w-4 h-4 text-stone-400" />
+                <span className="text-sm font-semibold text-stone-600">Labels</span>
+                {selectedTags.size > 0 && (
+                  <span className="text-xs bg-emerald-100 text-emerald-700 font-bold px-2 py-0.5 rounded-full">
+                    {selectedTags.size} selected
+                  </span>
+                )}
+              </div>
+              {selectedTags.size > 0 && (
+                <button
+                  onClick={() => setSelectedTags(new Set())}
+                  className="text-xs text-stone-400 hover:text-red-500 transition-colors flex items-center gap-1"
+                >
+                  <X className="w-3 h-3" /> Clear labels
+                </button>
+              )}
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {visibleTags.map(({ name, count }) => {
+                const active = selectedTags.has(name);
+                return (
+                  <button
+                    key={name}
+                    onClick={() => toggleTag(name)}
+                    className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold transition-all ${
+                      active
+                        ? 'bg-emerald-700 text-white shadow-md'
+                        : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
+                    }`}
+                  >
+                    {active && <X className="w-2.5 h-2.5" />}
+                    {name}
+                    <span className={`text-[10px] ${active ? 'text-emerald-200' : 'text-stone-400'}`}>
+                      {count}
+                    </span>
+                  </button>
+                );
+              })}
+              {availableTags.length > 20 && (
+                <button
+                  onClick={() => setShowAllTags(v => !v)}
+                  className="px-3 py-1.5 rounded-full text-xs font-semibold text-emerald-700 bg-emerald-50 hover:bg-emerald-100 transition-all"
+                >
+                  {showAllTags ? 'Show fewer' : `+${availableTags.length - 20} more labels`}
+                </button>
+              )}
+            </div>
+          </div>
+
           {/* Year + sort row */}
-          <div className="flex flex-wrap gap-3 items-center">
+          <div className="flex flex-wrap gap-3 items-center border-t border-stone-100 pt-5">
             <div className="relative">
               <select
                 value={selectedYear}
@@ -333,6 +415,9 @@ const Archive: React.FC = () => {
 
             <span className="text-sm text-stone-400 ml-auto">
               {filtered.length} {filtered.length === 1 ? 'post' : 'posts'} found
+              {selectedTags.size > 0 && (
+                <span className="ml-1 text-emerald-600 font-semibold">· {selectedTags.size} label{selectedTags.size > 1 ? 's' : ''} active</span>
+              )}
             </span>
           </div>
         </div>
