@@ -15,6 +15,7 @@ import HistoryPage from './pages/History';
 import HistoryArticle from './pages/HistoryArticle';
 import Location from './pages/Location';
 import YourStories from './pages/YourStories';
+import Archive from './pages/Archive';
 import {
   MapPin, Mail, Phone, Facebook, Instagram, Twitter,
   History, Shield, Users, TreePine, FileText, Gavel,
@@ -467,6 +468,7 @@ const AppContent: React.FC = () => {
           <Route path="/history" element={<HistoryArticle />} />
           <Route path="/history/timeline" element={<HistoryPage />} />
           <Route path="/your-stories" element={<YourStories />} />
+          <Route path="/archive" element={<Archive />} />
           <Route path="/about" element={<AboutPage />} />
         </Routes>
       </main>

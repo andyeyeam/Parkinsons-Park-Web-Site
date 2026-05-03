@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "pdf:history": "node generate-history-pdf.js"
+    "pdf:history": "node generate-history-pdf.js",
+    "build:archive": "node scripts/build-archive.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -19,6 +20,7 @@
   "devDependencies": {
     "@types/node": "^22.14.0",
     "@vitejs/plugin-react": "^5.0.0",
+    "fast-xml-parser": "^5.7.2",
     "puppeteer": "^24.34.0",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"

@@ -161,6 +161,7 @@ const Navbar: React.FC = () => {
         { label: 'Our Mission', to: '/about#mission' },
         { label: 'Directors & Officers', to: '/about#directors' },
         { label: 'CIC Reports', to: '/about#reports' },
+        { label: 'Post Archive', to: '/archive' },
       ]
     }
   };
