@@ -76,10 +76,66 @@ const Lightbox: React.FC<{ src: string; alt: string; onClose: () => void }> = ({
   );
 };
 
+const WP_NOTICE_KEY = 'archive_wp_notice_dismissed';
+
+// ── WordPress redirect notice ─────────────────────────────────────────────────
+
+const WpRedirectNotice: React.FC<{ url: string; onConfirm: () => void; onCancel: () => void }> = ({ url, onConfirm, onCancel }) => {
+  const [dontShow, setDontShow] = useState(false);
+
+  const handleConfirm = () => {
+    if (dontShow) localStorage.setItem(WP_NOTICE_KEY, '1');
+    onConfirm();
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[70] flex items-center justify-center p-4" onClick={onCancel}>
+      <div className="bg-white rounded-2xl max-w-sm w-full shadow-2xl p-7" onClick={e => e.stopPropagation()}>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="bg-amber-100 rounded-full p-2 shrink-0">
+            <ExternalLink className="w-5 h-5 text-amber-600" />
+          </div>
+          <h3 className="font-bold text-stone-900 text-lg">Leaving this site</h3>
+        </div>
+        <p className="text-stone-600 text-sm leading-relaxed mb-2">
+          You are about to visit the original Friends of Parkinson's Park WordPress site where this post was first published.
+        </p>
+        <p className="text-stone-400 text-xs mb-6 break-all">{url}</p>
+        <label className="flex items-center gap-2.5 mb-6 cursor-pointer select-none group">
+          <input
+            type="checkbox"
+            checked={dontShow}
+            onChange={e => setDontShow(e.target.checked)}
+            className="w-4 h-4 rounded accent-emerald-700 cursor-pointer"
+          />
+          <span className="text-sm text-stone-500 group-hover:text-stone-700 transition-colors">
+            Don't show this message again
+          </span>
+        </label>
+        <div className="flex gap-3">
+          <button
+            onClick={handleConfirm}
+            className="flex-1 bg-emerald-700 hover:bg-emerald-800 text-white py-2.5 rounded-xl font-semibold text-sm transition-all flex items-center justify-center gap-2"
+          >
+            <ExternalLink className="w-4 h-4" /> Visit WordPress site
+          </button>
+          <button
+            onClick={onCancel}
+            className="px-5 py-2.5 rounded-xl font-semibold text-sm text-stone-600 bg-stone-100 hover:bg-stone-200 transition-all"
+          >
+            Cancel
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 // ── Post modal ────────────────────────────────────────────────────────────────
 
 const PostModal: React.FC<{ post: ArchivePost; onClose: () => void }> = ({ post, onClose }) => {
   const [lightbox, setLightbox] = useState<{ src: string; alt: string } | null>(null);
+  const [showWpNotice, setShowWpNotice] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -136,10 +192,20 @@ const PostModal: React.FC<{ post: ArchivePost; onClose: () => void }> = ({ post,
             <div className="flex flex-wrap items-center gap-4 text-emerald-200 text-sm">
               <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" />{date}</span>
               {post.author && <span className="flex items-center gap-1.5"><User className="w-4 h-4" />{post.author}</span>}
-              <a href={post.link} target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-1.5 hover:text-white transition-colors">
-                <ExternalLink className="w-4 h-4" /> View original post
-              </a>
+              {post.link && (
+                <button
+                  onClick={() => {
+                    if (localStorage.getItem(WP_NOTICE_KEY)) {
+                      window.open(post.link, '_blank', 'noopener,noreferrer');
+                    } else {
+                      setShowWpNotice(true);
+                    }
+                  }}
+                  className="flex items-center gap-1.5 hover:text-white transition-colors"
+                >
+                  <ExternalLink className="w-4 h-4" /> View original post
+                </button>
+              )}
             </div>
           </div>
 
@@ -167,6 +233,17 @@ const PostModal: React.FC<{ post: ArchivePost; onClose: () => void }> = ({ post,
 
       {lightbox && (
         <Lightbox src={lightbox.src} alt={lightbox.alt} onClose={() => setLightbox(null)} />
+      )}
+
+      {showWpNotice && (
+        <WpRedirectNotice
+          url={post.link}
+          onConfirm={() => {
+            setShowWpNotice(false);
+            window.open(post.link, '_blank', 'noopener,noreferrer');
+          }}
+          onCancel={() => setShowWpNotice(false)}
+        />
       )}
     </>
   );
