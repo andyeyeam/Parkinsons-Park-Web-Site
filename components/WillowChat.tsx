@@ -1,6 +1,31 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, Fragment } from 'react';
 import { X, Send, MessageCircle, Leaf, Maximize2, Minimize2 } from 'lucide-react';
 import { willowKnowledge } from '../willowKnowledge';
+
+const URL_REGEX = /(https?:\/\/[^\s\)\"\']+)/g;
+
+function MessageText({ text, isUser }: { text: string; isUser: boolean }) {
+  const parts = text.split(URL_REGEX);
+  return (
+    <p className="text-sm whitespace-pre-wrap break-words">
+      {parts.map((part, i) =>
+        URL_REGEX.test(part) ? (
+          <a
+            key={i}
+            href={part}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={`underline break-all ${isUser ? 'text-emerald-200 hover:text-white' : 'text-emerald-700 hover:text-emerald-900'}`}
+          >
+            {part}
+          </a>
+        ) : (
+          <Fragment key={i}>{part}</Fragment>
+        )
+      )}
+    </p>
+  );
+}
 
 interface Message {
   role: 'user' | 'assistant';
@@ -212,7 +237,7 @@ const WillowChat: React.FC = () => {
                       : 'bg-stone-100 text-stone-900'
                   }`}
                 >
-                  <p className="text-sm whitespace-pre-wrap">{message.content}</p>
+                  <MessageText text={message.content} isUser={message.role === 'user'} />
                   <p
                     className={`text-xs mt-1 ${
                       message.role === 'user' ? 'text-emerald-100' : 'text-stone-500'
