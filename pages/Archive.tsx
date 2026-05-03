@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Link } from 'react-router-dom';
-import { Search, ArrowLeft, Calendar, Tag, User, ExternalLink, X, ChevronDown } from 'lucide-react';
+import { Link, useSearchParams } from 'react-router-dom';
+import { Search, ArrowLeft, Calendar, Tag, User, ExternalLink, X, ChevronDown, Archive as ArchiveIcon } from 'lucide-react';
 
 interface ArchivePost {
   id: number;
@@ -151,9 +151,10 @@ const Archive: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
+  const [searchParams] = useSearchParams();
   const [search, setSearch] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [selectedYear, setSelectedYear] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState(searchParams.get('category') || 'all');
+  const [selectedYear, setSelectedYear] = useState(Number(searchParams.get('year')) || 0);
   const [sortOrder, setSortOrder] = useState<'newest' | 'oldest'>('newest');
   const [selectedPost, setSelectedPost] = useState<ArchivePost | null>(null);
   const [visibleCount, setVisibleCount] = useState(24);
@@ -224,12 +225,38 @@ const Archive: React.FC = () => {
             <ArrowLeft className="w-4 h-4" /> Back to Home
           </Link>
           <div className="inline-flex items-center justify-center p-3 bg-emerald-800/50 rounded-2xl mb-6 backdrop-blur-sm border border-emerald-700">
-            <Calendar className="w-8 h-8 text-emerald-400" />
+            <ArchiveIcon className="w-8 h-8 text-emerald-400" />
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-4">Post Archive</h1>
-          <p className="text-xl text-emerald-100 max-w-3xl font-light leading-relaxed">
-            Every post ever published on the Friends of Parkinson's Park website — {data?.totalPosts} posts from 2011 to today, with all original photos.
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">Post Archive</h1>
+          <p className="text-xl text-emerald-100 max-w-3xl font-light leading-relaxed mb-10">
+            A complete record of every post published by the Friends of Parkinson's Park since the group was founded in 2011.
           </p>
+
+          {/* About the archive */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
+            <div className="bg-emerald-800/50 border border-emerald-700/60 rounded-2xl p-6">
+              <div className="text-3xl font-bold text-emerald-300 mb-1">{data?.totalPosts ?? 460}</div>
+              <div className="text-emerald-100 font-semibold mb-2">Posts</div>
+              <p className="text-emerald-200 text-sm leading-relaxed">From the very first meeting in October 2011 through to 2026 — every update, event report, and ecological observation.</p>
+            </div>
+            <div className="bg-emerald-800/50 border border-emerald-700/60 rounded-2xl p-6">
+              <div className="text-3xl font-bold text-emerald-300 mb-1">1,087</div>
+              <div className="text-emerald-100 font-semibold mb-2">Photographs</div>
+              <p className="text-emerald-200 text-sm leading-relaxed">All original images from the WordPress site, preserved here alongside their posts so the full visual record is available in one place.</p>
+            </div>
+            <div className="bg-emerald-800/50 border border-emerald-700/60 rounded-2xl p-6">
+              <div className="text-3xl font-bold text-emerald-300 mb-1">15</div>
+              <div className="text-emerald-100 font-semibold mb-2">Years of History</div>
+              <p className="text-emerald-200 text-sm leading-relaxed">The archive spans the full life of FOPP — from early regeneration work with Bellway through to the park's recognition as a Fields in Trust Local Favourite.</p>
+            </div>
+          </div>
+
+          <div className="mt-8 max-w-3xl bg-emerald-800/30 border border-emerald-700/40 rounded-2xl p-5 text-sm text-emerald-200 leading-relaxed">
+            <span className="font-semibold text-white">Where this comes from: </span>
+            This archive was exported from the Friends of Parkinson's Park WordPress site at
+            <a href="https://friendsofparkinsonspark.wordpress.com" target="_blank" rel="noopener noreferrer" className="text-emerald-300 hover:text-white underline mx-1">friendsofparkinsonspark.wordpress.com</a>
+            in May 2026. All posts are preserved in their original form, including text, images, categories, and tags. Use the filters below to search and browse by topic or year.
+          </div>
         </div>
       </section>
 

@@ -161,7 +161,19 @@ const Navbar: React.FC = () => {
         { label: 'Our Mission', to: '/about#mission' },
         { label: 'Directors & Officers', to: '/about#directors' },
         { label: 'CIC Reports', to: '/about#reports' },
-        { label: 'Post Archive', to: '/archive' },
+      ]
+    },
+    archive: {
+      label: 'Archive',
+      mainLink: '/archive',
+      items: [
+        { label: 'All Posts', to: '/archive' },
+        { label: 'Events', to: '/archive?category=Events' },
+        { label: 'Ecology', to: '/archive?category=Ecology' },
+        { label: 'History', to: '/archive?category=History' },
+        { label: 'Friends & Community', to: '/archive?category=Friends' },
+        { label: 'Regeneration', to: '/archive?category=Regeneration' },
+        { label: 'Bird Watch', to: '/archive?category=Bird+Watch' },
       ]
     }
   };
@@ -207,6 +219,7 @@ const Navbar: React.FC = () => {
               <NavDropdown {...navItems.findUs} isActive={isActive(navItems.findUs)} />
               <NavDropdown {...navItems.stories} isActive={isActive(navItems.stories)} />
               <NavDropdown {...navItems.about} isActive={isActive(navItems.about)} />
+              <NavDropdown {...navItems.archive} isActive={isActive(navItems.archive)} />
               <button
                 onClick={() => setShowSearchModal(true)}
                 className="text-stone-600 hover:text-emerald-700 transition-colors p-1.5"
@@ -239,6 +252,7 @@ const Navbar: React.FC = () => {
             <MobileDropdown {...navItems.findUs} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.findUs)} />
             <MobileDropdown {...navItems.stories} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.stories)} />
             <MobileDropdown {...navItems.about} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.about)} />
+            <MobileDropdown {...navItems.archive} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.archive)} />
             <button
               onClick={() => { setShowSearchModal(true); setIsOpen(false); }}
               className="flex items-center gap-2 text-stone-600 font-medium"
