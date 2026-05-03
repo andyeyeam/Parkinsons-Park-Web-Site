@@ -47,7 +47,7 @@ const WP_NOTICE_KEY = 'archive_wp_notice_dismissed';
 
 // ── WordPress redirect notice ─────────────────────────────────────────────────
 
-const WpRedirectNotice: React.FC<{ context: 'image' | 'post'; url: string; onConfirm: () => void; onCancel: () => void }> = ({ context, url, onConfirm, onCancel }) => {
+const WpRedirectNotice: React.FC<{ url: string; onConfirm: () => void; onCancel: () => void }> = ({ url, onConfirm, onCancel }) => {
   const [dontShow, setDontShow] = useState(false);
 
   const handleConfirm = () => {
@@ -64,10 +64,8 @@ const WpRedirectNotice: React.FC<{ context: 'image' | 'post'; url: string; onCon
           </div>
           <h3 className="font-bold text-stone-900 text-lg">Leaving this site</h3>
         </div>
-        <p className="text-stone-600 text-sm leading-relaxed mb-2">
-          {context === 'image'
-            ? "You are about to view this image on the original Friends of Parkinson's Park WordPress site. It will open in a new tab."
-            : "You are about to visit the original Friends of Parkinson's Park WordPress site where this post was first published. It will open in a new tab."}
+        <p className="text-stone-600 text-sm leading-relaxed mb-4">
+          You are about to visit the original Friends of Parkinson's Park WordPress site. It will open in a new tab and this page will stay open.
         </p>
         <p className="text-stone-400 text-xs mb-6 break-all">{url}</p>
         <label className="flex items-center gap-2.5 mb-6 cursor-pointer select-none group">
@@ -103,7 +101,7 @@ const WpRedirectNotice: React.FC<{ context: 'image' | 'post'; url: string; onCon
 // ── Post modal ────────────────────────────────────────────────────────────────
 
 const PostModal: React.FC<{ post: ArchivePost; onClose: () => void }> = ({ post, onClose }) => {
-  const [wpNoticeContext, setWpNoticeContext] = useState<'image' | 'post' | null>(null);
+  const [showNotice, setShowNotice] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -113,33 +111,40 @@ const PostModal: React.FC<{ post: ArchivePost; onClose: () => void }> = ({ post,
     return () => { document.removeEventListener('keydown', handler); document.body.style.overflow = ''; };
   }, [onClose]);
 
-  // Intercept image clicks — show redirect notice or go direct if dismissed
+  const openWordPress = () => window.open(post.link, '_blank', 'noopener,noreferrer');
+
+  const handleWpClick = () => {
+    if (localStorage.getItem(WP_NOTICE_KEY)) { openWordPress(); } else { setShowNotice(true); }
+  };
+
+  // Intercept ALL clicks inside post content — prevent <a> navigation and
+  // treat any image or link click as a redirect to the original WP post
   useEffect(() => {
     const el = contentRef.current;
     if (!el) return;
     const handleClick = (e: MouseEvent) => {
-      const img = (e.target as HTMLElement).closest('img');
-      if (img) {
+      const target = e.target as HTMLElement;
+      const img = target.closest('img');
+      const link = target.closest('a');
+      if (img || link) {
+        e.preventDefault();
         e.stopPropagation();
-        if (localStorage.getItem(WP_NOTICE_KEY)) {
-          window.open(post.link, '_blank', 'noopener,noreferrer');
-        } else {
-          setWpNoticeContext('image');
-        }
+        handleWpClick();
       }
     };
     el.addEventListener('click', handleClick);
     return () => el.removeEventListener('click', handleClick);
   }, [post.link]);
 
-  // Style images as clickable
+  // Style images and links as clickable pointers
   useEffect(() => {
     const el = contentRef.current;
     if (!el) return;
     el.querySelectorAll('img').forEach(img => {
       img.style.cursor = 'pointer';
-      img.title = 'Click to view on original site';
+      img.title = 'Click to view on original WordPress site';
     });
+    el.querySelectorAll('a').forEach(a => { a.style.cursor = 'pointer'; });
   }, [post.content]);
 
   const date = new Date(post.date).toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -163,16 +168,7 @@ const PostModal: React.FC<{ post: ArchivePost; onClose: () => void }> = ({ post,
               <span className="flex items-center gap-1.5"><Calendar className="w-4 h-4" />{date}</span>
               {post.author && <span className="flex items-center gap-1.5"><User className="w-4 h-4" />{post.author}</span>}
               {post.link && (
-                <button
-                  onClick={() => {
-                    if (localStorage.getItem(WP_NOTICE_KEY)) {
-                      window.open(post.link, '_blank', 'noopener,noreferrer');
-                    } else {
-                      setWpNoticeContext('post');
-                    }
-                  }}
-                  className="flex items-center gap-1.5 hover:text-white transition-colors"
-                >
+                <button onClick={handleWpClick} className="flex items-center gap-1.5 hover:text-white transition-colors">
                   <ExternalLink className="w-4 h-4" /> View original post
                 </button>
               )}
@@ -201,15 +197,11 @@ const PostModal: React.FC<{ post: ArchivePost; onClose: () => void }> = ({ post,
         </div>
       </div>
 
-      {wpNoticeContext && (
+      {showNotice && (
         <WpRedirectNotice
-          context={wpNoticeContext}
           url={post.link}
-          onConfirm={() => {
-            setWpNoticeContext(null);
-            window.open(post.link, '_blank', 'noopener,noreferrer');
-          }}
-          onCancel={() => setWpNoticeContext(null)}
+          onConfirm={() => { setShowNotice(false); openWordPress(); }}
+          onCancel={() => setShowNotice(false)}
         />
       )}
     </>
