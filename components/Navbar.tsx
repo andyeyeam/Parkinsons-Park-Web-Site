@@ -163,19 +163,6 @@ const Navbar: React.FC = () => {
         { label: 'CIC Reports', to: '/about#reports' },
       ]
     },
-    archive: {
-      label: 'Archive',
-      mainLink: '/archive',
-      items: [
-        { label: 'All Posts', to: '/archive' },
-        { label: 'Events', to: '/archive?category=Events' },
-        { label: 'Ecology', to: '/archive?category=Ecology' },
-        { label: 'History', to: '/archive?category=History' },
-        { label: 'Friends & Community', to: '/archive?category=Friends' },
-        { label: 'Regeneration', to: '/archive?category=Regeneration' },
-        { label: 'Bird Watch', to: '/archive?category=Bird+Watch' },
-      ]
-    }
   };
 
   return (
@@ -219,7 +206,12 @@ const Navbar: React.FC = () => {
               <NavDropdown {...navItems.findUs} isActive={isActive(navItems.findUs)} />
               <NavDropdown {...navItems.stories} isActive={isActive(navItems.stories)} />
               <NavDropdown {...navItems.about} isActive={isActive(navItems.about)} />
-              <NavDropdown {...navItems.archive} isActive={isActive(navItems.archive)} />
+              <Link
+                to="/archive"
+                className={`text-sm font-medium transition-colors whitespace-nowrap ${location.pathname === '/archive' ? 'text-emerald-700 font-semibold' : 'text-stone-600 hover:text-emerald-700'}`}
+              >
+                Archive
+              </Link>
               <button
                 onClick={() => setShowSearchModal(true)}
                 className="text-stone-600 hover:text-emerald-700 transition-colors p-1.5"
@@ -252,7 +244,13 @@ const Navbar: React.FC = () => {
             <MobileDropdown {...navItems.findUs} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.findUs)} />
             <MobileDropdown {...navItems.stories} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.stories)} />
             <MobileDropdown {...navItems.about} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.about)} />
-            <MobileDropdown {...navItems.archive} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.archive)} />
+            <Link
+              to="/archive"
+              className={`font-medium ${location.pathname === '/archive' ? 'text-emerald-700' : 'text-stone-600'}`}
+              onClick={() => setIsOpen(false)}
+            >
+              Archive
+            </Link>
             <button
               onClick={() => { setShowSearchModal(true); setIsOpen(false); }}
               className="flex items-center gap-2 text-stone-600 font-medium"

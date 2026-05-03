@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import WillowChat from './components/WillowChat';
@@ -15,7 +15,7 @@ import HistoryPage from './pages/History';
 import HistoryArticle from './pages/HistoryArticle';
 import Location from './pages/Location';
 import YourStories from './pages/YourStories';
-import Archive from './pages/Archive';
+const Archive = lazy(() => import('./pages/Archive'));
 import {
   MapPin, Mail, Phone, Facebook, Instagram, Twitter,
   History, Shield, Users, TreePine, FileText, Gavel,
@@ -468,7 +468,7 @@ const AppContent: React.FC = () => {
           <Route path="/history" element={<HistoryArticle />} />
           <Route path="/history/timeline" element={<HistoryPage />} />
           <Route path="/your-stories" element={<YourStories />} />
-          <Route path="/archive" element={<Archive />} />
+          <Route path="/archive" element={<Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="w-10 h-10 border-4 border-emerald-700 border-t-transparent rounded-full animate-spin" /></div>}><Archive /></Suspense>} />
           <Route path="/about" element={<AboutPage />} />
         </Routes>
       </main>
