@@ -109,6 +109,38 @@ function extractImagesFromHtml(html) {
   return [...urls];
 }
 
+function processShortcodes(html) {
+  if (!html) return html;
+
+  // [caption id="" align="..." width="..." caption="text"]<img/>[/caption]
+  // Convert to <figure><img/><figcaption>text</figcaption></figure>
+  html = html.replace(
+    /\[caption([^\]]*)\]([\s\S]*?)\[\/caption\]/gi,
+    (_, attrs, inner) => {
+      const captionAttr = attrs.match(/caption="([^"]*)"/i);
+      const caption = captionAttr ? decodeHtmlEntities(captionAttr[1]) : '';
+      const content = inner.trim();
+      return caption
+        ? `<figure class="wp-caption">${content}<figcaption class="wp-caption-text">${caption}</figcaption></figure>`
+        : `<figure class="wp-caption">${content}</figure>`;
+    }
+  );
+
+  // [gallery ...] — remove, images already embedded in content
+  html = html.replace(/\[gallery[^\]]*\]/gi, '');
+
+  // [embed]url[/embed] — remove the tags, leave the URL as plain text
+  html = html.replace(/\[embed\]([\s\S]*?)\[\/embed\]/gi, '$1');
+
+  // [video ...] [audio ...] — strip
+  html = html.replace(/\[\/?(?:video|audio)[^\]]*\]/gi, '');
+
+  // Strip any remaining unrecognised shortcodes [tag ...] and [/tag]
+  html = html.replace(/\[\/?\w[\w-]*[^\]]*\]/g, '');
+
+  return html;
+}
+
 function makeExcerpt(html, maxLen = 200) {
   const text = html
     .replace(/<[^>]+>/g, ' ')
@@ -219,7 +251,8 @@ async function main() {
 
   const archivePosts = posts.map(post => {
     const rawEncoded = post['content:encoded'];
-    const html = String(rawEncoded?.__cdata ?? (typeof rawEncoded === 'string' ? rawEncoded : '') ?? '');
+    const rawHtml = String(rawEncoded?.__cdata ?? (typeof rawEncoded === 'string' ? rawEncoded : '') ?? '');
+    const html = processShortcodes(rawHtml);
 
     // Rewrite image URLs in content to local paths
     let content = html.replace(
