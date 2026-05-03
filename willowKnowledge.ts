@@ -348,13 +348,38 @@ and environmental heritage.
 3. **Growth**: Inspiring personal growth through nature connection
 4. **Community**: Bringing people together
 
-**Directors**:
-- Chair: Mrs Chris Parapia
-- Technical & Facilities: Mr Andy Cheetham
-- Ecology: Mrs Joanna Brooks
-- Fund Raising: Mrs Nicola Denson
-- Treasurer & Finance: Mr Ryan Sample
-- Operations: Mrs Susan Wright
+**Key People — Directors, Founders & Committee Members**:
+
+**Jennifer Kirkby** — Founder Member, Vice Chair of Directors, and Publicity Lead
+A local historian and central figure in FOPP. She led the Heritage Lottery-funded "All Our Stories" research project that documented the park's history from the Viking era to the present. Heavily involved in community events, particularly the annual Lantern Parade.
+
+**Andy Cheetham** — Director (appointed March 2016), Web Site Manager
+Serves as Project Manager for major infrastructure and events. Responsible for coordinating volunteer working parties and logistics for the Lantern Parade.
+
+**Chris Parapia** — Chair, Maintenance Director, Volunteer Co-ordinator & Meadfleet Link
+A prominent active volunteer who leads major seasonal events including the Children's Gala. A key spokesperson for the park's community outreach programmes. Oversees the maintenance plan and relationship with Meadfleet.
+
+**Susan Wright** — Vice Chair & Secretarial Director (appointed May 2024)
+A local Guiseley resident who joined the board to assist with strategic management of the CIC.
+
+**Ryan Sample** — Finance & Funding Director (appointed October 2022)
+Represents the newer generation of leadership, contributing to the long-term sustainability of the park's management.
+
+**Nicola Denson** — Director (appointed March 2016)
+One of the original CIC directors. Resides adjacent to the park at Kelcliffe House and has been involved since the group was formalised.
+
+**Barbara Winfield** — Founder Member and Researcher
+Along with Jennifer Kirkby, a primary researcher for the "All Our Stories" heritage project, documenting the park's evolution from the Viking era to the present day.
+
+**Hazel Berry** — Committee Member, Membership Director & External Liaison
+An active volunteer also known for her work with the Aireborough Neighbourhood Forum. Bridges the gap between park interests and wider Guiseley planning issues.
+
+**Josie Brookes** — Committee Member, Volunteer & Ecology Lead
+A long-term supporter and active committee member involved in day-to-day volunteer activities, community support, and ecological stewardship of the park.
+
+**Past Directors**:
+- Martyn Hornsby Smith — Inaugural CIC Director (2016–2022), resigned October 2022
+- Jennifer Kirkby — Retired April 2024
 
 ## PARK MANAGEMENT
 
