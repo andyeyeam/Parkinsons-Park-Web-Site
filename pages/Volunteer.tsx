@@ -239,10 +239,9 @@ const Volunteer: React.FC = () => {
                 } focus:ring-2 outline-none`}
                 disabled={status.type === 'loading'}
               >
-                <option value="Bog Garden Lead">Bog Garden Lead</option>
-                <option value="Top Copse Lead">Top Copse Lead</option>
-                <option value="Community Orchard Lead">Community Orchard Lead</option>
-                <option value="General Interest">General Interest</option>
+                {VOLUNTEER_ROLES.map(r => (
+                  <option key={r.title} value={r.title}>{r.title}</option>
+                ))}
               </select>
               {errors.role && (
                 <span className="text-xs text-red-600 font-medium flex items-center space-x-1">

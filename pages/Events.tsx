@@ -5,6 +5,7 @@ import { MOCK_EVENTS } from '../constants';
 const Events: React.FC = () => {
   const [filter, setFilter] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
+  const [showPast, setShowPast] = useState(false);
   const [clickCounts, setClickCounts] = useState<Record<string, number>>({});
   const [showPopup, setShowPopup] = useState(false);
   const [popupData, setPopupData] = useState<{ eventTitle: string; count: number } | null>(null);
@@ -43,8 +44,11 @@ const Events: React.FC = () => {
     const matchesFilter = filter === 'all' || event.type === filter;
     const matchesSearch = event.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          event.description.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesFilter && matchesSearch;
+    const matchesPast = showPast || !isPast(event.date);
+    return matchesFilter && matchesSearch && matchesPast;
   });
+
+  const pastCount = MOCK_EVENTS.filter(e => isPast(e.date)).length;
 
   // Common fallback for when direct URLs (like Google Photos shares) don't resolve as raw images
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
@@ -75,20 +79,30 @@ const Events: React.FC = () => {
             className="w-full pl-12 pr-4 py-3 rounded-2xl border border-stone-200 focus:ring-2 focus:ring-emerald-600 outline-none transition-all shadow-sm"
           />
         </div>
-        <div className="flex space-x-2 overflow-x-auto pb-2 scrollbar-hide">
+        <div className="flex flex-wrap gap-2">
           {['all', 'family', 'walk', 'workshop', 'volunteer'].map(cat => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
               className={`px-5 py-3 rounded-full font-semibold whitespace-nowrap transition-all ${
-                filter === cat 
-                  ? 'bg-emerald-700 text-white shadow-lg' 
+                filter === cat
+                  ? 'bg-emerald-700 text-white shadow-lg'
                   : 'bg-white text-stone-600 border border-stone-200 hover:border-emerald-600'
               }`}
             >
               {cat.charAt(0).toUpperCase() + cat.slice(1)}
             </button>
           ))}
+          <button
+            onClick={() => setShowPast(!showPast)}
+            className={`px-5 py-3 rounded-full font-semibold whitespace-nowrap transition-all border ${
+              showPast
+                ? 'bg-stone-200 text-stone-700 border-stone-300'
+                : 'bg-white text-stone-400 border-stone-200 hover:border-stone-400'
+            }`}
+          >
+            {showPast ? `Hide past (${pastCount})` : `Show past (${pastCount})`}
+          </button>
         </div>
       </div>
 

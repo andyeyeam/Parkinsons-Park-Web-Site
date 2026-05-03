@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, TreePine, Heart, X, Sparkles, MapPin, BookOpen } from 'lucide-react';
+import { ArrowRight, TreePine, Heart, X, Sparkles, MapPin } from 'lucide-react';
 import { MOCK_EVENTS } from '../constants';
 import historyCardImage from '../src/assets/images/driver-gravestone.jpg';
 import ecologyCardImage from '../src/assets/images/ecology-bluebells.jpg';
@@ -11,7 +11,7 @@ import { useDownload } from '../hooks/useDownload';
 import DownloadDialog from '../components/DownloadDialog';
 import heroImage from '../src/assets/images/PPHeroV3.jpg';
 import celebrationTreeImage from '/images/celebration-tree.jpg';
-import nlhfStampImg from '../src/assets/images/nlhf-acknowledgement-stamp.png';
+
 
 const Home: React.FC = () => {
   const [showDonateDialog, setShowDonateDialog] = useState(false);
@@ -97,12 +97,11 @@ const Home: React.FC = () => {
 
       {/* Feature Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">A Community Legacy</h2>
-          <p className="text-stone-600 max-w-2xl mx-auto"><strong>Parkinson's Park</strong> was gifted to the people of Guiseley in 1936 by F & A Parkinson Ltd. Today, a Friends Group continues that mission, working to maintain and improve the park for all of Aireborough's residents.</p>
-
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Explore the Park</h2>
+          <p className="text-stone-600 max-w-2xl mx-auto">Gifted to the people of Guiseley in 1936, Parkinson's Park is a living landscape with a remarkable story. Discover its history, wildlife, geology — and become part of its future.</p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 xl:gap-6">
           {[
             { title: 'Deep History', tag: 'Heritage', description: 'A thousand years of stories, from Viking settlers to the Victorian philanthropists who gifted this park.', link: '/history', image: historyCardImage },
             { title: 'Rich Ecology', tag: 'Nature', description: 'Eight wild habitats from ancient woodland to bog garden, alive with birds, wildflowers, and fungi.', link: '/ecology', image: ecologyCardImage },
@@ -123,40 +122,6 @@ const Home: React.FC = () => {
           ))}
         </div>
 
-        {/* ── Read the Full History banner ── */}
-        <div className="mt-12 bg-gradient-to-r from-emerald-950 to-stone-800 rounded-3xl p-8 md:p-10 flex flex-col md:flex-row items-center gap-8">
-          <div className="flex items-center justify-center w-16 h-16 bg-emerald-700/40 rounded-2xl shrink-0 border border-emerald-600/40">
-            <BookOpen className="w-8 h-8 text-emerald-300" />
-          </div>
-          <div className="flex-1 text-white text-center md:text-left">
-            <div className="text-emerald-300 text-xs font-bold uppercase tracking-widest mb-2">
-              Illustrated History &mdash; Five Chapters
-            </div>
-            <h3 className="text-2xl font-bold mb-2">Read the Full Story of Parkinson&apos;s Park</h3>
-            <p className="text-stone-300 text-sm leading-relaxed max-w-xl">
-              From Viking settlers naming our springs, through Georgian farmers and Victorian philanthropists,
-              to the community-led renaissance that saved the park — told in full with photographs and original
-              research from the Heritage Lottery Fund project.
-            </p>
-            <div className="flex items-center gap-3 mt-4 pt-4 border-t border-emerald-800/60">
-              <img
-                src={nlhfStampImg}
-                alt="Made possible with National Lottery Heritage Fund"
-                className="w-10 h-10 shrink-0 object-contain"
-              />
-              <p className="text-xs text-emerald-300 leading-snug">
-                <span className="font-semibold text-white">Thanks to National Lottery players</span><br />
-                Funded by The National Lottery Heritage Fund &ldquo;All Our Stories&rdquo; grant (2012).
-              </p>
-            </div>
-          </div>
-          <Link
-            to="/history-article"
-            className="shrink-0 bg-white text-emerald-900 px-7 py-3 rounded-full font-bold text-sm hover:bg-emerald-50 transition-all flex items-center gap-2 whitespace-nowrap shadow-lg"
-          >
-            Read Now <ArrowRight className="w-4 h-4" />
-          </Link>
-        </div>
       </section>
 
       {/* Impact Section */}

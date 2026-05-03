@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { Menu, X as CloseIcon, Search, ChevronDown } from 'lucide-react';
 import logo from '../src/assets/images/logo.jpg';
 import SearchModal from './SearchModal';
@@ -10,7 +10,8 @@ const NavDropdown: React.FC<{
   label: string;
   items: { label: string; to: string }[];
   mainLink?: string;
-}> = ({ label, items, mainLink }) => {
+  isActive?: boolean;
+}> = ({ label, items, mainLink, isActive }) => {
   const navigate = useNavigate();
 
   const handleMainClick = () => {
@@ -23,7 +24,9 @@ const NavDropdown: React.FC<{
     <div className="relative group">
       <button
         onClick={handleMainClick}
-        className="flex items-center gap-1 text-stone-600 hover:text-emerald-700 font-medium transition-colors cursor-pointer text-sm whitespace-nowrap"
+        className={`flex items-center gap-1 font-medium transition-colors cursor-pointer text-sm whitespace-nowrap ${
+          isActive ? 'text-emerald-700 font-semibold' : 'text-stone-600 hover:text-emerald-700'
+        }`}
       >
         {label}
         <ChevronDown className="w-3.5 h-3.5 transition-transform group-hover:rotate-180" />
@@ -51,18 +54,19 @@ const MobileDropdown: React.FC<{
   items: { label: string; to: string }[];
   mainLink?: string;
   onNavigate: () => void;
-}> = ({ label, items, mainLink, onNavigate }) => {
+  isActive?: boolean;
+}> = ({ label, items, mainLink, onNavigate, isActive }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
     <div>
       <div className="flex items-center justify-between">
         {mainLink ? (
-          <Link to={mainLink} className="text-stone-600 font-medium" onClick={onNavigate}>
+          <Link to={mainLink} className={`font-medium ${isActive ? 'text-emerald-700' : 'text-stone-600'}`} onClick={onNavigate}>
             {label}
           </Link>
         ) : (
-          <span className="text-stone-600 font-medium">{label}</span>
+          <span className={`font-medium ${isActive ? 'text-emerald-700' : 'text-stone-600'}`}>{label}</span>
         )}
         <button
           onClick={() => setIsExpanded(!isExpanded)}
@@ -93,6 +97,12 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showDonateDialog, setShowDonateDialog] = useState(false);
   const [showSearchModal, setShowSearchModal] = useState(false);
+  const location = useLocation();
+
+  const isActive = (item: { mainLink?: string; items: { label: string; to: string }[] }) => {
+    const routes = [item.mainLink, ...item.items.map(i => i.to.split('#')[0])].filter(Boolean) as string[];
+    return routes.some(r => r === '/' ? location.pathname === '/' : location.pathname === r);
+  };
 
   // Navigation structure with dropdowns
   const navItems = {
@@ -189,12 +199,12 @@ const Navbar: React.FC = () => {
             </Link>
 
             <div className="hidden xl:flex space-x-3 items-center">
-              <NavDropdown {...navItems.home} />
-              <NavDropdown {...navItems.events} />
-              <NavDropdown {...navItems.getInvolved} />
-              <NavDropdown {...navItems.findUs} />
-              <NavDropdown {...navItems.stories} />
-              <NavDropdown {...navItems.about} />
+              <NavDropdown {...navItems.home} isActive={isActive(navItems.home)} />
+              <NavDropdown {...navItems.events} isActive={isActive(navItems.events)} />
+              <NavDropdown {...navItems.getInvolved} isActive={isActive(navItems.getInvolved)} />
+              <NavDropdown {...navItems.findUs} isActive={isActive(navItems.findUs)} />
+              <NavDropdown {...navItems.stories} isActive={isActive(navItems.stories)} />
+              <NavDropdown {...navItems.about} isActive={isActive(navItems.about)} />
               <button
                 onClick={() => setShowSearchModal(true)}
                 className="text-stone-600 hover:text-emerald-700 transition-colors p-1.5"
@@ -221,12 +231,12 @@ const Navbar: React.FC = () => {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="xl:hidden bg-white border-b border-stone-200 py-4 px-4 space-y-4 shadow-lg max-h-[80vh] overflow-y-auto">
-            <MobileDropdown {...navItems.home} onNavigate={() => setIsOpen(false)} />
-            <MobileDropdown {...navItems.events} onNavigate={() => setIsOpen(false)} />
-            <MobileDropdown {...navItems.getInvolved} onNavigate={() => setIsOpen(false)} />
-            <MobileDropdown {...navItems.findUs} onNavigate={() => setIsOpen(false)} />
-            <MobileDropdown {...navItems.stories} onNavigate={() => setIsOpen(false)} />
-            <MobileDropdown {...navItems.about} onNavigate={() => setIsOpen(false)} />
+            <MobileDropdown {...navItems.home} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.home)} />
+            <MobileDropdown {...navItems.events} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.events)} />
+            <MobileDropdown {...navItems.getInvolved} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.getInvolved)} />
+            <MobileDropdown {...navItems.findUs} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.findUs)} />
+            <MobileDropdown {...navItems.stories} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.stories)} />
+            <MobileDropdown {...navItems.about} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.about)} />
             <button
               onClick={() => { setShowSearchModal(true); setIsOpen(false); }}
               className="flex items-center gap-2 text-stone-600 font-medium"

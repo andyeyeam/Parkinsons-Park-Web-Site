@@ -1,5 +1,6 @@
 import React from 'react';
-import { MapPin, Compass, Car, Trees, Info, Download, History } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { MapPin, Compass, Car, Trees, Info, Download, History, ArrowLeft } from 'lucide-react';
 import DownloadDialog from '../components/DownloadDialog';
 import { useDownload } from '../hooks/useDownload';
 import accessMap from '../src/assets/images/access-map.png';
@@ -13,17 +14,25 @@ const Location: React.FC = () => {
   const { downloadState, initiateDownload, closeDialog } = useDownload();
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
-      {/* Header Section */}
-      <section className="text-center">
-        <div className="inline-block bg-emerald-50 px-4 py-2 rounded-full text-emerald-800 text-sm font-bold uppercase tracking-wider mb-4">
-          Find Us
+    <div className="bg-stone-50 pb-24">
+      {/* Hero Section */}
+      <section className="bg-emerald-900 text-white py-24">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Link to="/" className="inline-flex items-center gap-2 text-emerald-200 hover:text-white mb-6 transition-colors">
+            <ArrowLeft className="w-4 h-4" />
+            Back to Home
+          </Link>
+          <div className="inline-flex items-center justify-center p-3 bg-emerald-800/50 rounded-2xl mb-6 backdrop-blur-sm border border-emerald-700">
+            <MapPin className="w-8 h-8 text-emerald-400" />
+          </div>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">Find Us</h1>
+          <p className="text-xl text-emerald-100 max-w-3xl font-light leading-relaxed">
+            Parkinson's Park is situated between Netherfield Road and Kelcliffe Lane, behind the former Crompton Parkinson site, now Edison Fields. Free to visit year-round.
+          </p>
         </div>
-        <h1 className="text-4xl md:text-5xl font-bold text-stone-900 mb-6">Location & Access</h1>
-        <p className="text-xl text-stone-600 max-w-3xl mx-auto leading-relaxed">
-          Parkinson's Park is situated between Netherfield Road and Kelcliffe Lane, positioned behind the former Crompton Parkinsons site, now Edison Fields.
-        </p>
       </section>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-24">
 
       {/* Access Map Section */}
       <section>
@@ -195,6 +204,7 @@ const Location: React.FC = () => {
         fileName={downloadState.fileName}
         fileUrl={downloadState.fileUrl}
       />
+      </div>
     </div>
   );
 };

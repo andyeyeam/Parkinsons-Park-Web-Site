@@ -124,7 +124,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
       <div className="border-t border-stone-800 pt-8 text-xs flex flex-col md:flex-row justify-between items-center text-stone-500">
-        <p>© 2024 Parkinson's Park Guiseley. Community Managed.</p>
+        <p>© 2026 Parkinson's Park Guiseley. Community Managed.</p>
         <p className="mt-4 md:mt-0">Designed for the People of Guiseley.</p>
       </div>
     </div>

@@ -40,9 +40,9 @@ interface TimelineEvent {
 }
 
 const History: React.FC = () => {
-  // State for expandable timeline
   const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set());
   const [selectedImage, setSelectedImage] = useState<{ src: string; alt: string; caption?: string } | null>(null);
+  const [eraFilter, setEraFilter] = useState<string>('all');
 
   const toggleExpand = (id: string) => {
     setExpandedItems(prev => {
@@ -1212,66 +1212,78 @@ const History: React.FC = () => {
 
       {/* Interactive Timeline Section */}
       <section id="timeline" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 bg-white rounded-[3rem]">
-        <div className="text-center mb-16">
-          {/* Subtle Navigation Index */}
-          <nav className="mb-8">
-            <div className="flex flex-wrap items-center justify-center gap-2 text-sm">
-              <button onClick={() => scrollToSection('timeline')} className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1 cursor-pointer">Timeline</button>
-              <span className="text-stone-300">•</span>
-              <button onClick={() => scrollToSection('field-names')} className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1 cursor-pointer">Field Names</button>
-              <span className="text-stone-300">•</span>
-              <button onClick={() => scrollToSection('visionaries')} className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1 cursor-pointer">Visionaries</button>
-              <span className="text-stone-300">•</span>
-              <button onClick={() => scrollToSection('parkinson-era')} className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1 cursor-pointer">Parkinson Era</button>
-              <span className="text-stone-300">•</span>
-              <button onClick={() => scrollToSection('decline')} className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1 cursor-pointer">Recent Times</button>
-              <span className="text-stone-300">•</span>
-              <button onClick={() => scrollToSection('renaissance')} className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1 cursor-pointer">Renaissance</button>
-              <span className="text-stone-300">•</span>
-              <button onClick={() => scrollToSection('programs')} className="text-stone-500 hover:text-emerald-700 transition-colors px-2 py-1 cursor-pointer">Programs</button>
-            </div>
-          </nav>
+        {/* Page section navigation */}
+        <nav className="mb-12 pb-8 border-b border-stone-200">
+          <p className="text-xs font-bold uppercase tracking-widest text-stone-400 text-center mb-4">Jump to section</p>
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {[
+              { label: 'Timeline', id: 'timeline' },
+              { label: 'Field Names', id: 'field-names' },
+              { label: 'Visionaries', id: 'visionaries' },
+              { label: 'Parkinson Era', id: 'parkinson-era' },
+              { label: 'Recent Times', id: 'decline' },
+              { label: 'Renaissance', id: 'renaissance' },
+              { label: 'Programs', id: 'programs' },
+            ].map(item => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="px-4 py-2 rounded-full text-sm font-semibold bg-stone-100 text-stone-600 hover:bg-emerald-700 hover:text-white transition-all cursor-pointer"
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        </nav>
 
+        <div className="text-center mb-10">
           <div className="inline-block bg-emerald-50 px-4 py-2 rounded-full text-emerald-800 text-sm font-bold uppercase tracking-wider mb-4">
             4,000 Years of Heritage
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Interactive Historical Timeline</h2>
-          <p className="text-stone-600 max-w-2xl mx-auto mb-6">
+          <p className="text-stone-600 max-w-2xl mx-auto">
             In 2012, Heritage Lottery Fund supported FOPP's research into the park's background as part of the Diamond
             Jubilee "All Our Stories" project. Click any event to explore more details.
           </p>
-          <div className="flex items-center justify-center gap-4 flex-wrap text-xs">
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded-full bg-amber-600"></div>
-              <span className="text-stone-600">Ancient (Pre-1066)</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded-full bg-orange-600"></div>
-              <span className="text-stone-600">Medieval</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded-full bg-blue-600"></div>
-              <span className="text-stone-600">Georgian</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded-full bg-purple-600"></div>
-              <span className="text-stone-600">Industrial</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded-full bg-red-600"></div>
-              <span className="text-stone-600">Modern</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 rounded-full bg-emerald-600"></div>
-              <span className="text-stone-600">FOPP Era</span>
-            </div>
+        </div>
+
+        {/* Era filter buttons */}
+        <div className="mb-10">
+          <div className="flex flex-wrap gap-2 justify-center">
+            {[
+              { key: 'all', label: 'All Eras', color: 'bg-stone-700' },
+              { key: 'ancient', label: 'Ancient', color: 'bg-amber-600' },
+              { key: 'medieval', label: 'Medieval', color: 'bg-orange-600' },
+              { key: 'georgian', label: 'Georgian', color: 'bg-blue-600' },
+              { key: 'industrial', label: 'Industrial', color: 'bg-purple-600' },
+              { key: 'modern', label: 'Modern', color: 'bg-red-600' },
+              { key: 'fopp', label: 'FOPP Era', color: 'bg-emerald-600' },
+            ].map(era => (
+              <button
+                key={era.key}
+                onClick={() => setEraFilter(era.key)}
+                className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold transition-all cursor-pointer ${
+                  eraFilter === era.key
+                    ? `${era.color} text-white shadow-md`
+                    : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
+                }`}
+              >
+                <span className={`w-2.5 h-2.5 rounded-full ${era.key === 'all' ? 'bg-stone-400' : era.color} ${eraFilter === era.key ? 'bg-white/70' : ''}`} />
+                {era.label}
+              </button>
+            ))}
           </div>
+          {eraFilter !== 'all' && (
+            <p className="text-center text-xs text-stone-400 mt-3">
+              Showing {timeline.filter(e => e.category === eraFilter).length} events · <button className="text-emerald-600 hover:underline cursor-pointer" onClick={() => setEraFilter('all')}>Show all</button>
+            </p>
+          )}
         </div>
 
         <div className="relative">
           <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-emerald-200"></div>
           <div className="space-y-6">
-            {timeline.map((event, i) => (
+            {timeline.filter(e => eraFilter === 'all' || e.category === eraFilter).map((event, i) => (
               <div key={i} className="relative pl-20">
                 <div
                   className={`absolute left-4 top-2 w-8 h-8 rounded-full border-4 border-white shadow-lg flex items-center justify-center ${getCategoryColor(

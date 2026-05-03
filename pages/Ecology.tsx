@@ -187,47 +187,46 @@ const Ecology: React.FC = () => {
       {/* Bird Species Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="bg-white rounded-[3rem] p-12 border border-stone-200 shadow-sm">
-          <div className="flex items-center gap-3 mb-6">
+          <div className="flex items-center gap-3 mb-4">
             <Bird className="w-8 h-8 text-emerald-700" />
             <h2 className="text-3xl font-bold text-stone-900">Bird Species</h2>
           </div>
-          <p className="text-stone-600 mb-8 max-w-3xl">
-            The park hosts numerous bird species including those on RSPB red and amber conservation lists, making it an important sanctuary for Yorkshire birdlife. Click on each bird name to go to the RSPB site for more details.
+          <p className="text-stone-600 mb-10 max-w-3xl">
+            The park hosts numerous bird species including those on RSPB red and amber conservation lists, making it an important sanctuary for Yorkshire birdlife. Click any bird name to visit the RSPB species page.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {birdSpecies.map((bird, i) => (
-              <div key={i} className="flex items-center gap-3 p-3 bg-stone-50 rounded-xl">
-                <div className={`w-2 h-2 rounded-full shrink-0 ${bird.status === 'red' ? 'bg-red-500' :
-                  bird.status === 'amber' ? 'bg-amber-500' :
-                    'bg-emerald-500'
-                  }`} />
-                <a
-                  href={bird.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-medium text-stone-700 hover:text-emerald-600 hover:underline"
-                >
-                  {bird.name}
-                </a>
+
+          {[
+            { status: 'red', label: 'Red List', sublabel: 'High conservation concern', dot: 'bg-red-500', pill: 'bg-red-50 border-red-200 text-red-700' },
+            { status: 'amber', label: 'Amber List', sublabel: 'Moderate conservation concern', dot: 'bg-amber-500', pill: 'bg-amber-50 border-amber-200 text-amber-700' },
+            { status: 'common', label: 'Common Species', sublabel: 'Regularly recorded', dot: 'bg-emerald-500', pill: 'bg-emerald-50 border-emerald-200 text-emerald-700' },
+          ].map(group => {
+            const birds = birdSpecies.filter(b => b.status === group.status);
+            if (birds.length === 0) return null;
+            return (
+              <div key={group.status} className="mb-8">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className={`w-3 h-3 rounded-full ${group.dot}`} />
+                  <h3 className="font-bold text-stone-900">{group.label}</h3>
+                  <span className={`text-xs font-semibold px-2.5 py-1 rounded-full border ${group.pill}`}>{birds.length} species</span>
+                  <span className="text-xs text-stone-400">{group.sublabel}</span>
+                </div>
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+                  {birds.map((bird, i) => (
+                    <a
+                      key={i}
+                      href={bird.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2.5 p-3 bg-stone-50 rounded-xl hover:bg-emerald-50 hover:text-emerald-700 transition-colors group"
+                    >
+                      <div className={`w-2 h-2 rounded-full shrink-0 ${group.dot}`} />
+                      <span className="text-sm font-medium text-stone-700 group-hover:text-emerald-700">{bird.name}</span>
+                    </a>
+                  ))}
+                </div>
               </div>
-            ))}
-          </div>
-          <div className="mt-8 p-6 bg-stone-50 rounded-2xl border border-stone-100">
-            <div className="flex flex-wrap gap-6 text-xs">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-red-500" />
-                <span className="text-stone-600 font-semibold">Red List - High conservation concern</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-amber-500" />
-                <span className="text-stone-600 font-semibold">Amber List - Moderate concern</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-emerald-500" />
-                <span className="text-stone-600 font-semibold">Common species</span>
-              </div>
-            </div>
-          </div>
+            );
+          })}
         </div>
       </section>
 

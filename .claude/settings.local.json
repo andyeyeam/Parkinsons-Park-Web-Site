@@ -18,7 +18,20 @@
       "Bash(cat:*)",
       "Bash(npm run dev:*)",
       "Bash(timeout:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(git stash:*)",
+      "Bash(git pull:*)",
+      "Bash(gh run:*)",
+      "Bash(git remote:*)",
+      "WebFetch(domain:api.github.com)",
+      "Bash(node:*)",
+      "Read(//c/Users/andre/Downloads/**)",
+      "Bash(unzip -l English_stamp.zip)",
+      "Bash(unzip -o English_stamp.zip -d \"C:\\\\Users\\\\andre\\\\Downloads\\\\English_stamp_extracted\")",
+      "WebFetch(domain:aireboroughhistoricalsociety.org.uk)",
+      "Bash(findstr /C:\"build\" /C:\"deploy\")",
+      "Bash(gh api *)",
+      "Bash(findstr /I \"pages\")"
     ]
   }
 }
