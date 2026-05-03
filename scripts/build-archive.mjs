@@ -23,6 +23,26 @@ const CONCURRENCY = 5; // parallel downloads at a time
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
+function decodeHtmlEntities(str) {
+  if (!str || typeof str !== 'string') return str;
+  return str
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(parseInt(code, 10)))
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, code) => String.fromCharCode(parseInt(code, 16)))
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&rsquo;/g, '’')
+    .replace(/&lsquo;/g, '‘')
+    .replace(/&rdquo;/g, '”')
+    .replace(/&ldquo;/g, '“')
+    .replace(/&ndash;/g, '–')
+    .replace(/&mdash;/g, '—')
+    .replace(/&hellip;/g, '…');
+}
+
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
 
 function downloadFile(url, destPath) {
@@ -222,8 +242,8 @@ async function main() {
       const domain = cat['@_domain'] || '';
       const text = cat.__cdata || cat['#text'] || (typeof cat === 'string' ? cat : '');
       if (!text) continue;
-      if (domain === 'post_tag') tags.push(text);
-      else categories.push(text);
+      if (domain === 'post_tag') tags.push(decodeHtmlEntities(text));
+      else categories.push(decodeHtmlEntities(text));
     }
 
     // Main category for filtering (first recognised main category, or first category)
@@ -236,9 +256,10 @@ async function main() {
 
     const date = (post['wp:post_date'] || '').replace(' ', 'T');
     const rawTitle = post.title;
-    const title = typeof rawTitle === 'string' ? rawTitle
+    const titleRaw = typeof rawTitle === 'string' ? rawTitle
       : rawTitle?.__cdata != null ? (rawTitle.__cdata || '(Untitled)')
       : rawTitle?.['#text'] || '(Untitled)';
+    const title = decodeHtmlEntities(titleRaw);
     const link = post.link || '';
 
     return {
@@ -252,7 +273,7 @@ async function main() {
       categories,
       tags,
       mainCategory,
-      excerpt: makeExcerpt(html),
+      excerpt: decodeHtmlEntities(makeExcerpt(html)),
       content,
       images: postImages,
     };
