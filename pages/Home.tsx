@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, TreePine, Heart, X, Sparkles, MapPin, BookOpen } from 'lucide-react';
 import { MOCK_EVENTS } from '../constants';
-import historyCardImage from '../src/assets/images/old-mans-corner.jpg';
+import historyCardImage from '../src/assets/images/driver-gravestone.jpg';
 import ecologyCardImage from '../src/assets/images/ecology-bluebells.jpg';
 import geologyCardImage from '../src/assets/images/guiseley-gap-formation.jpg';
 import locationCardImage from '../src/assets/images/new-dykes-gate.jpg';
-import storiesCardImage from '../src/assets/images/lantern-parade.jpg';
+import storiesCardImage from '../src/assets/images/snow-sledging.gif';
 import { useDownload } from '../hooks/useDownload';
 import DownloadDialog from '../components/DownloadDialog';
 import heroImage from '../src/assets/images/PPHeroV3.jpg';
@@ -111,7 +111,7 @@ const Home: React.FC = () => {
             { title: 'Your Stories', tag: 'Community', description: 'Share your memories and photographs from Parkinson\'s Park with the community.', link: '/your-stories', image: storiesCardImage },
           ].map((card) => (
             <Link key={card.link} to={card.link} className="group block">
-              <div className="overflow-hidden rounded-2xl aspect-[4/3] mb-4">
+              <div className="overflow-hidden rounded-2xl aspect-[4/3] mb-4 border border-stone-200">
                 <img src={card.image} alt={card.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
               <div className="text-xs font-bold uppercase tracking-widest text-stone-400 mb-1.5">{card.tag}</div>
