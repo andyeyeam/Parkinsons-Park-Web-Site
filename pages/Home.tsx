@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, TreePine, Map, Heart, X, Info, Sparkles, MapPin, Calendar, BookOpen } from 'lucide-react';
+import { ArrowRight, TreePine, Map, Heart, X, Sparkles, MapPin, Calendar, BookOpen } from 'lucide-react';
 import { FEATURES, MOCK_EVENTS } from '../constants';
 import { useDownload } from '../hooks/useDownload';
 import DownloadDialog from '../components/DownloadDialog';
@@ -96,12 +96,6 @@ const Home: React.FC = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">A Community Legacy</h2>
           <p className="text-stone-600 max-w-2xl mx-auto"><strong>Parkinson's Park</strong> was gifted to the people of Guiseley in 1936 by F & A Parkinson Ltd. Today, a Friends Group continues that mission, working to maintain and improve the park for all of Aireborough's residents.</p>
 
-          <div className="mt-8 max-w-2xl mx-auto bg-stone-50 border border-stone-200 rounded-2xl p-4 flex items-start gap-4 text-left">
-            <Info className="w-5 h-5 text-stone-400 shrink-0 mt-0.5" />
-            <div className="text-sm text-stone-600">
-              <p><strong>Note:</strong> This website replaces our previous site. You can still access the <a href="https://friendsofparkinsonspark.wordpress.com" target="_blank" rel="noopener noreferrer" className="text-emerald-700 font-semibold hover:underline">legacy WordPress archive here</a>.</p>
-            </div>
-          </div>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {FEATURES.map((feature, i) => {
