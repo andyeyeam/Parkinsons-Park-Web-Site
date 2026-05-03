@@ -477,8 +477,8 @@ const HistoryArticle: React.FC = () => {
       <header className="bg-emerald-900 text-white pt-16 pb-20 rounded-b-[3rem]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
 
-          <Link to="/history" className="inline-flex items-center gap-2 text-emerald-200 hover:text-white mb-8 transition-colors text-sm">
-            <ArrowLeft className="w-4 h-4" /> Back to History
+          <Link to="/" className="inline-flex items-center gap-2 text-emerald-200 hover:text-white mb-8 transition-colors text-sm">
+            <ArrowLeft className="w-4 h-4" /> Back to Home
           </Link>
 
           <div className="flex items-center gap-2 mb-6">
@@ -593,7 +593,7 @@ const HistoryArticle: React.FC = () => {
               <ArrowRight className="w-4 h-4 shrink-0" />
             </button>
           ) : (
-            <Link to="/history" className="flex items-center gap-3 text-emerald-700 hover:text-emerald-800 transition-colors">
+            <Link to="/history/timeline" className="flex items-center gap-3 text-emerald-700 hover:text-emerald-800 transition-colors">
               <div className="text-right">
                 <div className="text-xs text-stone-400 uppercase tracking-wider mb-0.5">Explore</div>
                 <div className="font-semibold text-sm">Interactive Timeline</div>

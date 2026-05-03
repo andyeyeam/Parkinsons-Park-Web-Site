@@ -110,7 +110,8 @@ const Navbar: React.FC = () => {
       label: 'Home',
       mainLink: '/',
       items: [
-        { label: 'History', to: '/history' },
+        { label: 'History — All Our Stories', to: '/history' },
+        { label: 'Interactive Timeline', to: '/history/timeline' },
         { label: 'Ecology', to: '/ecology' },
         { label: 'Geology', to: '/geology' },
         { label: 'Celebration Tree', to: '/#celebration-tree' },

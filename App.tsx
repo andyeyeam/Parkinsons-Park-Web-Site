@@ -464,8 +464,8 @@ const AppContent: React.FC = () => {
           <Route path="/location" element={<Location />} />
           <Route path="/ecology" element={<Ecology />} />
           <Route path="/geology" element={<Geology />} />
-          <Route path="/history" element={<HistoryPage />} />
-          <Route path="/history-article" element={<HistoryArticle />} />
+          <Route path="/history" element={<HistoryArticle />} />
+          <Route path="/history/timeline" element={<HistoryPage />} />
           <Route path="/your-stories" element={<YourStories />} />
           <Route path="/about" element={<AboutPage />} />
         </Routes>
