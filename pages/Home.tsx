@@ -5,7 +5,7 @@ import { MOCK_EVENTS } from '../constants';
 import historyCardImage from '../src/assets/images/driver-gravestone.jpg';
 import ecologyCardImage from '../src/assets/images/ecology-bluebells.jpg';
 import geologyCardImage from '../src/assets/images/guiseley-gap-formation.jpg';
-import locationCardImage from '../src/assets/images/access-map.png';
+import locationCardImage from '../src/assets/images/find-us-map.png';
 import storiesCardImage from '../src/assets/images/snow-sledging.gif';
 import { useDownload } from '../hooks/useDownload';
 import DownloadDialog from '../components/DownloadDialog';
