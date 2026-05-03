@@ -98,7 +98,7 @@ const Home: React.FC = () => {
       {/* Feature Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Explore the Park</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-stone-900 mb-4">Our Community Park</h2>
           <p className="text-stone-600 max-w-2xl mx-auto">Gifted to the people of Guiseley in 1936, Parkinson's Park is a living landscape with a remarkable story. Discover its history, wildlife, geology — and become part of its future.</p>
         </div>
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-4 xl:gap-6">
