@@ -33,7 +33,7 @@ const WillowChat: React.FC = () => {
     if (messages.length === 0) {
       setMessages([{
         role: 'assistant',
-        content: "Hello! I'm Willow, your guide to Parkinson's Park. I can help you learn about the park's history, ecology, geology, upcoming events, and how you can get involved. What would you like to know?",
+        content: "Hello! I'm Willow 🌿\n\nI'm your guide to Parkinson's Park and the wider Aireborough area. Here's what I can help you with:\n\n🌳 Parkinson's Park\nHistory, ecology, geology, events, how to visit, volunteering, and the Friends Group (FOPP)\n\n🏘️ Aireborough History\nStories and history from Guiseley, Yeadon, Rawdon, Carlton, Hawksworth, and Esholt — including the textile industry, local landmarks, notable people, and community life across the centuries\n\n📖 Local Heritage\nThe Aireborough Historical Society, Roman roads, Viking place names, industrial heritage, and more\n\nWhat would you like to know?",
         timestamp: new Date()
       }]);
     }
