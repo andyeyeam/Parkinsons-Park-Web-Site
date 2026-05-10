@@ -40,7 +40,12 @@
       "Bash(git remote *)",
       "Bash(git rebase *)",
       "Bash(git pull *)",
-      "Bash(git stash *)"
+      "Bash(git stash *)",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); [print\\(f\\\\\"{r['status']:12} {r['conclusion'] or '-':10} {r['head_sha'][:7]} {r['name']:30} {r['created_at']}\\\\\"\\) for r in d['workflow_runs']]\")",
+      "Bash(cp \"/Users/acheetham/Downloads/Park Management Plan/Appendix One.docx\" \"/Users/acheetham/repos/pp-website/Parkinsons-Park-Web-Site/public/documents/Management-Plan-Appendix-One.docx\")",
+      "Bash(cp \"/Users/acheetham/Downloads/Park Management Plan/App Three 2026 Annual events.docx\" \"/Users/acheetham/repos/pp-website/Parkinsons-Park-Web-Site/public/documents/Management-Plan-App-Three-Annual-Events.docx\")",
+      "Bash(cp \"/Users/acheetham/Downloads/Park Management Plan/App Four 2026 Maintenance Plan.docx\" \"/Users/acheetham/repos/pp-website/Parkinsons-Park-Web-Site/public/documents/Management-Plan-App-Four-Maintenance-Plan.docx\")",
+      "Bash(cp \"/Users/acheetham/Downloads/Park Management Plan/App Five 2026 Project Improvement Plan.docx\" \"/Users/acheetham/repos/pp-website/Parkinsons-Park-Web-Site/public/documents/Management-Plan-App-Five-Project-Improvement-Plan.docx\")"
     ]
   }
 }

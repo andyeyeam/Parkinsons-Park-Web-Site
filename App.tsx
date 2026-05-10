@@ -237,7 +237,7 @@ const AboutPage = () => {
               <p>
                 Funding for basic maintenance comes out of an annual charge made by Meadfleet to the residents of Edison Fields; other money for Park improvements and events is raised by FOPP.
               </p>
-              <div className="flex flex-wrap gap-x-6 gap-y-3 mt-6">
+              <div className="mt-6">
                 <button
                   onClick={() => initiateDownload(
                     `${import.meta.env.BASE_URL}documents/FOPP-CIC-Constitution.pdf`,
@@ -247,15 +247,78 @@ const AboutPage = () => {
                 >
                   <FileText className="w-4 h-4" /> CIC Constitution
                 </button>
+              </div>
+
+              <div className="mt-6 p-6 bg-stone-50 rounded-2xl border border-stone-200">
                 <button
                   onClick={() => initiateDownload(
                     `${import.meta.env.BASE_URL}documents/Management-Plan-2026.docx`,
                     'Management-Plan-2026.docx'
                   )}
-                  className="flex items-center gap-2 text-emerald-700 font-bold hover:underline cursor-pointer"
+                  className="flex items-center gap-2 text-emerald-700 font-bold text-lg hover:underline cursor-pointer"
                 >
-                  <FileText className="w-4 h-4" /> Management Plan 2026
+                  <FileText className="w-5 h-5" /> Management Plan 2026
                 </button>
+                <p className="mt-3 text-sm text-stone-500">
+                  The full plan plus its five supporting appendices — all available to download:
+                </p>
+                <ul className="mt-3 space-y-2 text-sm">
+                  <li>
+                    <button
+                      onClick={() => initiateDownload(
+                        `${import.meta.env.BASE_URL}documents/Management-Plan-Appendix-One.docx`,
+                        'Management-Plan-Appendix-One.docx'
+                      )}
+                      className="flex items-center gap-2 text-emerald-700 hover:underline cursor-pointer"
+                    >
+                      <FileText className="w-4 h-4" /> Appendix One
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => initiateDownload(
+                        `${import.meta.env.BASE_URL}documents/FOPP-CIC-Constitution.pdf`,
+                        'FOPP-CIC-Constitution.pdf'
+                      )}
+                      className="flex items-center gap-2 text-emerald-700 hover:underline cursor-pointer"
+                    >
+                      <FileText className="w-4 h-4" /> Appendix Two — CIC Constitution
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => initiateDownload(
+                        `${import.meta.env.BASE_URL}documents/Management-Plan-App-Three-Annual-Events.docx`,
+                        'Management-Plan-App-Three-Annual-Events.docx'
+                      )}
+                      className="flex items-center gap-2 text-emerald-700 hover:underline cursor-pointer"
+                    >
+                      <FileText className="w-4 h-4" /> Appendix Three — Annual Events
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => initiateDownload(
+                        `${import.meta.env.BASE_URL}documents/Management-Plan-App-Four-Maintenance-Plan.docx`,
+                        'Management-Plan-App-Four-Maintenance-Plan.docx'
+                      )}
+                      className="flex items-center gap-2 text-emerald-700 hover:underline cursor-pointer"
+                    >
+                      <FileText className="w-4 h-4" /> Appendix Four — Maintenance Plan
+                    </button>
+                  </li>
+                  <li>
+                    <button
+                      onClick={() => initiateDownload(
+                        `${import.meta.env.BASE_URL}documents/Management-Plan-App-Five-Project-Improvement-Plan.docx`,
+                        'Management-Plan-App-Five-Project-Improvement-Plan.docx'
+                      )}
+                      className="flex items-center gap-2 text-emerald-700 hover:underline cursor-pointer"
+                    >
+                      <FileText className="w-4 h-4" /> Appendix Five — Project Improvement Plan
+                    </button>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
