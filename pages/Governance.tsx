@@ -1,13 +1,20 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useDownload } from '../hooks/useDownload';
 import DownloadDialog from '../components/DownloadDialog';
+import DocumentViewer from '../components/DocumentViewer';
 import {
-  FileText, Gavel, Search, History, Shield
+  FileText, Gavel, Search, History, Shield, Eye
 } from 'lucide-react';
 
 const Governance: React.FC = () => {
   const { downloadState, initiateDownload, closeDialog } = useDownload();
+  const [viewer, setViewer] = useState<{ title: string; fileName: string } | null>(null);
+
+  const openViewer = (title: string, fileName: string) =>
+    setViewer({ title, fileName });
+  const closeViewer = () => setViewer(null);
+  const docUrl = (file: string) => `${import.meta.env.BASE_URL}documents/${file}`;
 
   return (
     <div className="bg-stone-50 pb-24">
@@ -112,83 +119,62 @@ const Governance: React.FC = () => {
                 </p>
                 <div className="mt-6">
                   <button
-                    onClick={() => initiateDownload(
-                      `${import.meta.env.BASE_URL}documents/FOPP-CIC-Constitution.pdf`,
-                      'FOPP-CIC-Constitution.pdf'
-                    )}
+                    onClick={() => openViewer('CIC Constitution', 'FOPP-CIC-Constitution.pdf')}
                     className="flex items-center gap-2 text-emerald-700 font-bold hover:underline cursor-pointer"
                   >
-                    <FileText className="w-4 h-4" /> CIC Constitution
+                    <Eye className="w-4 h-4" /> CIC Constitution
                   </button>
                 </div>
 
                 <div className="mt-6 p-6 bg-stone-50 rounded-2xl border border-stone-200">
                   <button
-                    onClick={() => initiateDownload(
-                      `${import.meta.env.BASE_URL}documents/Management-Plan-2026.docx`,
-                      'Management-Plan-2026.docx'
-                    )}
+                    onClick={() => openViewer('Management Plan 2026', 'Management-Plan-2026.docx')}
                     className="flex items-center gap-2 text-emerald-700 font-bold text-lg hover:underline cursor-pointer"
                   >
-                    <FileText className="w-5 h-5" /> Management Plan 2026
+                    <Eye className="w-5 h-5" /> Management Plan 2026
                   </button>
                   <p className="mt-3 text-sm text-stone-500">
-                    The full plan plus its five supporting appendices — all available to download:
+                    The full plan plus its five supporting appendices — click any to read in-place; downloads are offered inside the viewer:
                   </p>
                   <ul className="mt-3 space-y-2 text-sm">
                     <li>
                       <button
-                        onClick={() => initiateDownload(
-                          `${import.meta.env.BASE_URL}documents/Management-Plan-Appendix-One.docx`,
-                          'Management-Plan-Appendix-One.docx'
-                        )}
+                        onClick={() => openViewer('Management Plan — Appendix One', 'Management-Plan-Appendix-One.docx')}
                         className="flex items-center gap-2 text-emerald-700 hover:underline cursor-pointer"
                       >
-                        <FileText className="w-4 h-4" /> Appendix One
+                        <Eye className="w-4 h-4" /> Appendix One
                       </button>
                     </li>
                     <li>
                       <button
-                        onClick={() => initiateDownload(
-                          `${import.meta.env.BASE_URL}documents/FOPP-CIC-Constitution.pdf`,
-                          'FOPP-CIC-Constitution.pdf'
-                        )}
+                        onClick={() => openViewer('Management Plan — Appendix Two: CIC Constitution', 'FOPP-CIC-Constitution.pdf')}
                         className="flex items-center gap-2 text-emerald-700 hover:underline cursor-pointer"
                       >
-                        <FileText className="w-4 h-4" /> Appendix Two — CIC Constitution
+                        <Eye className="w-4 h-4" /> Appendix Two — CIC Constitution
                       </button>
                     </li>
                     <li>
                       <button
-                        onClick={() => initiateDownload(
-                          `${import.meta.env.BASE_URL}documents/Management-Plan-App-Three-Annual-Events.docx`,
-                          'Management-Plan-App-Three-Annual-Events.docx'
-                        )}
+                        onClick={() => openViewer('Management Plan — Appendix Three: Annual Events', 'Management-Plan-App-Three-Annual-Events.docx')}
                         className="flex items-center gap-2 text-emerald-700 hover:underline cursor-pointer"
                       >
-                        <FileText className="w-4 h-4" /> Appendix Three — Annual Events
+                        <Eye className="w-4 h-4" /> Appendix Three — Annual Events
                       </button>
                     </li>
                     <li>
                       <button
-                        onClick={() => initiateDownload(
-                          `${import.meta.env.BASE_URL}documents/Management-Plan-App-Four-Maintenance-Plan.docx`,
-                          'Management-Plan-App-Four-Maintenance-Plan.docx'
-                        )}
+                        onClick={() => openViewer('Management Plan — Appendix Four: Maintenance Plan', 'Management-Plan-App-Four-Maintenance-Plan.docx')}
                         className="flex items-center gap-2 text-emerald-700 hover:underline cursor-pointer"
                       >
-                        <FileText className="w-4 h-4" /> Appendix Four — Maintenance Plan
+                        <Eye className="w-4 h-4" /> Appendix Four — Maintenance Plan
                       </button>
                     </li>
                     <li>
                       <button
-                        onClick={() => initiateDownload(
-                          `${import.meta.env.BASE_URL}documents/Management-Plan-App-Five-Project-Improvement-Plan.docx`,
-                          'Management-Plan-App-Five-Project-Improvement-Plan.docx'
-                        )}
+                        onClick={() => openViewer('Management Plan — Appendix Five: Project Improvement Plan', 'Management-Plan-App-Five-Project-Improvement-Plan.docx')}
                         className="flex items-center gap-2 text-emerald-700 hover:underline cursor-pointer"
                       >
-                        <FileText className="w-4 h-4" /> Appendix Five — Project Improvement Plan
+                        <Eye className="w-4 h-4" /> Appendix Five — Project Improvement Plan
                       </button>
                     </li>
                   </ul>
@@ -216,13 +202,10 @@ const Governance: React.FC = () => {
                 </ul>
                 <div className="flex flex-wrap gap-3 mt-6">
                   <button
-                    onClick={() => initiateDownload(
-                      `${import.meta.env.BASE_URL}documents/Leeds-Parks-Bylaws-Appendix-One.docx`,
-                      'Leeds-Parks-Bylaws-Appendix-One.docx'
-                    )}
+                    onClick={() => openViewer('Leeds Parks Bylaws — Appendix One', 'Leeds-Parks-Bylaws-Appendix-One.docx')}
                     className="flex items-center gap-2 text-emerald-700 font-bold hover:underline cursor-pointer"
                   >
-                    <FileText className="w-4 h-4" /> Full Bylaws Document
+                    <Eye className="w-4 h-4" /> Full Bylaws Document
                   </button>
                 </div>
                 <p className="mt-4 text-xs font-semibold text-stone-400 uppercase tracking-widest">
@@ -239,6 +222,14 @@ const Governance: React.FC = () => {
         onClose={closeDialog}
         fileName={downloadState.fileName}
         fileUrl={downloadState.fileUrl}
+      />
+
+      <DocumentViewer
+        isOpen={viewer !== null}
+        onClose={closeViewer}
+        title={viewer?.title ?? ''}
+        fileName={viewer?.fileName ?? ''}
+        fileUrl={viewer ? docUrl(viewer.fileName) : ''}
       />
     </div>
   );
