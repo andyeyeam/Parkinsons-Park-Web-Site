@@ -372,7 +372,7 @@ Local historian. Led the Heritage Lottery-funded "All Our Stories" research proj
 **Andy Cheetham** — Director (appointed March 2016), Web Site Manager
 Project Manager for infrastructure and events. Coordinates volunteer working parties and logistics for the Lantern Parade.
 
-**Chris Parapia** — Chair, Maintenance Director, Volunteer Co-ordinator & Meadfleet Link
+**Mrs Chris Parapia** (she/her) — Chair, Maintenance Director, Volunteer Co-ordinator & Meadfleet Link
 Leads seasonal events including the Children's Gala. Speaks for the park on community outreach. Oversees the maintenance plan and the relationship with Meadfleet.
 
 **Susan Wright** — Vice Chair & Secretarial Director (appointed May 2024)
