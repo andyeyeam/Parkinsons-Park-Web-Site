@@ -484,7 +484,8 @@ const AboutPage = () => {
               { date: "May 2012", type: "AGM", file: "AGM-Minutes-May-2012.pdf" },
               { date: "April 2013", type: "AGM", file: "AGM-Minutes-April-2013.pdf" },
               { date: "April 2014", type: "AGM", file: "AGM-Minutes-April-2014.docx" },
-              { date: "November 2015", type: "EGM", file: "EGM-Minutes-November-2015.pdf" }
+              { date: "November 2015", type: "EGM", file: "EGM-Minutes-November-2015.pdf" },
+              { date: "April 2026", type: "AGM", file: "AGM-Minutes-April-2026.pdf" }
             ].map((min, i) => (
               <button
                 key={i}
