@@ -214,7 +214,6 @@ const Navbar: React.FC = () => {
               <NavDropdown {...navItems.getInvolved} isActive={isActive(navItems.getInvolved)} />
               <NavDropdown {...navItems.findUs} isActive={isActive(navItems.findUs)} />
               <NavDropdown {...navItems.stories} isActive={isActive(navItems.stories)} />
-              <NavDropdown {...navItems.about} isActive={isActive(navItems.about)} />
               <NavDropdown {...navItems.governance} isActive={isActive(navItems.governance)} />
               <Link
                 to="/archive"
@@ -222,6 +221,7 @@ const Navbar: React.FC = () => {
               >
                 Archive
               </Link>
+              <NavDropdown {...navItems.about} isActive={isActive(navItems.about)} />
               <button
                 onClick={() => setShowSearchModal(true)}
                 className="text-stone-600 hover:text-emerald-700 transition-colors p-1.5"
@@ -253,7 +253,6 @@ const Navbar: React.FC = () => {
             <MobileDropdown {...navItems.getInvolved} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.getInvolved)} />
             <MobileDropdown {...navItems.findUs} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.findUs)} />
             <MobileDropdown {...navItems.stories} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.stories)} />
-            <MobileDropdown {...navItems.about} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.about)} />
             <MobileDropdown {...navItems.governance} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.governance)} />
             <Link
               to="/archive"
@@ -262,6 +261,7 @@ const Navbar: React.FC = () => {
             >
               Archive
             </Link>
+            <MobileDropdown {...navItems.about} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.about)} />
             <button
               onClick={() => { setShowSearchModal(true); setIsOpen(false); }}
               className="flex items-center gap-2 text-stone-600 font-medium"
