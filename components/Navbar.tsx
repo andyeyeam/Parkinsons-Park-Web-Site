@@ -160,7 +160,16 @@ const Navbar: React.FC = () => {
       items: [
         { label: 'Our Mission', to: '/about#mission' },
         { label: 'Directors & Officers', to: '/about#directors' },
-        { label: 'CIC Reports', to: '/about#reports' },
+      ]
+    },
+    governance: {
+      label: 'Governance',
+      mainLink: '/governance',
+      items: [
+        { label: 'CIC Reports', to: '/governance#reports' },
+        { label: 'AGM/EGM Minutes', to: '/governance#minutes' },
+        { label: 'Governance', to: '/governance#governance' },
+        { label: 'Park Bylaws', to: '/governance#bylaws' },
       ]
     },
   };
@@ -206,6 +215,7 @@ const Navbar: React.FC = () => {
               <NavDropdown {...navItems.findUs} isActive={isActive(navItems.findUs)} />
               <NavDropdown {...navItems.stories} isActive={isActive(navItems.stories)} />
               <NavDropdown {...navItems.about} isActive={isActive(navItems.about)} />
+              <NavDropdown {...navItems.governance} isActive={isActive(navItems.governance)} />
               <Link
                 to="/archive"
                 className={`text-sm font-medium transition-colors whitespace-nowrap ${location.pathname === '/archive' ? 'text-emerald-700 font-semibold' : 'text-stone-600 hover:text-emerald-700'}`}
@@ -244,6 +254,7 @@ const Navbar: React.FC = () => {
             <MobileDropdown {...navItems.findUs} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.findUs)} />
             <MobileDropdown {...navItems.stories} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.stories)} />
             <MobileDropdown {...navItems.about} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.about)} />
+            <MobileDropdown {...navItems.governance} onNavigate={() => setIsOpen(false)} isActive={isActive(navItems.governance)} />
             <Link
               to="/archive"
               className={`font-medium ${location.pathname === '/archive' ? 'text-emerald-700' : 'text-stone-600'}`}

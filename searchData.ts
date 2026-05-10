@@ -182,13 +182,31 @@ export const searchData: SearchResult[] = [
   {
     title: "Governance",
     description: "Learn about park ownership, management structure, and the role of FOPP in maintaining Parkinson's Park.",
-    path: "/about",
-    category: "About"
+    path: "/governance",
+    category: "Governance"
   },
   {
     title: "Park Bylaws",
     description: "Rules and regulations for using Parkinson's Park including information about dogs, events, and park conduct.",
-    path: "/about",
-    category: "About"
+    path: "/governance",
+    category: "Governance"
+  },
+  {
+    title: "CIC Reports",
+    description: "Annual CIC34 reports submitted to Companies House detailing how FOPP has met its community interest purpose.",
+    path: "/governance",
+    category: "Governance"
+  },
+  {
+    title: "AGM/EGM Minutes",
+    description: "Archive of minutes from FOPP Annual General Meetings and Extraordinary General Meetings.",
+    path: "/governance",
+    category: "Governance"
+  },
+  {
+    title: "Management Plan 2026",
+    description: "The full Park Management Plan and its five supporting appendices, all available for download.",
+    path: "/governance",
+    category: "Governance"
   }
 ];
