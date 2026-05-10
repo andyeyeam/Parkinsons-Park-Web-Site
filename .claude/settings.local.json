@@ -38,7 +38,9 @@
       "Bash(ssh-keygen *)",
       "Bash(chmod 600 ~/.ssh/config)",
       "Bash(git remote *)",
-      "Bash(git rebase *)"
+      "Bash(git rebase *)",
+      "Bash(git pull *)",
+      "Bash(git stash *)"
     ]
   }
 }
