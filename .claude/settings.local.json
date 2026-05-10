@@ -31,7 +31,14 @@
       "WebFetch(domain:aireboroughhistoricalsociety.org.uk)",
       "Bash(findstr /C:\"build\" /C:\"deploy\")",
       "Bash(gh api *)",
-      "Bash(findstr /I \"pages\")"
+      "Bash(findstr /I \"pages\")",
+      "Bash(git config *)",
+      "Bash(ssh *)",
+      "Bash(pbcopy)",
+      "Bash(ssh-keygen *)",
+      "Bash(chmod 600 ~/.ssh/config)",
+      "Bash(git remote *)",
+      "Bash(git rebase *)"
     ]
   }
 }
