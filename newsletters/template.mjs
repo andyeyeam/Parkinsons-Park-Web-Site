@@ -88,8 +88,25 @@ export function buildHtml(content) {
 <head>
 <meta charset="utf-8" />
 <style>
-  @page { size: A4; }
+  @page { size: A4; margin: 0; }
   * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  /* ── Paginated sheets (built at render time by the generator) ─
+     Each .sheet is one printed A4 page. Sheets after the first carry a running
+     header (.rhead); page 1 keeps its masthead only. */
+  .sheet { position: relative; width: 210mm; height: 297mm; overflow: hidden; background: #fff; }
+  .sheet.brk { page-break-after: always; }
+  .sheet-body { padding: 0 34px; }
+  .sheet.cont .sheet-body { padding-top: 16mm; }
+  .sheet-body > .masthead, .sheet-body > .hero, .sheet-body > .footer { margin-left: -34px; margin-right: -34px; }
+  .sheet-body > .hero { margin-bottom: 18px; }
+  .sheet-body > .lede { margin-top: 18px; }
+  .rhead { position: absolute; top: 0; left: 34px; right: 34px; height: 16mm; padding-top: 7mm;
+           display: flex; justify-content: space-between; align-items: flex-start;
+           font-family: 'Segoe UI', system-ui, sans-serif; font-size: 8pt; color: var(--stone); }
+  .rhead::after { content: ''; position: absolute; left: 0; right: 0; bottom: 5mm; border-bottom: 1px solid #d6d3d1; }
+  .rhead .l { font-weight: 800; color: var(--green); letter-spacing: 0.3px; }
+  .footer.pinned { position: absolute; left: 0; right: 0; bottom: 0; margin-top: 0; }
   :root {
     --green: #064e3b;
     --green-mid: #047857;

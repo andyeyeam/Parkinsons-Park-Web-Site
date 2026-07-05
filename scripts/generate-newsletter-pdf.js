@@ -45,21 +45,79 @@ const browser = await puppeteer.launch({ headless: 'new' });
 try {
   const page = await browser.newPage();
   page.setDefaultNavigationTimeout(60000);
-  await page.setContent(html, { waitUntil: 'domcontentloaded', timeout: 60000 });
-  console.log('Generating PDF...');
-  await page.pdf({
-    path: outPath,
-    format: 'A4',
-    printBackground: true,
-    margin: { top: '0', right: '0', bottom: '12mm', left: '0' },
-    displayHeaderFooter: true,
-    headerTemplate: '<span></span>',
-    footerTemplate: `
-      <div style="width:100%;font-family:'Segoe UI',system-ui,sans-serif;font-size:7.5pt;color:#a8a29e;
-                  display:flex;justify-content:flex-end;padding:0 34px;box-sizing:border-box;">
-        <span>Page <span class="pageNumber"></span> of <span class="totalPages"></span></span>
-      </div>`,
-  });
+  await page.setContent(html, { waitUntil: 'networkidle0', timeout: 60000 });
+
+  // Distribute the continuous content into fixed A4 "sheets". Sheets after the
+  // first get a running header; page 1 keeps just its masthead. This gives full
+  // per-page control that Chrome's native header can't (it can't skip page 1).
+  const sheetCount = await page.evaluate((cfg) => {
+    const MM = 96 / 25.4;
+    const SHEET_H = 297 * MM;
+    const RESERVE = 15 * MM;               // room for the page-number line
+    const usable = SHEET_H - RESERVE;
+
+    const masthead = document.querySelector('.masthead');
+    const hero = document.querySelector('.hero');
+    const wrap = document.querySelector('.wrap');
+    const footer = document.querySelector('.footer');
+    const blocks = [masthead, hero, ...Array.from(wrap.children), footer].filter(Boolean);
+    blocks.forEach(b => b.remove());
+    wrap.remove();
+    document.body.innerHTML = '';
+
+    const pages = document.createElement('div');
+    document.body.appendChild(pages);
+    const sheets = [];
+
+    function addSheet() {
+      const sheet = document.createElement('div');
+      sheet.className = 'sheet';
+      const body = document.createElement('div');
+      body.className = 'sheet-body';
+      if (sheets.length > 0) {
+        sheet.classList.add('cont');
+        const head = document.createElement('div');
+        head.className = 'rhead';
+        head.innerHTML = `<span class="l">The Park Post &middot; Issue No.&nbsp;${cfg.issueNo}</span><span class="r"></span>`;
+        sheet.appendChild(head);
+      }
+      sheet.appendChild(body);
+      pages.appendChild(sheet);
+      sheets.push({ sheet, body });
+      return sheets[sheets.length - 1];
+    }
+
+    let cur = addSheet();
+    const isHeading = (el) => el.tagName === 'H2';
+    for (const block of blocks) {
+      cur.body.appendChild(block);
+      if (cur.body.scrollHeight > usable && cur.body.children.length > 1) {
+        cur.body.removeChild(block);
+        // keep a heading with the block that follows it
+        const prev = cur.body.lastElementChild;
+        cur = addSheet();
+        if (prev && isHeading(prev)) { cur.body.appendChild(prev); }
+        cur.body.appendChild(block);
+      }
+    }
+
+    // Pin the sign-off footer to the bottom of the final sheet.
+    if (footer.isConnected) footer.remove();
+    footer.classList.add('pinned');
+    sheets[sheets.length - 1].sheet.appendChild(footer);
+
+    // Page breaks + running-header page numbers (page 1 is the cover, no number).
+    const N = sheets.length;
+    sheets.forEach((s, i) => {
+      if (i < N - 1) s.sheet.classList.add('brk');
+      const r = s.sheet.querySelector('.rhead .r');
+      if (r) r.innerHTML = `${cfg.dateLabel} &middot; Page ${i + 1} of ${N}`;
+    });
+    return N;
+  }, { dateLabel: content.dateLabel, issueNo: content.issueNo });
+
+  console.log(`Paginated into ${sheetCount} sheet(s). Generating PDF...`);
+  await page.pdf({ path: outPath, printBackground: true, preferCSSPageSize: true });
   console.log(`\n✓ PDF saved to: ${outPath}`);
 } finally {
   await browser.close();

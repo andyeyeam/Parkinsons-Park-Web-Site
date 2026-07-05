@@ -13,6 +13,11 @@ Follow this process exactly so every issue is consistent.
 - **Fixed design** → `newsletters/template.mjs`. Owns the masthead ("The Park Post"),
   colours, fonts, layout, and the **standing adverts** (Willow chatbot + the website)
   and footer. Rarely edit this — changing it changes every issue.
+- **Pagination** → the generator lays the content into fixed A4 "sheets" itself (it does
+  NOT use Chrome's native header). Page 1 shows the masthead only; every later page gets a
+  running header ("The Park Post · Issue No. N" left, "<Month Year> · Page x of N" right);
+  the green sign-off footer is pinned to the bottom of the last page. This is why page 1
+  has no running header — that's intentional, not a bug.
 - **Per-issue content** → `newsletters/issues/<YYYY-MM>.mjs` (one file per issue,
   `export default { … }`). This is the ONLY file you normally create each month.
 - **Fact log** → `newsletters/facts-used.md`. Records every "Did You Know?" fact so
@@ -44,14 +49,17 @@ Follow this process exactly so every issue is consistent.
    - Image keys available are listed at the top of the issue file and in `template.mjs`
      (`AVAILABLE_IMAGE_KEYS`). Only use keys that exist.
 5. **Generate**: `node scripts/generate-newsletter-pdf.js <YYYY-MM>`.
-6. **Verify visually** (do not skip): dump HTML and screenshot each A4 page, then Read the
-   PNGs to check for overflow, collisions, awkward page breaks, and that images loaded:
+6. **Verify visually** (do not skip). The running header/footer/page-breaks exist only in
+   the PDF, so rasterize the *PDF* (not the HTML) and Read the PNGs. Check: page 1 has the
+   masthead and NO running header; pages 2+ have the header with correct page numbers; the
+   footer is pinned to the bottom of the last page; no overflow, collisions, or awkward
+   breaks; all images loaded.
    ```
-   HTML_OUT="scratch_nl.html" node scripts/generate-newsletter-pdf.js <YYYY-MM>
-   # then a small puppeteer script: viewport 794px wide, goto file://…/scratch_nl.html,
-   # screenshot 794x1123 slices → scratch_p1.png, p2… ; Read them.
+   npm install --no-save pdf-to-png-converter sharp   # temporary, not saved to package.json
+   # then a small script: pdfToPng("<Downloads>/FOPP Newsletter - <dateLabel>.pdf",
+   #   { viewportScale: 1.5, outputFolder: 'scratch_pdf' }); Read each page PNG.
    ```
-   Clean up `scratch_*` files afterward.
+   Clean up `scratch_*` files and `scratch_pdf/` afterward.
 7. **Update `facts-used.md`** with the fact you used.
 
 ## Standing requirements for every issue
