@@ -70,6 +70,12 @@ Follow this process exactly so every issue is consistent.
 - Contact everywhere is **parkinsonspark@gmail.com** / **parkinsonspark.co.uk** /
   Facebook group `facebook.com/groups/parkinsonspark`.
 - Tone: warm, plain, community-friendly; British spelling; no placeholders in the output.
+- **Write for the publication date, not the writing date.** There's a gap between when the
+  issue is drafted and when readers see it. For anything that may change in that window
+  (e.g. "the grass has been cut", an event that may have happened), phrase it so it reads
+  correctly whenever it lands — state the expectation and a fallback (e.g. "we expect X by
+  the time this reaches you, and if not, very soon"). Confirm the timing with the user if
+  unsure.
 
 ## Tips
 - Keep images moderate in size for a reasonable PDF (avoid the multi-MB originals like
