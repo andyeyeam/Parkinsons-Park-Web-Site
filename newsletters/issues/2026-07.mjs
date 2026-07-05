@@ -32,8 +32,9 @@ export default {
 
   aroundPark: [
     {
-      title: 'The grass has finally been cut!',
-      body: `Yes &mdash; at last the grass has been cut! Why had it not been done sooner, we hear you ask? The grass is
+      title: 'The grass &mdash; cut, or very nearly!',
+      body: `As we write, the grass is still waiting for its cut &mdash; but we fully expect it to have been done by the
+        time this newsletter reaches you, and if not, it will be very soon. Why the wait, we hear you ask? The grass is
         cut four times a year by Meadfleet, and FOPP liaises with them to make sure it happens. This year a change of
         contractor meant a frustrating delay, but it&rsquo;s now back on track.`,
     },
