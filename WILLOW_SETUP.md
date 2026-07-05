@@ -29,7 +29,7 @@ Welcome! This guide will help you set up Willow, your AI-powered chatbot for Par
 5. **IMPORTANT**: Store this key securely - treat it like a password
 
 ### 1.3. Understanding the Gemini Flash-Lite Model
-- **Model Name**: `gemini-2.0-flash-lite`
+- **Model Name**: `gemini-2.5-flash-lite`
 - **Cost**: Very low cost (free tier available)
 - **Speed**: Ultra-fast responses
 - **Best For**: Conversational AI, customer support, Q&A
@@ -274,7 +274,7 @@ After deployment, verify your domain is added to the HTTP referrer restrictions:
 ### Issue: Slow Responses
 **Solutions**:
 1. Check internet connection
-2. Verify using `gemini-2.0-flash-lite` (not a larger model)
+2. Verify using `gemini-2.5-flash-lite` (not a larger model)
 3. Check Google AI Studio status page
 4. Consider if you've hit rate limits
 
