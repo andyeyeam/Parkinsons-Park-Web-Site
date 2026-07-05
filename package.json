@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "pdf:history": "node generate-history-pdf.js",
+    "newsletter": "node scripts/generate-newsletter-pdf.js",
     "build:archive": "node scripts/build-archive.mjs"
   },
   "dependencies": {
